@@ -1,0 +1,153 @@
+<div class="iq-sidebar-logo d-flex justify-content-between">
+  <a routerLink="/dashboard">
+    <span>Make My Marry Admin</span>
+  </a>
+  <div class="iq-menu-bt-sidebar">
+    <div class="iq-menu-bt align-self-center">
+      <div class="wrapper-menu">
+        <div class="main-circle"><i class="ri-more-fill"></i></div>
+        <div class="hover-circle"><i class="ri-more-2-fill"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sidebar-scrollbar">
+  <nav class="iq-sidebar-menu">
+    <ul id="iq-sidebar-toggle" class="iq-menu">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/dashboard" class="iq-waves-effect"
+          ><i class="ri-home-8-fill"></i><span>Dashboard </span></a
+        >
+      </li>
+
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/admin-users" class="iq-waves-effect"
+          ><i class="fas fa-user-md"></i><span>Admin Users</span></a
+        >
+      </li>
+
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/pending-verifications" class="iq-waves-effect"
+          ><i class="fas fa-user-md"></i><span>Pending verifications</span></a
+        >
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/active-users" class="iq-waves-effect"
+          ><i class="fas fa-user-md"></i><span>Active Users</span></a
+        >
+      </li>
+      <li>
+        <a
+          href="#charts2"
+          class="iq-waves-effect collapsed"
+          data-toggle="collapse"
+          aria-expanded="false"
+          ><i class="ri-calendar-2-fill"></i><span>Package</span
+          ><i class="ri-arrow-right-s-line iq-arrow-right"></i
+        ></a>
+        <ul
+          id="charts2"
+          class="iq-submenu collapse"
+          data-parent="#iq-sidebar-toggle"
+        >
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/schedule"
+              ><i class="ri-calendar-2-fill"></i>Product Pricing</a
+            >
+          </li>
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/schedule/inperson-schedule"
+              ><i class="ri-calendar-2-fill"></i>Referral Benefits</a
+            >
+          </li>
+
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/schedule/inperson-schedule"
+              ><i class="ri-calendar-2-fill"></i>Coupons</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/pharmacy" class="iq-waves-effect"
+          ><i class="fas fa-first-aid"></i><span>Typography</span></a
+        >
+      </li>
+
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/today-appointment" class="iq-waves-effect"
+          ><i class="fas fa-calendar-day"></i><span>Tables</span></a
+        >
+      </li>
+
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/department" class="iq-waves-effect"
+          ><i class="fas fa-users-cog"></i><span>Notifications</span></a
+        >
+      </li>
+
+      <li>
+        <a
+          href="#charts2"
+          class="iq-waves-effect collapsed"
+          data-toggle="collapse"
+          aria-expanded="false"
+          ><i class="ri-calendar-2-fill"></i><span>UI Elements</span
+          ><i class="ri-arrow-right-s-line iq-arrow-right"></i
+        ></a>
+        <ul
+          id="charts2"
+          class="iq-submenu collapse"
+          data-parent="#iq-sidebar-toggle"
+        >
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/schedule"
+              ><i class="ri-calendar-2-fill"></i>Icons</a
+            >
+          </li>
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/schedule/inperson-schedule"
+              ><i class="ri-calendar-2-fill"></i>Charts</a
+            >
+          </li>
+
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/schedule/inperson-schedule"
+              ><i class="ri-calendar-2-fill"></i>Maps</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/helps" class="iq-wave-effect"
+          ><i class="ri-questionnaire-fill"></i><span>HELP</span></a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>
+<script>
+  function loadImg() {
+    $("#frame").attr("src", URL.createObjectURL(event.target.files[0]));
+  }
+</script>

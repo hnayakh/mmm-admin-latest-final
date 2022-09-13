@@ -1,0 +1,62 @@
+<div class="col-md-12 col-lg-12 mt-4">
+  <div class="iq-card">
+    <div class="iq-card-header d-flex justify-content-between">
+      <div class="iq-header-title">
+        <h4 class="card-title">Users List</h4>
+      </div>
+    </div>
+
+    <div class="iq-card-body" style="overflow-x: scroll">
+      <table class="table text-center table-hover" id="maintable" datatable>
+        <ng-template p-template="caption">
+          <div>
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              pInputText
+              size="50"
+              placeholder="Search"
+              (input)="dt.filterGlobal($event.target.value, 'contains')"
+              style="width: auto"
+            />
+          </div>
+        </ng-template>
+        <thead>
+          <tr class="table-head-bg">
+            <th scope="col">Sr no.</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Joined<br />On</th>
+            <th scope="col">Created<br />By</th>
+            <th scope="col">Religion</th>
+            <th scope="col">caste</th>
+            <th scope="col">
+              mother<br />
+              Tongue
+            </th>
+            <th scope="col">Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>ewurruiewr</td>
+            <td>dummy</td>
+            <td>hnafffakh@gmail.com</td>
+            <td>9879787877</td>
+            <td>Male</td>
+            <td>lkdwjlkdwjqldkjj</td>
+            <td>27-Aug-2022</td>
+            <td>self</td>
+            <td>Muslim</td>
+            <td>Bengali</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

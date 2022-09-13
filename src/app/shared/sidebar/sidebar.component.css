@@ -1,0 +1,9 @@
+#sidebar-scrollbar {
+    height: 75vh !important;
+}
+#sidebar-scrollbar {
+    height: 100%;
+}
+#sidebar-scrollbar {
+    overflow-y: scroll !important;
+}

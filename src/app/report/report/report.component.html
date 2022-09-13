@@ -1,0 +1,709 @@
+<div class="container-fluid">
+  <div class="container-fluid">
+     <div class="row">
+        <div class="col-lg-12">
+            <div class="iq-card">
+                <div class="iq-card-body p-0">
+                    <div class="iq-edit-list">
+                        <ul class="iq-edit-profile d-flex nav nav-pills">
+                            <li class="col-md-3 p-0">
+                                <a class="nav-link active" data-toggle="pill" href="#personal-information">
+                                  List Of Claims
+                                </a>
+                            </li>
+                           <li class="col-md-3 p-0">
+                     <a class="nav-link" data-toggle="pill" href="#chang-pwd">
+                       List of Patients Attended
+                     </a>
+                  </li> 
+                            
+                            <li class="col-md-3 p-0">
+                                <a class="nav-link" data-toggle="pill" href="#manage-contact">
+                                   List of payments
+                                </a>
+                            </li>
+                            <li class="col-md-3 p-0">
+                             <a class="nav-link" data-toggle="pill" href="#manage-contact1">
+                                List of Prescription
+                             </a>
+                         </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-12">
+            <div class="iq-edit-list-data">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="personal-information" role="tabpanel">
+                       <div class="iq-card">
+                          <div class="iq-card-header d-flex justify-content-between">
+                              <div class="iq-header-title">
+                                  <h4 class="card-title">List of Claims</h4>
+                              </div>
+                              <div class="col-sm-6 col-md-4">
+                                
+                                <div class="form-group mt-2">
+                                    
+                                    <select class="select form-control">
+                                        <option>Select Duration</option>
+                                        <option>Weekly</option>
+                                        <option>Monthly</option>
+                                        <option>Yearly</option>
+                                    </select>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="iq-card-body">
+                            <div class="ms-table">
+                             <table datatable #dt class="table table-responsive-md table-stripe">
+                              <ng-template p-template="caption">
+                                 <div>
+                                   <i class="pi pi-search"></i>
+                                   <input type="text" pInputText size="50" placeholder="Search" (input)="dt.filterGlobal($event.target.value,'contains')"style="width:auto"  >
+                                 </div>
+                               </ng-template>
+                                <thead>
+                                    <tr class="bg-primary">
+                                        <th>Billing Code.</th>
+                                        <th>Name</th>
+                                        <th>Amount</th>
+                                        <th> Status</th>
+                                        <th>Pending Date</th>
+                                        <th>Physician</th>
+                                        <th>Procedure</th>
+                      
+                                    </tr>
+                                    
+                                </thead>
+                              <tbody>
+                                
+                                 <tr>
+                                    <td>3523</td>
+                                    <td>R Pointing</td>
+                                    <td>$139</td>
+                                    <td>
+                                       <span class="badge badge-warning">Submit</span>
+                                    </td>
+                                    <td>26-June-2021</td>
+                                    <td>Alex Karry</td>
+                                    <td>alimentary canal</td>
+                                 </tr>
+                                 <tr>
+                                     <td>3523</td>
+                                     <td>R Pointing</td>
+                                     <td>$139</td>
+                                     <td>
+                                        <span class="badge badge-warning">Pending</span>
+                                     </td>
+                                     <td>26-June-2021</td>
+                                     <td>Alex Karry</td>
+                                     <td>alimentary canal</td>
+                                  </tr>
+                                  <tr>
+                                     <td>3523</td>
+                                     <td>R Pointing</td>
+                                     <td>$139</td>
+                                     <td>
+                                        <span class="badge badge-warning">Submit</span>
+                                     </td>
+                                     <td>26-June-2021</td>
+                                     <td>Alex Karry</td>
+                                     <td>alimentary canal</td>
+                                  </tr>
+                                  <tr>
+                                     <td>3523</td>
+                                     <td>R Pointing</td>
+                                     <td>$139</td>
+                                     <td>
+                                        <span class="badge badge-warning">Pending</span>
+                                     </td>
+                                     <td>26-June-2021</td>
+                                     <td>Alex Karry</td>
+                                     <td>alimentary canal</td>
+                                  </tr>
+                                  <tr>
+                                     <td>3523</td>
+                                     <td>R Pointing</td>
+                                     <td>$139</td>
+                                     <td>
+                                        <span class="badge badge-warning">Pending</span>
+                                     </td>
+                                     <td>26-June-2021</td>
+                                     <td>Alex Karry</td>
+                                     <td>alimentary canal</td>
+                                  </tr>
+                                
+                                    
+                              </tbody>
+                            </table>
+                               
+                           </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="chang-pwd" role="tabpanel">
+                       <div class="iq-card">
+                          <div class="iq-card-header d-flex justify-content-between">
+                              <div class="iq-header-title">
+                                  <h4 class="card-title">List of Patients Attended</h4>
+                              </div>
+                              <div class="col-sm-6 col-md-4">
+                                
+                                <div class="form-group mt-2">
+                                    
+                                    <select class="select form-control">
+                                        <option>Select Duration</option>
+                                        <option>Weekly</option>
+                                        <option>Monthly</option>
+                                        <option>Yearly</option>
+                                    </select>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="iq-card-body">
+                            <div class="ms-table">
+                              <!-- <table class="table text-center table-hover">
+                                 <thead>
+                                   <tr class="table-head-bg">
+                               
+                                     <th scope="col">Name</th>
+                                     <th scope="col">Age</th>
+                                     <th scope="col">Address</th>
+                                    
+                                     
+                                     <th scope="col">Email</th>
+                                     <th scope="col">Phone</th>
+                                     <th scope="col">Action</th>
+                                     <th scope="col">Upload Report</th> 
+                                     
+                                     
+                                   </tr>
+                                 </thead>
+                                 <tbody>
+                                   <tr>
+                                    
+                                     <td>John Dos</td>
+                                     <td>43</td>
+                                     <td>452 strual plaza Soviet</td>
+                                    
+                                     
+                                     <td>gwagg12@exp.com</td>
+                                     <td>(77)234567</td>
+                                     <td>
+                                        <div class="patient-view-btn">
+                                         <a href="presc-status.html"  data-toggle="modal"
+                                         data-target="#exampleModalCenter">
+                                            <span class="fa fa-eye mr-3"></span>
+                                         </a>
+                                        
+                                     </div>
+                                    </td>
+                                   
+                                    <td><input type="file" style="width: 100px;"accept="image/"  onchange="loadImg()"></td>
+                                    <td></td>
+                                   </tr>
+                                   <tr>
+                                    
+                                      <td>John Doe</td>
+                                      <td>43</td>
+                                      <td>452 strual plaza Soviet</td>
+                                     
+                                      
+                                      <td>gwagg12@exp.com</td>
+                                      <td>(77)234567</td>
+                                      <td>
+                                         <div class="patient-view-btn">
+                                          <a href="presc-status.html"  data-toggle="modal"
+                                          data-target="#exampleModalCenter">
+                                             <span class="fa fa-eye mr-3"></span>
+                                          </a>
+                                         
+                                      </div>
+                                     </td>
+                                     <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                    </tr>
+                                    <tr>
+                                    
+                                      <td>John Doe</td>
+                                      <td>43</td>
+                                      <td>452 strual plaza Soviet</td>
+                                     
+                                      
+                                      <td>gwagg12@exp.com</td>
+                                      <td>(77)234567</td>
+                                      <td>
+                                         <div class="patient-view-btn">
+                                          <a href="presc-status.html"  data-toggle="modal"
+                                          data-target="#exampleModalCenter">
+                                             <span class="fa fa-eye mr-3"></span>
+                                          </a>
+                                         
+                                      </div>
+                                     </td>
+                                     <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                    </tr>
+                                    <tr>
+                                    
+                                      <td>John Doe</td>
+                                      <td>43</td>
+                                      <td>452 strual plaza Soviet</td>
+                                     
+                                      
+                                      <td>gwagg12@exp.com</td>
+                                      <td>(77)234567</td>
+                                      <td>
+                                         <div class="patient-view-btn">
+                                          <a href="presc-status.html"  data-toggle="modal"
+                                          data-target="#exampleModalCenter">
+                                             <span class="fa fa-eye mr-3"></span>
+                                          </a>
+                                         
+                                      </div>
+                                     </td>
+                                     <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                    </tr>
+                                    <tr>
+                                    
+                                      <td>John Doe</td>
+                                      <td>43</td>
+                                      <td>452 strual plaza Soviet</td>
+                                     
+                                      
+                                      <td>gwagg12@exp.com</td>
+                                      <td>(77)234567</td>
+                                      <td>
+                                         <div class="patient-view-btn">
+                                          <a href="presc-status.html"  data-toggle="modal"
+                                          data-target="#exampleModalCenter">
+                                             <span class="fa fa-eye mr-3"></span>
+                                          </a>
+                                         
+                                      </div>
+                                     </td>
+                                     <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                    </tr>
+                                  
+                                  
+                                   
+                                   
+                                 </tbody>
+                               </table> -->
+                               
+                               <table datatable class="table text-center table-hover">
+                                <thead>
+                                  <tr class="table-head-bg">
+                              
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Address</th>
+                                   
+                                    
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Upload Report</th> 
+                                    <th scope="col">Action</th>
+                                   
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                 <tr>
+                                   
+                                    <td>John Doe</td>
+                                    <td>43</td>
+                                    <td>452 Soviet</td>
+                                   
+                                    
+                                    <td>gwagg12@exp.com</td>
+                                    <td>(77)234567</td>
+                                    <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                    <td>
+                                       <div class="patient-view-btn">
+                                        <a href="presc-status.html"  data-toggle="modal"
+                                        data-target="#exampleModalCenter">
+                                           <span class="fa fa-eye mr-3"></span>
+                                        </a>
+                                       
+                                    </div>
+                                   </td>
+                                  </tr>
+                                  <tr>
+                                   
+                                   <td>John Doe</td>
+                                   <td>43</td>
+                                   <td>452 Soviet</td>
+                                  
+                                   
+                                   <td>gwagg12@exp.com</td>
+                                   <td>(77)234567</td>
+                                   <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                   <td>
+                                      <div class="patient-view-btn">
+                                       <a href="presc-status.html"  data-toggle="modal"
+                                       data-target="#exampleModalCenter">
+                                          <span class="fa fa-eye mr-3"></span>
+                                       </a>
+                                      
+                                   </div>
+                                  </td>
+                                 </tr>
+                                 <tr>
+                                   
+                                   <td>John Doe</td>
+                                   <td>43</td>
+                                   <td>452 Soviet</td>
+                                  
+                                   
+                                   <td>gwagg12@exp.com</td>
+                                   <td>(77)234567</td>
+                                   <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                   <td>
+                                      <div class="patient-view-btn">
+                                       <a href="presc-status.html"  data-toggle="modal"
+                                       data-target="#exampleModalCenter">
+                                          <span class="fa fa-eye mr-3"></span>
+                                       </a>
+                                      
+                                   </div>
+                                  </td>
+                                 </tr>
+                                 <tr>
+                                   
+                                   <td>John Doe</td>
+                                   <td>43</td>
+                                   <td>452 Soviet</td>
+                                  
+                                   
+                                   <td>gwagg12@exp.com</td>
+                                   <td>(77)234567</td>
+                                   <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                   <td>
+                                      <div class="patient-view-btn">
+                                       <a href="presc-status.html"  data-toggle="modal"
+                                       data-target="#exampleModalCenter">
+                                          <span class="fa fa-eye mr-3"></span>
+                                       </a>
+                                      
+                                   </div>
+                                  </td>
+                                 </tr>
+                              
+                                  
+                                  
+                                </tbody>
+                              </table>
+                           </div>
+                          </div>
+                      </div>
+               </div>
+                    <div class="tab-pane fade" id="emailandsms" role="tabpanel">
+                        <div class="iq-card">
+                            <div class="iq-card-header d-flex justify-content-between">
+                                <div class="iq-header-title">
+                                    <h4 class="card-title">Email and SMS</h4>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="manage-contact" role="tabpanel">
+                       <div class="iq-card">
+                          <div class="iq-card-header d-flex justify-content-between">
+                              <div class="iq-header-title">
+                                  <h4 class="card-title">List of Payment</h4>
+                              </div>
+                              <div class="col-sm-6 col-md-4">
+                                
+                               <div class="form-group mt-2">
+                                    
+                                  <select class="select form-control">
+                                      <option>Select Duration</option>
+                                      <option>Weekly</option>
+                                      <option>Monthly</option>
+                                      <option>Yearly</option>
+                                  </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="iq-card-body">
+                            <table datatable class="table table-responsive-md table-stripe">
+                             <thead>
+                                 <tr class="bg-primary">
+                                     <th>Bill No</th>
+                                     <th>Bill Date</th>
+                                     <th>Patient</th>
+                                     <th>Physician</th>
+                                   
+                                     <th>Tax</th>
+                                  
+                                     <th>Total</th>
+                                     <th>Status</th>
+                                 </tr>
+                             </thead>
+                              <tbody>
+                                 <tr>
+                                     <td>2</td>
+                                     <td>11/20/2018</td>
+                                     <td>Julie Lynch</td>
+                                     <td>Nicole Robinson</td>
+                                     
+                                     <td>74</td>
+                                     <td>37</td>
+                                   
+                                     <td><span class="custom-badge status-green">Paid</span></td>
+                                 </tr>
+                                 <tr>
+                                     <td>2</td>
+                                     <td>11/20/2018</td>
+                                     <td>Julie Lynch</td>
+                                     <td>Nicole Robinson</td>
+                                     
+                                     <td>74</td>
+                                     <td>37</td>
+                                   
+                                     <td><span class="custom-badge status-green">Paid</span></td>
+                                 </tr>
+                                 <tr>
+                                     <td>2</td>
+                                     <td>11/20/2018</td>
+                                     <td>Julie Lynch</td>
+                                     <td>Nicole Robinson</td>
+                                     
+                                     <td>74</td>
+                                     <td>37</td>
+                                   
+                                     <td><span class="custom-badge status-green">Paid</span></td>
+                                 </tr>
+                                 <tr>
+                                     <td>2</td>
+                                     <td>11/20/2018</td>
+                                     <td>Julie Lynch</td>
+                                     <td>Nicole Robinson</td>
+                                     
+                                     <td>74</td>
+                                     <td>37</td>
+                                   
+                                     <td><span class="custom-badge status-green">Paid</span></td>
+                                 </tr>
+                                 <tr>
+                                     <td>2</td>
+                                     <td>11/20/2018</td>
+                                     <td>Julie Lynch</td>
+                                     <td>Nicole Robinson</td>
+                                     
+                                     <td>74</td>
+                                     <td>37</td>
+                                   
+                                     <td><span class="custom-badge status-green">Paid</span></td>
+                                 </tr>
+                                
+                                    
+                              </tbody>
+                            </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="manage-contact1" role="tabpanel">
+                       <div class="iq-card">
+                          <div class="iq-card-header d-flex justify-content-between">
+                              <div class="iq-header-title">
+                                  <h4 class="card-title">List of Prescription</h4>
+                              </div>
+                              <div class="col-sm-6 col-md-4">
+                                
+                               <div class="form-group mt-2">
+                                    
+                                  <select class="select form-control">
+                                      <option>Select Duration</option>
+                                      <option>Weekly</option>
+                                      <option>Monthly</option>
+                                      <option>Yearly</option>
+                                  </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="iq-card-body">
+                             <div class="ms-table">
+                               <table datatable class="table text-center table-hover">
+                                  <thead>
+                                    <tr class="table-head-bg">
+                                
+                                      <th scope="col">Name</th>
+                                      <th scope="col">Age</th>
+                                      <th scope="col">Address</th>
+                                     <th>Status</th>
+                                      
+                                      <th scope="col">Email</th>
+                                      <th scope="col">Phone</th>
+                                      <th scope="col">Upload Prescription</th> 
+                                      <th scope="col">Action</th>
+                                     
+                                      
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                   <tr>
+                                     
+                                      <td>John Doe</td>
+                                      <td>43</td>
+                                      <td>452 Soviet</td>
+                                     
+                                      <td>
+                                         <div class="disease">
+                                            <span>submit</span>
+                                         </div>
+                                      </td>
+                                      <td>gwagg12@exp.com</td>
+                                      <td>(77)234567</td>
+                                      <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                      <td>
+                                         <div class="patient-view-btn">
+                                          <a href="presc-status.html"  data-toggle="modal"
+                                          data-target="#exampleModalCenter">
+                                             <span class="fa fa-eye mr-3"></span>
+                                          </a>
+                                         
+                                      </div>
+                                     </td>
+                                    </tr>
+                                  
+                                    <tr>
+                                     
+                                      <td>John Doe</td>
+                                      <td>43</td>
+                                      <td>452 Soviet</td>
+                                     
+                                      <td>
+                                         <div class="disease">
+                                            <span>submit</span>
+                                         </div>
+                                      </td>
+                                      <td>gwagg12@exp.com</td>
+                                      <td>(77)234567</td>
+                                      <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                      <td>
+                                         <div class="patient-view-btn">
+                                          <a href="presc-status.html"  data-toggle="modal"
+                                          data-target="#exampleModalCenter">
+                                             <span class="fa fa-eye mr-3"></span>
+                                          </a>
+                                         
+                                      </div>
+                                     </td>
+                                    </tr>
+                                    <tr>
+                                     
+                                      <td>John Doe</td>
+                                      <td>43</td>
+                                      <td>452 Soviet</td>
+                                     
+                                      <td>
+                                         <div class="disease">
+                                            <span>submit</span>
+                                         </div>
+                                      </td>
+                                      <td>gwagg12@exp.com</td>
+                                      <td>(77)234567</td>
+                                      <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                      <td>
+                                         <div class="patient-view-btn">
+                                          <a href="presc-status.html"  data-toggle="modal"
+                                          data-target="#exampleModalCenter">
+                                             <span class="fa fa-eye mr-3"></span>
+                                          </a>
+                                         
+                                      </div>
+                                     </td>
+                                    </tr>
+                                    <tr>
+                                     
+                                      <td>John Doe</td>
+                                      <td>43</td>
+                                      <td>452 Soviet</td>
+                                     
+                                      <td>
+                                         <div class="disease">
+                                            <span>submit</span>
+                                         </div>
+                                      </td>
+                                      <td>gwagg12@exp.com</td>
+                                      <td>(77)234567</td>
+                                      <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                      <td>
+                                         <div class="patient-view-btn">
+                                          <a href="presc-status.html"  data-toggle="modal"
+                                          data-target="#exampleModalCenter">
+                                             <span class="fa fa-eye mr-3"></span>
+                                          </a>
+                                         
+                                      </div>
+                                     </td>
+                                    </tr>
+                                    <tr>
+                                     
+                                      <td>John Doe</td>
+                                      <td>43</td>
+                                      <td>452 Soviet</td>
+                                     
+                                      <td>
+                                         <div class="disease">
+                                            <span>submit</span>
+                                         </div>
+                                      </td>
+                                      <td>gwagg12@exp.com</td>
+                                      <td>(77)234567</td>
+                                      <td><input type="file" style="width: 100px;"accept="image/" onchange="loadImg()"></td>
+                                      <td>
+                                         <div class="patient-view-btn">
+                                          <a href="presc-status.html"  data-toggle="modal"
+                                          data-target="#exampleModalCenter">
+                                             <span class="fa fa-eye mr-3"></span>
+                                          </a>
+                                         
+                                      </div>
+                                     </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                  </tbody>
+                                </table>
+                                
+                                
+                            </div>
+                           </div>
+                      </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+  </div>
+
+
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content" style="min-height: 80vh;">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Prescription</h5>
+          <button type="button" class="close" data-dismiss="modal"
+              aria-label="Close">
+              <span class="fa fa-times"></span>
+          </button>
+      </div>
+      <div class="modal-body">
+          <embed src="Hospital Medical Report .pdf" type=""
+              style="min-width: 100%; min-height: 80vh;">
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"
+              data-dismiss="modal">Close</button>
+
+      </div>
+  </div>
+</div>
+</div>

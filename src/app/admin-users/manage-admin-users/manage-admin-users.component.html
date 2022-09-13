@@ -1,0 +1,92 @@
+<div class="col-md-12 col-lg-12 mt-4">
+  <div class="iq-card">
+    <div class="iq-card-header d-flex justify-content-between">
+      <div class="iq-header-title">
+        <h4 class="card-title">Manage Admin Users</h4>
+      </div>
+    </div>
+
+    <div class="iq-card-body" style="overflow-x: scroll">
+      <table class="table text-center table-hover" id="maintable" datatable>
+        <ng-template p-template="caption">
+          <div>
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              pInputText
+              size="50"
+              placeholder="Search"
+              (input)="dt.filterGlobal($event.target.value, 'contains')"
+              style="width: auto"
+            />
+          </div>
+        </ng-template>
+        <thead>
+          <tr class="table-head-bg">
+            <th scope="col">Sr no.</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">phone</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Access Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td>1</td>
+          <td>ewurruiewr</td>
+          <td>dummy</td>
+          <td>hnafffakh@gmail.com</td>
+          <td>9879787877</td>
+          <td>Male</td>
+          <td></td>
+        </tbody>
+        <tbody>
+          <td>1</td>
+          <td>ewurruiewr</td>
+          <td>dummy</td>
+          <td>hnafffakh@gmail.com</td>
+          <td>9879787877</td>
+          <td>Male</td>
+          <td></td>
+        </tbody>
+        <tbody>
+          <td>1</td>
+          <td>ewurruiewr</td>
+          <td>dummy</td>
+          <td>hnafffakh@gmail.com</td>
+          <td>9879787877</td>
+          <td>Male</td>
+          <td></td>
+        </tbody>
+        <tbody>
+          <td>1</td>
+          <td>ewurruiewr</td>
+          <td>dummy</td>
+          <td>hnafffakh@gmail.com</td>
+          <td>9879787877</td>
+          <td>Male</td>
+          <td></td>
+        </tbody>
+        <tbody>
+          <td>1</td>
+          <td>ewurruiewr</td>
+          <td>dummy</td>
+          <td>hnafffakh@gmail.com</td>
+          <td>9879787877</td>
+          <td>Male</td>
+          <td></td>
+        </tbody>
+        <tbody>
+          <td>1</td>
+          <td>ewurruiewr</td>
+          <td>dummy</td>
+          <td>hnafffakh@gmail.com</td>
+          <td>9879787877</td>
+          <td>Male</td>
+          <td></td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
