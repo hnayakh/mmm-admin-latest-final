@@ -10,8 +10,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HttpTokenInterceptor } from "./Services/token-interceptor.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthGuard } from "./auth.guard";
-
 import { AdminUsersModule } from "./admin-users/admin-users.module";
+import { PendingVerificationsModule } from "./pending-verifications/pending-verifications.module";
 
 @NgModule({
   declarations: [AppComponent, FullscreenComponent, BlankscreenComponent],
@@ -23,6 +23,7 @@ import { AdminUsersModule } from "./admin-users/admin-users.module";
     FormsModule,
     ReactiveFormsModule,
     AdminUsersModule,
+    PendingVerificationsModule,
   ],
 
   providers: [

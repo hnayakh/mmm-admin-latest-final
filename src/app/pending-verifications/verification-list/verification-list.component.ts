@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { PhysiciansService } from "src/app/Services/physicians.service";
 
 @Component({
-  selector: "app-physician-list",
+  selector: "app-verification-list",
   templateUrl: "./verification-list.component.html",
   styleUrls: ["./verification-list.component.css"],
 })

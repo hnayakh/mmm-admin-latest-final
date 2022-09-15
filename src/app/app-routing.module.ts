@@ -66,7 +66,7 @@ const routes: Routes = [
       {
         // lazy loading
 
-        path: "pending-verifiactions",
+        path: "pending-verifications",
         loadChildren: () =>
           import("./pending-verifications/pending-verifications.module").then(
             (m) => m.PendingVerificationsModule
