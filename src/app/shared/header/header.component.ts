@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SigninService } from 'src/app/Services/signin.service';
-import { SnahRideService } from 'src/app/Services/snah-ride.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -23,7 +22,7 @@ userName:string
       pin:['',Validators.required]
     })
     this.userName = localStorage.getItem('UserName')
-    this.getAllNotifications();
+    // this.getAllNotifications();
   }
 
   signout(){
@@ -63,10 +62,10 @@ userName:string
     })
     
   }
-  getAllNotifications(){
-    let id =localStorage.getItem('id')
-    this.securityvarification.getAllNotification(id).subscribe((result)=>{
+  // getAllNotifications(){
+  //   let id =localStorage.getItem('id')
+  //   this.securityvarification.getAllNotification(id).subscribe((result)=>{
 
-    })
-  }
+  //   })
+  // }
 }

@@ -1,115 +1,91 @@
 export const environment = {
-    production: true,
+  production: true,
   //  baseURL: "https://immense-brook-06350.herokuapp.com/api/",
-    baseURL: "https://nameless-ridge-77112.herokuapp.com/api/",
-    Authentication: {
-        SIGNIN: 'auth/signin',
-        CHANGEPASSWORD:'auth/changePassword',
-        CREATESECURITYPIN:'auth/createProfilePin',
-        PROFILESECURITYVARIFICATION:'auth/verifyPin',
-        CHECKPROFILEPIN:'auth/checkPin',
-        UPDATESECURITYPLANE:'auth/updateProfilePin',
-        FORGOTPASSWORD:'auth/forgotPassword',
-        getAllNotification:'caregiver/booking/getallnotifications'
-    },
-    Department: {
-        ADDDEPARTMENT: 'privatepractice/createMedicalDepartment',
-        GETDEPARTMENTLIST: 'privatepractice/getAllMedicalDepartment',
-        DELETEMEDICALDEPARTMENTBYID: 'privatepractice/deleteMedicalDepartment',
-        UPDATEmEDICALDEPARTMENTBYID: 'privatepractice/updateMdicalDepartment',
-        GETMEDICALFACILITY: 'privatepractice/medicalFacility',
-        UPDATEDMEDICALFACILITYPROFILE: 'privatepractice/updateMedicalFacility',
-        UPLOADPROFILEIMAGE:'auth/image/upload'
-    },
-    Physician: {
-        CREATPHYSICIAN: 'privatepractice/createPhysician',
-        GETALLDOCTORSBYMEDICAL: 'privatepractice/getALlDoctorByMedical',
-        DELETEPHYSICIANBYID: 'privatepractice/physician',
-        GETPHYSICIANBYID: 'privatepractice/physician',
-        UPDATEPHYSICIANYID: 'privatepractice/updatePhysicians',
-        GETINVOICE: 'privatepractice/getAllCompletedAppointmentByParent',
-        GETINVOICEDATA: 'privatepractice/getClaimByParentId',
+  baseURL: "http://13.233.130.85:3000/api/",
+  Authentication: {
+    ADMIN_LOGIN: "auth/admin/login",
+    ADMIN_USERS: "users/admin",
+    CHANGEPASSWORD: "auth/changePassword",
+    CREATESECURITYPIN: "auth/createProfilePin",
+    PROFILESECURITYVARIFICATION: "auth/verifyPin",
+    CHECKPROFILEPIN: "auth/checkPin",
+    UPDATESECURITYPLANE: "auth/updateProfilePin",
+    FORGOTPASSWORD: "auth/forgotPassword",
+    getAllNotification: "caregiver/booking/getallnotifications",
+  },
+  User:{
+    AllVerifiedUser:"users/admin/appUsers?isVerified=0",
+    AllActiveUsers:""
+  },
+  Role : [
+    "L1 Support",
+    "L2 Support",
+    "L3 Support",
+    "Admin",
+    "Super Admin",
+  ],
 
-        POSTINVOICE: 'privatepractice/addClaim',
-
-    
-
-
-        
-
-
-        
-    },
-    Schedule: {
-      GENVIRTUALSCHEDULE: 'privatepractice/generateSlots',
-      CREARSCHEDULE:'privatepractice/createSchedule',
-        GETALLSCHEDULED: 'privatepractice/getAllSchedule',
-        GETSOLTS: 'privatepractice/getSlotDetails',
-        EDITVIRTUALSCHEDULE:'privatepractice/editSchedule',
-        GETSCHEDULEBYID:'privatepractice/getSceduleById'
-    },
-    Appointment: {
-        APPOINTMENTHISTORY: 'privatepractice/getParentAppointmentHistory',
-        GETSOLTS: 'privatepractice/getSlotDetails',
-
-        GETPARENTMEDICALDEPARTMENTBYID: 'privatepractice/getParentAppointmentByDate',
-        StatusConfirmCancel:"privatepractice/changeAppointmentStatus",
-        
-    },
-    Staff:{
-        ADDSTAFF:'privatepractice/addStaff',
-        GETSTAFF:'privatepractice/getStaffByParentId',
-        GETSTAFFBYID:'privatepractice/getStaffById',
-        EDITSTAFF:'privatepractice/editStaff',
-
-        GETTERMS:'public/getTermsCondition',
-        FAQS:'public/getFaq',
-        PRIVICY:'public/getPrivacyPolicy'
- 
-    },
-    Claims:{
-        AddClaim:'privatepractice/addClaim',
-        GetAlllClaims:'privatepractice/getClaimByParent',
-        // GetAlllClaims:'privatepractice/getMissingClaimByParentId',
-
-        GetPendingClaims:'privatepractice/getPendingClaimByParentId',
-        GetPaidClaims:'privatepractice/getSattledClaimByParentId',
-        GetRejectClaims:'privatepractice/getClaimByParentId'
-    },
-    Patients:{
-        PATIENTSLIST:'privatepractice/getPatientHistory',
-        PATIENTSLIST2:'patients/getAllPatients',
-        PatientDetailsById:'patients/patient',
-        ////////////////copied
-        GetPhysicianVisysDetailsByPatientsId:'privatepractice/getPrescriptionByPatientId',
-        GetInsuranceVisitByPatientId:'patients/getClaimByPatientId',
-        GetMedicalAppointmentbyPatientId:'patients/getMedicalAppointmentByPatientId',
-        GetPrivatePracticeAppointmentbyPatientId:'patients/getPracticeAppointmentByPatientId',
-        GetActivity:'privatepractice/getActivity',
-        GetCaregiverVisits:'patients/getAllPatientHistory',
-        RecentPatients: 'privatepractice/getRecentPatients',
-    },
-    subscription:{
-        getallplan:'public/getAllPlan',
-             subscribeplan:'privatepractice/subscribe',
-         GetSubscriptionDetailsByID:'privatepractice/subscribe',
-         canceplan:'privatepractice/cancelSubscription',
-         updateSubscription:'privatepractice/updateSubscription',
-         checksuscription:'privatepractice/checkSubscription',
-         newSubscribleplanapi:'privatepractice/subscribe'
-    },
-    TotalAppointment:{
-        totalappointment:'privatepractice/getAppointmentByParentId'
-            },
-            Snah_Ride:{
-                SnahRideList:'driver/getDriverList',
-                SnahRideProfile:'driver/viewDriverProfile'
-            },
-            Pharmacy:{
-                getPharmacyList:'pharmacy/getAllPharmacy',
-                getPrescriptionById:'pharmacy/getAllPrescriptionByPharmacyId'
-            },
-            RevenueAndReport:{
-                getRevenue:'privatepractice/getRevenue'
-                    }
 };
+
+export const USERID = "id_token";
+export const SUCCESS = "SUCCESS";
+export const Gender = ["Male", "Female", "Other"];
+export const Role = [
+  "L1 Support",
+  "L2 Support",
+  "L3 Support",
+  "Admin",
+  "Super Admin",
+];
+export const MaritalStatus = [
+  "Never Married",
+  "Divorced",
+  "Widowed",
+  "Awaiting Divorce",
+];
+export const Manglik = ["Yes", "No", "Not Applicable"];
+export const EatingHabit = ["Vegetarrian", "Eggitarrian", "Nonvegetarrian"];
+export const SmokingHabit = ["Smoker", "NonSmoker", "Occasionally"];
+export const DrinkingHabit = ["Alcoholic", "Nonalcoholic", "Occasionally"];
+export const FamilyAfluenceLevel = [
+  "Rich",
+  "UpperMiddleClass",
+  "MiddleClass",
+  "LowerMiddleClass",
+];
+export const FamilyType = ["Nuclear", "Joint", "Other"];
+
+export const FamilyValues = ["Traditional", "Moderate", "Liberal"];
+export const FatherOccupation = [
+  "Employed",
+  "Business",
+  "Retired",
+  "NotEmployed",
+  "PassedAway",
+];
+
+export const MotherOccupation = [
+  "HomeMaker",
+  "Employed",
+  "Business",
+  "Retired",
+  "PassedAway",
+];
+export const AnualIncome = [
+  "LessThanOneLacs",
+  "OneToThreeLacs",
+  "ThreeToFiveLacs",
+  "FiveToSevenLacs",
+  "SevenToTenLacs",
+  "TenToTwelveLacs",
+  "MoreThanTwelveLacs",
+];
+export const Relationships = [
+  "Self",
+  "Son",
+  "Daughter",
+  "Sister",
+  "Brother",
+  "Friend",
+  "Relative",
+];

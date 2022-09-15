@@ -12,7 +12,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthGuard } from "./auth.guard";
 import { AdminUsersModule } from "./admin-users/admin-users.module";
 import { PendingVerificationsModule } from "./pending-verifications/pending-verifications.module";
-
+import { DataTablesModule } from "angular-datatables";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 @NgModule({
   declarations: [AppComponent, FullscreenComponent, BlankscreenComponent],
   imports: [
@@ -24,6 +25,8 @@ import { PendingVerificationsModule } from "./pending-verifications/pending-veri
     ReactiveFormsModule,
     AdminUsersModule,
     PendingVerificationsModule,
+    DataTablesModule,
+    BrowserAnimationsModule
   ],
 
   providers: [
