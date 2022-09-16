@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   title = "SnahApp";
   constructor(private _signinservices: SigninService, private router: Router) {}
   ngOnInit(): void {
-    // Added by Prajna
+    
     if (!this._signinservices.loggedIn()) {
       this.router.navigateByUrl("login");
      // this.router.navigateByUrl("dashboard");
