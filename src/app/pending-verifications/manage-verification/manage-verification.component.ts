@@ -59,13 +59,11 @@ export class ManageVerificationComponent implements OnInit {
   GetUserProfileData(id: any) {
     this.userService.GetUserProfile(id).subscribe(
       (response: any) => {
-        console.log(response.data.userImages);
+        console.log(response.data);
         this.PendingUserData = response.data;
-        this.slides=response.data.userImages
+        this.slides = response.data.userImages;
       },
-      (error) => {
-
-      }
+      (error) => {}
     );
   }
 
@@ -83,7 +81,7 @@ export class ManageVerificationComponent implements OnInit {
           (response: any) => {
             console.log(response.data);
             Swal.fire("Verified!", "", "success");
-            this.router.navigate(['/pending-verifications'])
+            this.router.navigate(["/pending-verifications"]);
           },
           (error) => {
             console.log(error);
@@ -108,7 +106,7 @@ export class ManageVerificationComponent implements OnInit {
           (response: any) => {
             console.log(response.data);
             Swal.fire("Verified!", "", "success");
-            this.router.navigate(['/pending-verifications'])
+            this.router.navigate(["/pending-verifications"]);
           },
           (error) => {
             console.log(error);
