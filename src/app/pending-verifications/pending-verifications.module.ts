@@ -10,6 +10,6 @@ console.log("active");
 
 @NgModule({
   declarations: [VerificationListComponent,ManageVerificationComponent],
-  imports: [CommonModule, PendingVerificationsRoutingModule,DataTablesModule,CarouselModule,BrowserAnimationsModule],
+  imports: [CommonModule, PendingVerificationsRoutingModule,DataTablesModule,CarouselModule],
 })
 export class PendingVerificationsModule {}
