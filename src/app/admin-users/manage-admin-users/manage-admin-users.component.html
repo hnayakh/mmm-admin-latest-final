@@ -5,12 +5,15 @@
         <h4 class="card-title">Admin Users</h4>
       </div>
       <div class="add-staff">
-        <a  routerLink="add-admin" ><i class="fa fa-plus"></i><span>Add Admin</span></a>
+        <a routerLink="add-admin">
+          <i class="fa fa-plus"></i>
+          <span>Add Admin</span>
+        </a>
       </div>
     </div>
 
     <div class="iq-card-body" style="overflow-x: scroll;" *ngIf="AdminList">
-      <table class="table text-center table-hover" id="maintable" datatable>
+      <table class="table text-center table-hover" id="maintable" datatable #dt>
         <ng-template p-template="caption">
           <div>
             <i class="pi pi-search"></i>
@@ -57,7 +60,12 @@
                   : 'L1 Support'
               }}
             </td>
-            <td><i class="ri-delete-bin-7-fill text-danger cursor-pointer " (click)="onRemoveUser(data.id)"></i></td>
+            <td>
+              <i
+                class="ri-delete-bin-7-fill text-danger cursor-pointer"
+                (click)="onRemoveUser(data.id)"
+              ></i>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -1,0 +1,179 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="iq-edit-list-data">
+        <div class="tab-content">
+          <div
+            *ngIf="PendingUserData"
+            class="tab-pane fade active show"
+            id="personal-information"
+            role="tabpanel"
+          >
+            <div class="iq-card">
+              <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                  <h4 class="card-title">Verify User</h4>
+                </div>
+              </div>
+              <div class="iq-card-body">
+                <div class="col-12">
+                  <owl-carousel-o [options]="customOptions">
+                    <ng-container *ngFor="let slide of slides">
+                      <ng-template carouselSlide [id]="slide.id">
+                        <div class="slide">
+                          <img [src]="slide.thumbnailURL" alt="image" />
+                        </div>
+                      </ng-template>
+                    </ng-container>
+                  </owl-carousel-o>
+                </div>
+              </div>
+            </div>
+
+            <div class="iq-card">
+              <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                  <h4 class="card-title">Bio User</h4>
+                </div>
+              </div>
+              <div class="iq-card-body">
+                <div class="col-12">
+                  <div>
+                    {{ PendingUserData.userBios[0].aboutMe }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="iq-card">
+              <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                  <h4 class="card-title">Basic Details</h4>
+                </div>
+              </div>
+              <div class="iq-card-body">
+                <div class="col-12">
+                  <div>
+                    <label>Email Address:</label>
+                    {{ PendingUserData.email }}
+                  </div>
+                  <div>
+                    <label>Name:</label>
+                    {{ PendingUserData.userAbouts[0].name }}
+                  </div>
+                  <div>
+                    <label>Gender:</label>
+                    {{ PendingUserData.gender }}
+                  </div>
+                  <div>
+                    <label>Phone:</label>
+                    {{ PendingUserData.phoneNumber }}
+                  </div>
+                  <div>
+                    <label>Date Of Birth:</label>
+                    {{ PendingUserData.userAbouts[0].dateOfBirth }}
+                  </div>
+                  <div>
+                    <label>Marital Status:</label>
+                    {{ PendingUserData.userAbouts[0].maritalStatus }}
+                  </div>
+                  <div>
+                    <label>No of Children:</label>
+                    {{ PendingUserData.userAbouts[0].childrenStatus }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="iq-card">
+              <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                  <h4 class="card-title">Life Style</h4>
+                </div>
+              </div>
+              <div class="iq-card-body">
+                <div class="col-12">
+                  <div>
+                    <label>Eating:</label>
+                    {{ PendingUserData.userHabits[0].eatingHabit }}
+                  </div>
+                  <div>
+                    <label>Smoking:</label>
+                    {{ PendingUserData.userHabits[0].smokingHabit }}
+                  </div>
+                  <div>
+                    <label>Drinking:</label>
+                    {{ PendingUserData.userHabits[0].drinkingHabit }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="iq-card">
+              <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                  <h4 class="card-title">Religion Details</h4>
+                </div>
+              </div>
+              <div class="iq-card-body">
+                <div class="col-12">
+                  <div>
+                    <label>Religion:</label>
+                    {{ PendingUserData.userReligions[0].religion }}
+                  </div>
+                  <div>
+                    <label>Caste:</label>
+                    {{ PendingUserData.userReligions[0].cast }}
+                  </div>
+                  <div>
+                    <label>Gothra:</label>
+                    {{ PendingUserData.userReligions[0].aboutMe }}
+                  </div>
+                  <div>
+                    <label>Mother Tongue:</label>
+                    {{ PendingUserData.userReligions[0].motherTongue }}
+                  </div>
+                  <div>
+                    <label>Manglik:</label>
+                    {{ PendingUserData.userReligions[0].isManglik }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="iq-card">
+              <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                  <h4 class="card-title">Career Details</h4>
+                </div>
+              </div>
+              <div class="iq-card-body">
+                <div class="col-12">
+                  <div>
+                    <label>Occupation:</label>
+                    {{ PendingUserData.userCareers[0].occupation }}
+                  </div>
+                  <div>
+                    <label>Employed In:</label>
+                    {{ PendingUserData.userCareers[0].employedIn }}
+                  </div>
+                  <div>
+                    <label>Annual Income:</label>
+                    {{ PendingUserData.userCareers[0].annualIncome }}
+                  </div>
+                  <div>
+                    <label>Highest Education:</label>
+                    {{ PendingUserData.userCareers[0].highestEducation }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary mr-2" (click)="VerifyUser()">
+              Verify User
+            </button>
+            <button class="btn btn-secondary mr-2" (click)="RejectUser()">
+              Block User
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

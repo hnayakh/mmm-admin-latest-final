@@ -11,7 +11,7 @@
       style="overflow-x: scroll;"
       *ngIf="PendingUserList"
     >
-      <table class="table text-center table-hover" id="maintable" datatable>
+      <table class="table text-center table-hover" id="maintable" datatable #dt>
         <ng-template p-template="caption">
           <div>
             <i class="pi pi-search"></i>
@@ -61,7 +61,7 @@
             <td>{{ data.email }}</td>
             <td>{{ data.phoneNumber }}</td>
             <td>{{ data.gender == '0' ? 'Male' : 'Female' }}</td>
-            <td>{{ data.createdAt || dd / MM / yyyy }}</td>
+            <td>{{ data.createdAt | date: 'dd/MM/yyyy' }}</td>
             <td>{{ Relationships[data.relationship] }}</td>
             <td>{{ data.religion }}</td>
             <td>{{ data.cast }}</td>
