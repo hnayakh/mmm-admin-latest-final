@@ -8,7 +8,8 @@
       "default",
       {
         "ignore": [
-          "user-select"
+          "user-select",
+          "scrollbar-color"
         ]
       }
     ],
@@ -17,6 +18,7 @@
       {
         "image-alt": "off"
       }
-    ]
+    ],
+    "no-inline-styles": "off"
   }
 }
