@@ -66,7 +66,7 @@ export class ManageUserListComponent implements OnInit {
       (error) => {}
     );
   }
-
+//for verify a user
   VerifyUser() {
     Swal.fire({
       title: "Do you want to Verify?",
@@ -92,6 +92,8 @@ export class ManageUserListComponent implements OnInit {
       }
     });
   }
+
+  //for reject user
   RejectUser() {
     Swal.fire({
       title: "Do you want to Reject this User?",
