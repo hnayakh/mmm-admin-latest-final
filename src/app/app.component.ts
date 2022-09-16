@@ -8,13 +8,10 @@ import { SigninService } from "./Services/signin.service";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
-  title = "SnahApp";
+  title = "MAKE-MY-MARRY";
   constructor(private _signinservices: SigninService, private router: Router) {}
   ngOnInit(): void {
-    // Added by Prajna
-    if (this._signinservices.loggedIn()) {
-      this.router.navigateByUrl("dashboard");
-    } else {
+    if (!this._signinservices.loggedIn()) {
       this.router.navigateByUrl("login");
     }
   }

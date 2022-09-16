@@ -13,16 +13,21 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
   }
-  NavigateAccToCond(){
-    let ID =localStorage.getItem('id')
-    this.redirection.CheckSubscriptionPlan(ID).subscribe((dataa:any)=>{
-if(dataa.isSubscribed=="yes"){
+//   NavigateAccToCond(){
+//     let ID =localStorage.getItem('id')
+//     this.redirection.CheckSubscriptionPlan(ID).subscribe((dataa:any)=>{
+// if(dataa.isSubscribed=="yes"){
  
- this.router.navigate(['/subscription/all-plan/'])
-}else{
-  this.router.navigate(['/subscription/'])
-}
-    })
+//  this.router.navigate(['/subscription/all-plan/'])
+// }else{
+//   this.router.navigate(['/subscription/'])
+// }
+//     })
    
+//   }
+  Logout(){
+    localStorage.clear()
+    this.router.navigate(['/'])
   }
+
 }

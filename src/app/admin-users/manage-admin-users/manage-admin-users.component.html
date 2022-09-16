@@ -2,12 +2,18 @@
   <div class="iq-card">
     <div class="iq-card-header d-flex justify-content-between">
       <div class="iq-header-title">
-        <h4 class="card-title">Manage Admin Users</h4>
+        <h4 class="card-title">Admin Users</h4>
+      </div>
+      <div class="add-staff">
+        <a routerLink="add-admin">
+          <i class="fa fa-plus"></i>
+          <span>Add Admin</span>
+        </a>
       </div>
     </div>
 
-    <div class="iq-card-body" style="overflow-x: scroll">
-      <table class="table text-center table-hover" id="maintable" datatable>
+    <div class="iq-card-body" style="overflow-x: scroll;" *ngIf="AdminList">
+      <table class="table text-center table-hover" id="maintable" datatable #dt>
         <ng-template p-template="caption">
           <div>
             <i class="pi pi-search"></i>
@@ -17,7 +23,7 @@
               size="50"
               placeholder="Search"
               (input)="dt.filterGlobal($event.target.value, 'contains')"
-              style="width: auto"
+              style="width: auto;"
             />
           </div>
         </ng-template>
@@ -30,61 +36,37 @@
             <th scope="col">phone</th>
             <th scope="col">Gender</th>
             <th scope="col">Access Level</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <td>1</td>
-          <td>ewurruiewr</td>
-          <td>dummy</td>
-          <td>hnafffakh@gmail.com</td>
-          <td>9879787877</td>
-          <td>Male</td>
-          <td></td>
-        </tbody>
-        <tbody>
-          <td>1</td>
-          <td>ewurruiewr</td>
-          <td>dummy</td>
-          <td>hnafffakh@gmail.com</td>
-          <td>9879787877</td>
-          <td>Male</td>
-          <td></td>
-        </tbody>
-        <tbody>
-          <td>1</td>
-          <td>ewurruiewr</td>
-          <td>dummy</td>
-          <td>hnafffakh@gmail.com</td>
-          <td>9879787877</td>
-          <td>Male</td>
-          <td></td>
-        </tbody>
-        <tbody>
-          <td>1</td>
-          <td>ewurruiewr</td>
-          <td>dummy</td>
-          <td>hnafffakh@gmail.com</td>
-          <td>9879787877</td>
-          <td>Male</td>
-          <td></td>
-        </tbody>
-        <tbody>
-          <td>1</td>
-          <td>ewurruiewr</td>
-          <td>dummy</td>
-          <td>hnafffakh@gmail.com</td>
-          <td>9879787877</td>
-          <td>Male</td>
-          <td></td>
-        </tbody>
-        <tbody>
-          <td>1</td>
-          <td>ewurruiewr</td>
-          <td>dummy</td>
-          <td>hnafffakh@gmail.com</td>
-          <td>9879787877</td>
-          <td>Male</td>
-          <td></td>
+          <tr *ngFor="let data of AdminList">
+            <td>{{ data.id | slice: 24 }}</td>
+            <td>{{ data.firstName }}</td>
+            <td>{{ data.lastName }}</td>
+            <td>{{ data.email }}</td>
+            <td>{{ data.phoneNumber }}</td>
+            <td>{{ data.gender == '0' ? 'Male' : 'Female' }}</td>
+            <td>
+              {{
+                data.role == '5'
+                  ? 'Super Admin'
+                  : data.role == '2'
+                  ? 'L2 Support'
+                  : data.role == '4'
+                  ? 'Admin'
+                  : data.role == '3'
+                  ? 'L3 Support'
+                  : 'L1 Support'
+              }}
+            </td>
+            <td>
+              <i
+                class="ri-delete-bin-7-fill text-danger cursor-pointer"
+                (click)="onRemoveUser(data.id)"
+              ></i>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

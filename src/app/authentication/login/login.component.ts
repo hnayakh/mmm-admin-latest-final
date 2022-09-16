@@ -30,36 +30,36 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-    this.router.navigate(["/dashboard"]);
-    // this.sign_api.SignIn(this.signinform.value).subscribe(
-    //   (res: any) => {
-    //     console.log(res);
-    //     localStorage.setItem("token", res.token);
-    //     localStorage.setItem("UserName", res.user.name);
-    //     localStorage.setItem("id", res.user._id);
-    //     this.router.navigate(["/dashboard"]);
-    //     if (res.user.name == this.inputUser) {
-    //       Swal.fire({
-    //         position: "top",
-    //         icon: "success",
-    //         title: "Successfully Signed",
-    //         showConfirmButton: false,
-    //         timer: 1500,
-    //       });
-    //       this.inputUser = this.signinform.value;
-    //       console.log(this.signinform.value);
-    //     }
-    //   },
-
-    //   (error) => {
-    //     Swal.fire({
-    //       position: "top",
-    //       icon: "error",
-    //       title: error.error.error,
-    //       showConfirmButton: false,
-    //       timer: 2500,
-    //     });
-    //   }
-    // );
+    this.sign_api.SignIn(this.signinform.value).subscribe(
+      (res: any) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.access_token);
+        localStorage.setItem("UserName", res.data.adminUser.firstName);
+        localStorage.setItem("id", res.data.adminUser.id);
+        this.router.navigate(["/dashboard"]);
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: res.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        if (res.data.adminUser.firstName == this.inputUser) {
+   
+          this.inputUser = this.signinform.value;
+          console.log(this.signinform.value);
+        }
+      },
+      (error) => {
+        console.log(error.error.message);
+        Swal.fire({
+          position: "top",
+          icon: "error",
+          title: error.error.message,
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      }
+    );
   }
 }

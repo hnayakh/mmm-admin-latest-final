@@ -181,14 +181,13 @@ dl dd {
 dl dd:last-child {
   margin-bottom: 0px;
 }
-th {
-}
+
 
 /*----------------------------------------------
 loading
 ------------------------------------------------*/
 #loading {
-  background: #fff url(../images/loading.png) no-repeat scroll center center;
+  background: #fff url(../images/loadingnew.gif) no-repeat scroll center center;
   height: 100%;
   width: 100%;
   background-size: 10%;
@@ -1214,8 +1213,9 @@ Card
   -ms-flex-align: center !important;
   align-items: center !important;
   border-bottom: 1px solid #eeeeee;
-  border-radius: 25px 25px 0 0;
   -webkit-border-radius: 25px 25px 0 0;
+  border-radius: 25px 25px 0 0;
+ 
 }
 .iq-card .iq-card-header .iq-header-title {
   display: inline-block;
@@ -1293,10 +1293,11 @@ Card
 Background overlay color
 -----------------------------------------------------------------------*/
 .parallax {
-  background-size: cover !important;
+  
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -ms-background-size: cover !important;
+  background-size: cover !important;
   position: relative;
   z-index: 0;
   background-origin: initial;

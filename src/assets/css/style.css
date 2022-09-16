@@ -63,6 +63,8 @@ NOTE: This file contains the styling for responsive Template.
 /*--------------------------------------------------------------------
                             General
 ---------------------------------------------------------------------*/
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 *::-moz-selection {
   background: #ff54a2;
   color: #fff;
@@ -686,7 +688,7 @@ li {
 }
 
 .add-staff a {
-  background-color: #3f9afc;
+  background-color: #ff54a2;
   padding: 7px 20px;
   border-radius: 50px;
   color: #ffffff;

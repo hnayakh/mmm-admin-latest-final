@@ -1,0 +1,234 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="iq-edit-list-data">
+        <div class="tab-content">
+          <div
+            class="tab-pane fade active show"
+            id="personal-information"
+            role="tabpanel"
+          >
+            <div class="iq-card">
+              <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                  <h4 class="card-title">Add Admin</h4>
+                </div>
+              </div>
+              <div class="iq-card-body">
+                <form [formGroup]="addAdminForm" (submit)="onSubmit()">
+                  <div class="form-group row align-items-center">
+                    <div class="row align-items-center">
+                      <div class="form-group col-sm-6">
+                        <label for="firstName">First Name:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Alex"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.firstName.errors
+                          }"
+                          formControlName="firstName"
+                        />
+                        <div *ngIf="submitted && f.firstName.errors">
+                          <div
+                            *ngIf="f.firstName.errors.required"
+                            class="text-danger"
+                          >
+                            First Name is required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <label for="lName">Last Name:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="lName"
+                          placeholder="Smith"
+                          formControlName="lastName"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.lName.errors
+                          }"
+                        />
+                        <div *ngIf="submitted && f.lName.errors">
+                          <div
+                            *ngIf="f.lName.errors.required"
+                            class="text-danger"
+                          >
+                            Last Name is required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group col-sm-12">
+                        <label for="lName">Email:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="email"
+                          placeholder="Enter Your Email"
+                          formControlName="email"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.email.errors
+                          }"
+                        />
+                        <div *ngIf="submitted && f.email.errors">
+                          <div
+                            *ngIf="f.email.errors.required"
+                            class="text-danger"
+                          >
+                            Email is required
+                          </div>
+                          <div *ngIf="f.email.errors.email" class="text-danger">
+                            Please, Enter Valid Email Address
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group col-sm-12">
+                        <label for="phone">Phone no:</label>
+                        <input
+                          class="form-control"
+                          placeholder="(000) 000-000"
+                          type="tel"
+                          mask="000-000-0000"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.phone.errors
+                          }"
+                          formControlName="phoneNumber"
+                        />
+                        <div *ngIf="submitted && f.phone.errors">
+                          <div
+                            *ngIf="f.phone.errors.required"
+                            class="text-danger"
+                          >
+                            Mobile Number is required
+                          </div>
+                          <div
+                            *ngIf="f.phone.errors.pattern"
+                            class="text-danger"
+                          >
+                            Please, Enter 10 digit Mobile Number.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <label for="dob">password</label>
+                        <input
+                          class="form-control"
+                          placeholder="Password"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.password.errors
+                          }"
+                          formControlName="password"
+                        />
+                        <div *ngIf="submitted && f.password.errors">
+                          <div
+                            *ngIf="f.password.errors.required"
+                            class="text-danger"
+                          >
+                            password is required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <label for="dob">Confirm Password</label>
+                        <input
+                          class="form-control"
+                          placeholder="Confirm Password"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.confirmPassword.errors
+                          }"
+                          formControlName="confirmPassword"
+                        />
+                        <div *ngIf="submitted && f.confirmPassword.errors">
+                          <div
+                            *ngIf="f.confirmPassword.errors.required"
+                            class="text-danger"
+                          >
+                            Confirm Password is required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <label class="d-block">Gender:</label>
+                        <div class="form-check form-check-inline">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            value="Male"
+                            name="gender"
+                            formControlName="gender"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.gender.errors
+                            }"
+                          />
+                          <label class="form-check-label" for="doctor_active">
+                            Male
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="gender"
+                            formControlName="gender"
+                            value="Female"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.gender.errors
+                            }"
+                          />
+                          <label class="form-check-label" for="doctor_inactive">
+                            Female
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="gender"
+                            formControlName="gender"
+                            value="Other"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.gender.errors
+                            }"
+                          />
+                          <label class="form-check-label" for="doctor_inactive">
+                            Other
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <label>Role:</label>
+                        <select
+                          class="form-control"
+                          id="exampleFormControlSelect1"
+                          formControlName="role"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.maritalstatus.errors
+                          }"
+                        >
+                          <option selected="">select</option>
+                          <option value="1">L1 Support</option>
+                          <option value="2">L2 Support</option>
+                          <option value="3">L3 Support</option>
+                          <option value="4">Admin</option>
+                          <option value="5">Super Admin</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="btn btn-secondary mr-2"                   
+                  >
+                    Create Admin
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

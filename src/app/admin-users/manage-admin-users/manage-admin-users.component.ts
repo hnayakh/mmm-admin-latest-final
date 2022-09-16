@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { PhysiciansService } from "src/app/Services/physicians.service";
-
+import { AdminService } from "src/app/Services/admin.service";
+import Swal from "sweetalert2";
 @Component({
   selector: "app-manage-admin-users",
   templateUrl: "./manage-admin-users.component.html",
@@ -9,61 +9,43 @@ import { PhysiciansService } from "src/app/Services/physicians.service";
 })
 export class ManageAdminUsersComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-  PhysicianList: any;
+  AdminList: any;
 
-  constructor(
-    private get_api_physician: PhysiciansService,
-    private router: Router
-  ) {}
+  constructor(private router: Router, private adminService: AdminService) {}
 
-  ngOnInit() {}
-
-  viewPhysicianById(id) {
-    this.router.navigate(["/physician/physicionprofile/" + id]);
+  ngOnInit() {
+    this.getAllAdminUsers();
   }
-  EditPhysician(id) {
-    this.router.navigate(["/physician/editphysicion/" + id]);
-    sessionStorage.setItem("editPhyId", id);
+  getAllAdminUsers() {
+    this.adminService.GetAllAdminUsers().subscribe(
+      (data: any) => {
+        this.AdminList = data.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
+  onRemoveUser(id: any) {
+    Swal.fire({
+      title: "Do you want to delete?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Delete",
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "", "success");
+        console.log(id);
+        var index = this.AdminList.map((x) => {
+          return x.Id;
+        }).indexOf(id);
 
-  transform(tel) {
-    var value = tel.toString().trim().replace(/^\+/, "");
-
-    if (value.match(/[^0-9]/)) {
-      return tel;
-    }
-
-    var country, city, number;
-
-    switch (value.length) {
-      case 10: // +1PPP####### -> C (PPP) ###-####
-        country = 1;
-        city = value.slice(0, 3);
-        number = value.slice(3);
-        break;
-
-      case 11: // +CPPP####### -> CCC (PP) ###-####
-        country = value[0];
-        city = value.slice(1, 4);
-        number = value.slice(4);
-        break;
-
-      case 12: // +CCCPP####### -> CCC (PP) ###-####
-        country = value.slice(0, 3);
-        city = value.slice(3, 5);
-        number = value.slice(5);
-        break;
-
-      default:
-        return tel;
-    }
-
-    if (country == 1) {
-      country = "";
-    }
-
-    number = number.slice(0, 3) + "-" + number.slice(3);
-
-    return (country + city + "-" + number).trim();
+        this.AdminList.splice(index, 1);
+      } else if (result.isDenied) {
+        Swal.fire("Not Deleted", "", "info");
+      }
+    });
   }
 }
