@@ -1,6 +1,8 @@
 import { Component, OnInit, Pipe } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { OwlOptions } from "ngx-owl-carousel-o";
+import { UserService } from "src/app/Services/user.service";
+import Swal from "sweetalert2";
 @Component({
   selector: "app-verification-list",
   templateUrl: "./manage-verification.component.html",
@@ -8,7 +10,17 @@ import { OwlOptions } from "ngx-owl-carousel-o";
 })
 export class ManageVerificationComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-  constructor(private router: Router) {}
+  PendingUserData: any;
+  UserId: any;
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute
+  ) {
+    console.log(this.activatedRoute.snapshot.params.id);
+    this.UserId = this.activatedRoute.snapshot.params.id;
+  }
+
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -16,7 +28,7 @@ export class ManageVerificationComponent implements OnInit {
     pullDrag: false,
     dots: false,
     navSpeed: 600,
-    navText: ['&#8249', '&#8250;'],
+    navText: ["&#8249", "&#8250;"],
     // responsive: {
     //   0: {
     //     items: 1
@@ -37,18 +49,74 @@ export class ManageVerificationComponent implements OnInit {
     //     items: 1
     //   }
     // },
-    nav: false
+    nav: false,
+  };
+
+  slides = [];
+  ngOnInit() {
+    this.GetUserProfileData(this.UserId);
+  }
+  GetUserProfileData(id: any) {
+    this.userService.GetUserProfile(id).subscribe(
+      (response: any) => {
+        console.log(response.data.userImages);
+        this.PendingUserData = response.data;
+        this.slides=response.data.userImages
+      },
+      (error) => {
+
+      }
+    );
   }
 
-
-  slides = [
-    { id: 1, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" },
-    { id: 2, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" },
-    { id: 3, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" },
-    { id: 4, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" },
-    { id: 5, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" },
-    { id: 6, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" },
-    { id: 7, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" },
-  ];
-  ngOnInit() {}
+  VerifyUser() {
+    Swal.fire({
+      title: "Do you want to Verify?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Verify",
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.userService.VerifyUser(this.UserId).subscribe(
+          (response: any) => {
+            console.log(response.data);
+            Swal.fire("Verified!", "", "success");
+            this.router.navigate(['/pending-verifications'])
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      } else if (result.isDenied) {
+        Swal.fire("Canceled", "", "info");
+      }
+    });
+  }
+  RejectUser() {
+    Swal.fire({
+      title: "Do you want to Reject this User?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Reject",
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.userService.RejectUser(this.UserId).subscribe(
+          (response: any) => {
+            console.log(response.data);
+            Swal.fire("Verified!", "", "success");
+            this.router.navigate(['/pending-verifications'])
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      } else if (result.isDenied) {
+        Swal.fire("Canceled", "", "info");
+      }
+    });
+  }
 }

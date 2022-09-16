@@ -27,7 +27,25 @@ export class ManageAdminUsersComponent implements OnInit {
     );
   }
   onRemoveUser(id: any) {
-    console.log(id);
+    Swal.fire({
+      title: "Do you want to delete?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Delete",
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "", "success");
+        console.log(id);
+        var index = this.AdminList.map((x) => {
+          return x.Id;
+        }).indexOf(id);
 
+        this.AdminList.splice(index, 1);
+      } else if (result.isDenied) {
+        Swal.fire("Not Deleted", "", "info");
+      }
+    });
   }
 }

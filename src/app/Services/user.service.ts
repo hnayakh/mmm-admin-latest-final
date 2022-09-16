@@ -45,6 +45,21 @@ export class UserService {
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
+  GetUserProfile(id: any) {
+    let url = environment.baseURL + "users/basic/" + id;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
+  VerifyUser(id: any) {
+    let url = environment.baseURL + "users/admin/verify/" + id;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
+  RejectUser(id: any) {
+    let url = environment.baseURL + "users/admin/rejct/" + id;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
 
   loggedIn() {
     return localStorage.getItem("token");
