@@ -4,7 +4,7 @@ import { OwlOptions } from "ngx-owl-carousel-o";
 import { UserService } from "src/app/Services/user.service";
 import Swal from "sweetalert2";
 @Component({
-  selector: "app-verification-list",
+  selector: "manage-verification-list",
   templateUrl: "./manage-verification.component.html",
   styleUrls: ["./manage-verification.component.css"],
 })

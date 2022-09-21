@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { ManageVerificationComponent } from "./manage-verification.component";
 
-describe("VerificationListComponent", () => {
+describe("ManageVerificationComponent", () => {
   let component: ManageVerificationComponent;
   let fixture: ComponentFixture<ManageVerificationComponent>;
 

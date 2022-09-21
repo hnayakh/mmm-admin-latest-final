@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "SnahApp"
+  "defaultProject": "SnahApp",
+  "cli": {
+    "analytics": false
+  }
 }

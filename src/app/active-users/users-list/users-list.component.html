@@ -193,9 +193,9 @@
     <div
       class="iq-card-body"
       style="overflow-x: scroll"
-      *ngIf="ActiveUserList.users"
+      *ngIf="ActiveUserList&&ActiveUserList.users"
     >
-      <table class="table text-center table-hover" id="maintable" datatable #dt>
+      <!-- <table class="table text-center table-hover" id="maintable" datatable #dt>
         <ng-template p-template="caption">
           <div>
             <i class="pi pi-search"></i>
@@ -246,7 +246,7 @@
             <td>{{ data.careerCity }}</td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
   </div>
 </div>
