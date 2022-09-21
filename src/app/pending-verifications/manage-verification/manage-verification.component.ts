@@ -12,6 +12,7 @@ export class ManageVerificationComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   PendingUserData: any;
   UserId: any;
+  submitted: false;
   constructor(
     private router: Router,
     private userService: UserService,

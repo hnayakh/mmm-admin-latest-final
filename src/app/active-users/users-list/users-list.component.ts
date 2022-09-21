@@ -7,9 +7,12 @@ import { UserService } from "src/app/Services/user.service";
   selector: "app-physician-list",
   templateUrl: "./users-list.component.html",
   styleUrls: ["./users-list.component.css"],
+  
+ 
 })
 
 export class UsersListComponent implements OnInit {
+  
   dtOptions: DataTables.Settings = {};
   ActiveUserList: any;
   Relationships = ["Self", "Son", "Daughter", "Sister", "Brother", "Friend", "Relative"];

@@ -73,14 +73,6 @@ export class SigninService {
       environment.baseURL + environment.Authentication.FORGOTPASSWORD;
     return this.http.post(view_url, data);
   }
-  // getAllNotification(id) {
-  //   let view_url =
-  //     environment.baseURL +
-  //     environment.Authentication.getAllNotification +
-  //     "/" +
-  //     id;
-  //   return this.http.get(view_url);
-  // }
   loggedIn() {
     return localStorage.getItem("token");
   }

@@ -1,75 +1,118 @@
 <div class="col-md-12 col-lg-12 mt-4">
-  <div class="iq-card">
-    <div class="iq-card-header d-flex justify-content-between">
-      <div class="iq-header-title">
-        <h4 class="card-title">Verification List</h4>
-      </div>
-    </div>
+<div class="iq-card">
+<div class="iq-card-header d-flex justify-content-between">
+<div class="iq-header-title">
+<h4 class="card-title">Verification List </h4>
+</div>
+</div>
+<div class="iq-card-body"
+style="overflow-x: scroll;"
 
-    <div
-      class="iq-card-body"
-      style="overflow-x: scroll;"
-      *ngIf="PendingUserList"
-    >
-      <table class="table text-center table-hover" id="maintable" datatable #dt>
-        <ng-template p-template="caption">
-          <div>
-            <i class="pi pi-search"></i>
-            <input
-              type="text"
-              pInputText
-              size="50"
-              placeholder="Search"
-              (input)="dt.filterGlobal($event.target.value, 'contains')"
-              style="width: auto;"
-            />
-          </div>
-        </ng-template>
-        <thead>
-          <tr class="table-head-bg">
-            <th scope="col">Sr no.</th>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Mobile</th>
-            <th scope="col">Gender</th>
-            <th scope="col">
-              Joined
-              <br />
-              On
-            </th>
-            <th scope="col">
-              Created
-              <br />
-              By
-            </th>
-            <th scope="col">Religion</th>
-            <th scope="col">caste</th>
-            <th scope="col">
-              mother
-              <br />
-              Tongue
-            </th>
-            <th scope="col">Location</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let data of PendingUserList; let i = index">
-            <td><a routerLink="manage/verification/{{data.id}}">{{ i + 1 }}</a> </td>
-            <td>{{ data.displayId }}</td>
-            <td>{{ data.name }}</td>
-            <td>{{ data.email }}</td>
-            <td>{{ data.phoneNumber }}</td>
-            <td>{{ data.gender == '0' ? 'Male' : 'Female' }}</td>
-            <td>{{ data.createdAt | date: 'dd/MM/yyyy' }}</td>
-            <td>{{ Relationships[data.relationship] }}</td>
-            <td>{{ data.religion }}</td>
-            <td>{{ data.cast }}</td>
-            <td>{{ data.motherTongue }}</td>
-            <td>{{ data.careerCity }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+>
+<ngx-mui-datatable title="Employee List" [data]="dataSource" [columns]="displayedColumns" [options]="options"></ngx-mui-datatable>
+<!-- <table mat-table [dataSource]="dataSource">
+  
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID</th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="phoneNumber">
+    <th mat-header-cell *matHeaderCellDef> Mobile No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="gender">
+    <th mat-header-cell *matHeaderCellDef> Gender </th>
+    <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="motherTongue">
+    <th mat-header-cell *matHeaderCellDef> Mother Tongue </th>
+    <td mat-cell *matCellDef="let element"> {{element.motherTongue}} </td>
+  </ng-container> 
+
+  <ng-container matColumnDef="activationStatus">
+    <th mat-header-cell *matHeaderCellDef> activationStatus </th>
+    <td mat-cell *matCellDef="let element"> {{element.activationStatus}} </td>
+  </ng-container> 
+  <ng-container matColumnDef="careerCity">
+    <th mat-header-cell *matHeaderCellDef> careerCity </th>
+    <td mat-cell *matCellDef="let element"> {{element.careerCity}} </td>
+  </ng-container> 
+  <ng-container matColumnDef="careerCountry">
+    <th mat-header-cell *matHeaderCellDef> careerCountry </th>
+    <td mat-cell *matCellDef="let element"> {{element.careerCountry}} </td>
+  </ng-container> 
+  <ng-container matColumnDef="careerState">
+    <th mat-header-cell *matHeaderCellDef> careerState </th>
+    <td mat-cell *matCellDef="let element"> {{element.careerState}} </td>
+  </ng-container> 
+  <ng-container matColumnDef="cast">
+    <th mat-header-cell *matHeaderCellDef> cast </th>
+    <td mat-cell *matCellDef="let element"> {{element.cast}} </td>
+  </ng-container> 
+  <ng-container matColumnDef="createdAt">
+    <th mat-header-cell *matHeaderCellDef> createdAt </th>
+    <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+  </ng-container> 
+  <ng-container matColumnDef="displayId">
+    <th mat-header-cell *matHeaderCellDef> displayId </th>
+    <td mat-cell *matCellDef="let element"> {{element.displayId}} </td>
+  </ng-container> 
+  <ng-container matColumnDef="gothra">
+    <th mat-header-cell *matHeaderCellDef> gothra </th>
+    <td mat-cell *matCellDef="let element"> {{element.gothra}} </td>
+  </ng-container> 
+  <ng-container matColumnDef="lifecycleStatus">
+    <th mat-header-cell *matHeaderCellDef> lifecycleStatus </th>
+    <td mat-cell *matCellDef="let element"> {{element.lifecycleStatus}} </td>
+  </ng-container> 
+  <ng-container matColumnDef="relationship">
+    <th mat-header-cell *matHeaderCellDef> relationship </th>
+    <td mat-cell *matCellDef="let element"> {{element.relationship}} </td>
+  </ng-container> 
+  <ng-container matColumnDef="religion">
+    <th mat-header-cell *matHeaderCellDef> religion </th>
+    <td mat-cell *matCellDef="let element"> {{element.religion}} </td>
+  </ng-container> 
+
+
+  <!-- <ng-container matColumnDef="created by">
+    <th mat-header-cell *matHeaderCellDef> created by </th>
+    <td mat-cell *matCellDef="let element"> {{element.created by}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="religion">
+    <th mat-header-cell *matHeaderCellDef> religion </th>
+    <td mat-cell *matCellDef="let element"> {{element.religion}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="caste">
+    <th mat-header-cell *matHeaderCellDef> caste </th>
+    <td mat-cell *matCellDef="let element"> {{element.caste}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="location">
+    <th mat-header-cell *matHeaderCellDef> location </th>
+    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+  </ng-container> -->
+<!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+  <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr> -->
+  <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+
+<!-- </table> --> 
+</div>
+</div>
 </div>
