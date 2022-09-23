@@ -116,5 +116,8 @@
       }
     }
   },
-  "defaultProject": "SnahApp"
+  "defaultProject": "SnahApp",
+  "cli": {
+    "analytics": "fbafeefb-7d87-4130-a360-657ca38565ed"
+  }
 }

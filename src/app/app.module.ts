@@ -14,6 +14,7 @@ import { AdminUsersModule } from "./admin-users/admin-users.module";
 import { PendingVerificationsModule } from "./pending-verifications/pending-verifications.module";
 import { DataTablesModule } from "angular-datatables";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
 @NgModule({
   declarations: [AppComponent, FullscreenComponent, BlankscreenComponent],
   imports: [
@@ -26,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminUsersModule,
     PendingVerificationsModule,
     DataTablesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxMuiDatatablesModule
   ],
 
   providers: [
