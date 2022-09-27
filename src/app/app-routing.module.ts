@@ -72,6 +72,33 @@ const routes: Routes = [
             (m) => m.PendingVerificationsModule
           ),
       },
+      {
+        // lazy loading
+
+        path: "product-pricing",
+        loadChildren: () =>
+          import("./product-pricing/product-pricing.module").then(
+            (m) => m.ProductPricingModule
+          ),
+      },
+      {
+        // lazy loading
+
+        path: "referral-benifits",
+        loadChildren: () =>
+          import("./referral-benifits/referral-benifits.module").then(
+            (m) => m.ReferralBenifitsModule
+          ),
+      },
+      {
+        // lazy loading
+
+        path: "coupon",
+        loadChildren: () =>
+          import("./coupon/coupon.module").then(
+            (m) => m.CouponModule
+          ),
+      },
 
       {
         path: "report",
