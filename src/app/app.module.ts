@@ -15,6 +15,10 @@ import { PendingVerificationsModule } from "./pending-verifications/pending-veri
 import { DataTablesModule } from "angular-datatables";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
+import { AngularDraggableModule } from 'angular2-draggable';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatSliderModule } from '@angular/material/slider';
+
 @NgModule({
   declarations: [AppComponent, FullscreenComponent, BlankscreenComponent],
   imports: [
@@ -28,7 +32,10 @@ import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
     PendingVerificationsModule,
     DataTablesModule,
     BrowserAnimationsModule,
-    NgxMuiDatatablesModule
+    NgxMuiDatatablesModule,
+     AngularDraggableModule,
+     DragDropModule,
+     MatSliderModule
   ],
 
   providers: [
