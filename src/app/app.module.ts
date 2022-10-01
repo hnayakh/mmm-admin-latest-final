@@ -18,6 +18,7 @@ import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
 import { AngularDraggableModule } from 'angular2-draggable';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatExpansionModule } from '@angular/material';
 
 @NgModule({
   declarations: [AppComponent, FullscreenComponent, BlankscreenComponent],
@@ -35,7 +36,8 @@ import { MatSliderModule } from '@angular/material/slider';
     NgxMuiDatatablesModule,
      AngularDraggableModule,
      DragDropModule,
-     MatSliderModule
+     MatSliderModule,
+     MatExpansionModule
   ],
 
   providers: [

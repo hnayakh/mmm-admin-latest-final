@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessStoriesComponent implements OnInit {
 
+  inBounds = true;
+  edge = {
+    top: true,
+    bottom: true,
+    left: true,
+    right: true};
   constructor() { }
 
   ngOnInit() {
   }
-
+  checkEdge(event) {
+    this.edge = event;
+    console.log('edge:', event);
+  }
 }
