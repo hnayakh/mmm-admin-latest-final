@@ -3,13 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { ProductPricingRoutingModule } from './product-pricing-routing.module';
 import { ProductPricingComponent } from './product-pricing.component';
+import { ListConnectComponent } from './connect-list/list-connect.component';
+import { DataTablesModule } from 'angular-datatables';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [ProductPricingComponent],
+  declarations: [ProductPricingComponent,ListConnectComponent],
   imports: [
     CommonModule,
-    ProductPricingRoutingModule
+    ProductPricingRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DataTablesModule
   ]
 })
 export class ProductPricingModule { }
