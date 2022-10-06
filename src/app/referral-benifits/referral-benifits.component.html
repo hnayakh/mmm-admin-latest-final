@@ -1,0 +1,50 @@
+<div class="col-md-12 col-lg-12 mt-4 w-75 mx-auto">
+  <div class="iq-card">
+    <div class="iq-card-header d-flex justify-content-between">
+      <div class="iq-header-title">
+        <h4 class="card-title">Referral Service</h4>
+      </div>
+    </div>
+    <div class="iq-card-body" style="overflow-x: scroll;">
+      <form>
+        <div
+          class="row d-flex justify-content-center mx-auto"
+          style="width: 200px;"
+        >
+          <!-- <input class="form-control" type="text-center" placeholder='' [value]="isReferralActive==true?'status:ACTIVE':'status:Deactivate'"> -->
+          <div>
+            <label>
+              Status :{{ isReferralActive == true ? 'ACTIVE' : 'Deactivate' }}
+            </label>
+          </div>
+        </div>
+      </form>
+      <div class="d-flex flex-row">
+        <div
+          class="col-6 col-lg-6 col-sm-6 col-md-6 col-xl-6 d-flex justify-content-center mt-2"
+        >
+          <button
+            class="btn btn-primary rounded-pill"
+            type="button"
+            style="padding-right: 10px;"
+            (click)="onActiveStatusChanged(true)"
+          >
+            Activate
+          </button>
+        </div>
+        <div
+          class="col-6 col-lg-6 col-sm-6 col-md-6 col-xl-6 d-flex justify-content-center mt-2"
+        >
+          <button
+            class="btn btn-primary rounded-pill"
+            type="button"
+            style="padding-left: 10px;"
+            (click)="onActiveStatusChanged(false)"
+          >
+            Deactivate
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

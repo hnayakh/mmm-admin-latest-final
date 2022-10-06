@@ -11,7 +11,8 @@
       style="overflow-x: scroll;"
       *ngIf="PendingUserList"
     >
-      <table class="table text-center table-hover" id="maintable" datatable #dt>
+    <!-- <ngx-mui-datatable title="Pending Verifications" [data]="PendingUserList" [columns]="columns" [options]="options"></ngx-mui-datatable> -->
+      <table class="table text-center table-hover" [dtOptions]="dtOptions" id="maintable" datatable #dt>
         <ng-template p-template="caption">
           <div>
             <i class="pi pi-search"></i>
@@ -56,7 +57,7 @@
         <tbody>
           <tr *ngFor="let data of PendingUserList; let i = index">
             <td><a routerLink="manage/verification/{{data.id}}">{{ i + 1 }}</a> </td>
-            <td>{{ data.displayId }}</td>
+            <td><a routerLink="manage/verification/{{data.id}}">{{ data.displayId }}</a></td>
             <td>{{ data.name }}</td>
             <td>{{ data.email }}</td>
             <td>{{ data.phoneNumber }}</td>

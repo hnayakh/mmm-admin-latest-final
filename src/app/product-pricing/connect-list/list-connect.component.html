@@ -1,0 +1,56 @@
+<div class="col-md-12 col-lg-12 mt-4">
+    <div class="iq-card">
+      <div class="iq-card-header d-flex justify-content-between">
+        <div class="iq-header-title">
+          <h4 class="card-title">All Connects</h4>
+        </div>
+        <div class="add-staff">
+          <a routerLink="manage-product-pricing/add">
+            <i class="fa fa-plus"></i>
+            <span>Add Connect</span>
+          </a>
+        </div>
+      </div>
+  
+      <div class="iq-card-body" style="overflow-x: scroll;" *ngIf="connectList">
+        <table class="table text-center table-hover" id="maintable" datatable #dt>
+          <ng-template p-template="caption">
+            <div>
+              <i class="pi pi-search"></i>
+              <input
+                type="text"
+                pInputText
+                size="50"
+                placeholder="Search"
+                (input)="dt.filterGlobal($event.target.value, 'contains')"
+                style="width: auto;"
+              />
+            </div>
+          </ng-template>
+          <thead>
+            <tr class="table-head-bg">
+              <th scope="col">Sr no.</th>
+              <th scope="col">Connect Price</th>
+              <th scope="col">Discount</th>
+              <th scope="col">Discount Type</th>
+              <th scope="col">Discounted Price</th>
+              <th scope="col">first Time Benifit Mins</th>
+              <th scope="col">Second Time Benifit Mins</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of connectList">
+              <td><a routerLink="manage-product-pricing/edit/{{data.id}}"> {{ data.id | slice: 24 }}</a></td>
+              <td>{{ data.connectPrice }}</td>
+              <td>{{ data.discount }}</td>
+              <td>{{ data.discountType }}</td>
+              <td>{{ data.discountedPrice }}</td>
+              <td>{{ data.firstTimeBenifitMins }}</td>
+              <td>{{ data.secondTimeBenifitMins }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

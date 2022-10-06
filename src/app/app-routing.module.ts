@@ -72,7 +72,69 @@ const routes: Routes = [
             (m) => m.PendingVerificationsModule
           ),
       },
+      {
+        // lazy loading
 
+        path: "product-pricing",
+        loadChildren: () =>
+          import("./product-pricing/product-pricing.module").then(
+            (m) => m.ProductPricingModule
+          ),
+      },
+      {
+        // lazy loading
+
+        path: "referral-benifits",
+        loadChildren: () =>
+          import("./referral-benifits/referral-benifits.module").then(
+            (m) => m.ReferralBenifitsModule
+          ),
+      },
+      {
+        // lazy loading
+
+        path: "coupon",
+        loadChildren: () =>
+          import("./coupon/coupon.module").then(
+            (m) => m.CouponModule
+          ),
+      },
+      {
+        // lazy loading
+
+        path: "faq",
+        loadChildren: () =>
+          import("./faq/faq.module").then(
+            (m) => m.FaqModule
+          ),
+      },
+      {
+        // lazy loading
+
+        path: "success-stories",
+        loadChildren: () =>
+          import("./success-stories/success-stories.module").then(
+            (m) => m.SuccessStoriesModule
+          ),
+      },
+      {
+        // lazy loading
+
+        path: "content-creation",
+        loadChildren: () =>
+          import("./content-creation/content-creation.module").then(
+            (m) => m.ContentCreationModule
+          ),
+      },
+      {
+        // lazy loading
+
+        path: "broadcast-content",
+        loadChildren: () =>
+          import("./broadcast-content/broadcast-content.module").then(
+            (m) => m.BroadcastContentModule
+          ),
+      },
       {
         path: "report",
         loadChildren: () =>

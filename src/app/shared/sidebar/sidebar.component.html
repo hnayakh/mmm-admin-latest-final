@@ -39,6 +39,96 @@
         </a>
       </li>
       <li>
+        <a
+          href="#charts1"
+          class="iq-waves-effect collapsed"
+          data-toggle="collapse"
+          aria-expanded="false"
+          ><i class="ri-calendar-event-fill"></i><span> Package</span
+          ><i class="ri-arrow-right-s-line iq-arrow-right"></i
+        ></a>
+        <ul
+          id="charts1"
+          class="iq-submenu collapse"
+          data-parent="#iq-sidebar-toggle"
+        >
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/coupon"
+              ><i class="ri-bar-chart-box-fill"></i>Coupon</a
+            >
+          </li>
+
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/product-pricing"
+              ><i class="ri-pie-chart-box-fill"></i> Product-pricing</a
+            >
+          </li>
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/referral-benifits"
+              ><i class="ri-pie-chart-box-fill"></i> Referral-benifits</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a
+          href="#charts2"
+          class="iq-waves-effect collapsed"
+          data-toggle="collapse"
+          aria-expanded="false"
+          ><i class="ri-calendar-event-fill"></i><span> CMS Management</span
+          ><i class="ri-arrow-right-s-line iq-arrow-right"></i
+        ></a>
+        <ul
+          id="charts2"
+          class="iq-submenu collapse"
+          data-parent="#iq-sidebar-toggle"
+        >
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/faq"
+              ><i class="ri-bar-chart-box-fill"></i>FAQ</a
+            >
+          </li>
+
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/success-stories"
+              ><i class="ri-pie-chart-box-fill"></i>Success Stories</a
+            >
+          </li>
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/content-creation"
+              ><i class="ri-pie-chart-box-fill"></i>Content Creation</a
+            >
+          </li>
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/broadcast-content"
+              ><i class="ri-pie-chart-box-fill"></i>Broadcast Content</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
         <a class="iq-wave-effect" (click)="Logout()">
           <i class="ri-logout-circle-line"></i>
           <span>Logout</span>
@@ -49,6 +139,6 @@
 </div>
 <script>
   function loadImg() {
-    $('#frame').attr('src', URL.createObjectURL(event.target.files[0]))
+    $("#frame").attr("src", URL.createObjectURL(event.target.files[0]));
   }
 </script>

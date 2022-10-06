@@ -5,11 +5,12 @@ import { VerificationListComponent } from "./verification-list/verification-list
 import { ManageVerificationComponent } from "./manage-verification/manage-verification.component";
 import { DataTablesModule } from "angular-datatables";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 console.log("active");
 
 @NgModule({
   declarations: [VerificationListComponent,ManageVerificationComponent],
-  imports: [CommonModule, PendingVerificationsRoutingModule,DataTablesModule,CarouselModule],
+  imports: [CommonModule, PendingVerificationsRoutingModule,DataTablesModule,CarouselModule,NgxMuiDatatablesModule],
 })
 export class PendingVerificationsModule {}
