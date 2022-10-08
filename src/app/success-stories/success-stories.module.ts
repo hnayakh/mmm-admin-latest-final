@@ -5,6 +5,8 @@ import { SuccessStoriesRoutingModule } from './success-stories-routing.module';
 import { SuccessStoriesComponent } from './success-stories.component';
 import { AngularDraggableModule } from 'angular2-draggable';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatExpansionModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [SuccessStoriesComponent],
@@ -13,6 +15,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     SuccessStoriesRoutingModule,
     AngularDraggableModule,
     DragDropModule,
+    MatExpansionModule
   ]
 })
 export class SuccessStoriesModule { }
