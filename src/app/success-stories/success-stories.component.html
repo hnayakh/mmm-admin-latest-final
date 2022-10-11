@@ -62,7 +62,7 @@
           <i class='fas fa-align-justify' style="font-size:24px"></i>
         </div>
         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9  text-center">
-      <mat-accordion cdkDropList 
+      <!-- <mat-accordion cdkDropList 
       #unassignedList="cdkDropList"
       [cdkDropListData]="faqs"
       [cdkDropListConnectedTo]="[assignedList]"
@@ -73,18 +73,19 @@
              <mat-panel-title>
                {{faq.question}}
              </mat-panel-title>
+            
              <mat-panel-description>
               {{faq.answer}}
              </mat-panel-description>
            </mat-expansion-panel-header>   
         </mat-expansion-panel>
-      </mat-accordion>
+      </mat-accordion> -->
       <mat-accordion cdkDropList #assignedList="cdkDropList" [cdkDropListData]="targetFAQs"
       [cdkDropListConnectedTo]="[unassignedList]" (cdkDropListDropped)="drop($event)">
       <mat-expansion-panel *ngFor="let task of targetFAQs" cdkDrag>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{ task.question }}
+            {{ task.question }} 
           </mat-panel-title>
           <mat-panel-description>
             {{ task.answer }}

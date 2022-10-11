@@ -120,7 +120,7 @@
 
         <div class="row mt-5">
           <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10  text-center">
-        <mat-accordion cdkDropList 
+        <!-- <mat-accordion cdkDropList 
         #unassignedList="cdkDropList"
         [cdkDropListData]="faqs"
         [cdkDropListConnectedTo]="[assignedList]"
@@ -136,7 +136,7 @@
                </mat-panel-description>
              </mat-expansion-panel-header>   
           </mat-expansion-panel>
-        </mat-accordion>
+        </mat-accordion> -->
         <mat-accordion cdkDropList #assignedList="cdkDropList" [cdkDropListData]="targetFAQs"
 				[cdkDropListConnectedTo]="[unassignedList]" (cdkDropListDropped)="drop($event)">
 				<mat-expansion-panel *ngFor="let task of targetFAQs" cdkDrag>

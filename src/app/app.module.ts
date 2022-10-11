@@ -19,6 +19,9 @@ import { AngularDraggableModule } from 'angular2-draggable';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatExpansionModule } from '@angular/material';
+import { UserBalanceComponent } from "./user-balance/user-balance.component";
+import { PaymentDetailsComponent } from "./payment-details/payment-details.component";
+
 
 @NgModule({
   declarations: [AppComponent, FullscreenComponent, BlankscreenComponent],
@@ -37,7 +40,9 @@ import { MatExpansionModule } from '@angular/material';
      AngularDraggableModule,
      DragDropModule,
      MatSliderModule,
-     MatExpansionModule
+     MatExpansionModule,
+     
+
   ],
 
   providers: [
