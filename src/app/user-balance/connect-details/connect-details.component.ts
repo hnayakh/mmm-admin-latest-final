@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connect-details.component.css']
 })
 export class ConnectDetailsComponent implements OnInit {
- 
-  constructor() { }
+  UserId:any;
+  constructor(private activatedRoute: ActivatedRoute) { 
+    this.UserId = this.activatedRoute.snapshot.params.id;
+  }
  
   ngOnInit() {
-   
+   console.log(this.UserId)
   }
   
 }

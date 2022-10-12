@@ -135,24 +135,24 @@ const routes: Routes = [
             (m) => m.BroadcastContentModule
           ),
       },
-      {
-        // lazy loading
+      // {
+      //   // lazy loading
 
-        path: "payment-details",
-        loadChildren: () =>
-          import("./payment-details/payment-details.module").then(
-            (m) => m.PaymentDetailsModule
-          ),
-      },
-      {
-        // lazy loading
+      //   path: "payment-details",
+      //   loadChildren: () =>
+      //     import("./payment-details/payment-details.module").then(
+      //       (m) => m.PaymentDetailsModule
+      //     ),
+      // },
+      // {
+      //   // lazy loading
 
-        path: "connect-details",
-        loadChildren: () =>
-          import("./connect-details/connect-details.module").then(
-            (m) => m.ConnectDetailsModule
-          ),
-      },
+      //   path: "connect-details",
+      //   loadChildren: () =>
+      //     import("./connect-details/connect-details.module").then(
+      //       (m) => m.ConnectDetailsModule
+      //     ),
+      // },
       {
         // lazy loading
 
