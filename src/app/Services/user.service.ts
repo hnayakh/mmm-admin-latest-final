@@ -12,6 +12,7 @@ export class UserService {
     return this.http.get(url, { headers: headers });
   }
   getAllUsersAdmin(){
+    console.log("Api called");
     let url = environment.baseURL + environment.User.AllActiveUsers;
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });

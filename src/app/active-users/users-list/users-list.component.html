@@ -192,7 +192,7 @@
       </div>
     </div>
 
-    <div class="iq-card-body" style="overflow-x: scroll" *ngIf="ActiveUserList.users">
+    <div class="iq-card-body" style="overflow-x: scroll" *ngIf="ActiveUserList&& ActiveUserList.users">
       <table class="table text-center table-hover" id="maintable" datatable #dt>
         <ng-template p-template="caption">
           <div>
