@@ -20,7 +20,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatExpansionModule } from '@angular/material';
 import { UserBalanceComponent } from "./user-balance/user-balance.component";
-import { PaymentDetailsComponent } from "./payment-details/payment-details.component";
+
 
 
 @NgModule({

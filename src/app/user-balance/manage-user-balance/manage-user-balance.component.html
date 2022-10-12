@@ -8,15 +8,18 @@
       <div class="row">
           <div class="col-lg-12">
             <div class="row col-lg-12">
-              <div class="col-lg-3 col-md-6">
+             
+              <div class="col-lg-3 col-md-6" routerLink="connect-details">
                 <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                   <div class="iq-card-body iq-bg-warning rounded">
                     <div class="d-flex align-items-center justify-content-between">
                       <!-- <div class="rounded-circle iq-card-icon bg-info">
                         <i class="fas fa-user-md"></i>
                       </div> -->
+                      
                       <div class="text-center">
                         <h2>Connect Details</h2>
+                        
                         <!-- <h2 class="mb-0">
                           <span class="counter">200</span>
                         </h2>
@@ -26,7 +29,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-md-6">
+          
+              <div class="col-lg-3 col-md-6" routerLink="payment-details">
                 <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                   <div class="iq-card-body iq-bg-success rounded">
                     <div class="d-flex align-items-center justify-content-between">
@@ -73,7 +77,7 @@
   
       
       <div class="iq-card-body" style="overflow-x: scroll">
-        <div class="container mt-3">
+        <div class="container mt-3" *ngIf="rechargeHistoryUser">
           <table class="table table-bordered" id="maintable" datatable>
             <thead>
               <tr class="table-head-bg">
