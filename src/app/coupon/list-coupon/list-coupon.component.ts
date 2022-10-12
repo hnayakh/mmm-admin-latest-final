@@ -11,10 +11,18 @@ import Swal from "sweetalert2";
 export class ListCouponComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   couponList: any;
-
+  
+   DiscountType = {
+    Percentage : 0,
+    Amount : 1
+  };
+  allDiscountTypes
+  allActivationStatus: string[];
   constructor(private router: Router, private masterService: MasterService) {}
 
   ngOnInit() {
+    this.allDiscountTypes = Object.keys(this.DiscountType)
+
     this.getAllCoupons();
   }
   getAllCoupons() {
@@ -27,4 +35,6 @@ export class ListCouponComponent implements OnInit {
       }
     );
   }
+
 }
+
