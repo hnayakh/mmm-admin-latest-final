@@ -1,3 +1,6 @@
 .cursor-pointer{
 cursor: pointer;
 }
+td {
+    text-align: left;
+  }

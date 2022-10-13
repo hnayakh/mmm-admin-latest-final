@@ -7,7 +7,13 @@ import { AddAdminUserComponent } from "./add-admin-users/add-admin-users.compone
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
-  declarations: [ManageAdminUsersComponent,AddAdminUserComponent],
-  imports: [CommonModule, AdminUsersRoutingModule,DataTablesModule,FormsModule,ReactiveFormsModule],
+  declarations: [ManageAdminUsersComponent, AddAdminUserComponent],
+  imports: [
+    CommonModule,
+    AdminUsersRoutingModule,
+    DataTablesModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class AdminUsersModule {}
