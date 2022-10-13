@@ -1,8 +1,8 @@
 export const environment = {
   production: true,
   //  baseURL: "https://immense-brook-06350.herokuapp.com/api/",
-  // baseURL: "http://13.233.130.85:3000/api/",
-  baseURL: "http://localhost:3000/api/",
+  baseURL: "http://13.233.130.85:3000/api/",
+  // baseURL: "http://localhost:3000/api/",
   Authentication: {
     ADMIN_LOGIN: "auth/admin/login",
     ADMIN_USERS: "users/admin",
@@ -14,28 +14,21 @@ export const environment = {
     FORGOTPASSWORD: "auth/forgotPassword",
     getAllNotification: "caregiver/booking/getallnotifications",
   },
-  Master:{
-    GET_ALL_COUPONS:'masters/coupons',
-    ADD_AND_UPDATE_COUPONS:'masters/coupon',
-    GET_ALL_REFERRALS:"masters/referrals",
-    UPDATE_REFERRALS:'masters/referral?referralId=291ae155-d907-414e-ae0b-353d4c66dafe',
-    GET_ALL_CONNECTS:"masters/connects",
-    GET_CONNECT_BY_ID:"masters/connect/",
-    CREATE_AND_UPDATE_CONNET:'masters/connect'
-
+  Master: {
+    GET_ALL_COUPONS: "masters/coupons",
+    ADD_AND_UPDATE_COUPONS: "masters/coupon",
+    GET_ALL_REFERRALS: "masters/referrals",
+    UPDATE_REFERRALS:
+      "masters/referral?referralId=291ae155-d907-414e-ae0b-353d4c66dafe",
+    GET_ALL_CONNECTS: "masters/connects",
+    GET_CONNECT_BY_ID: "masters/connect/",
+    CREATE_AND_UPDATE_CONNET: "masters/connect",
   },
-  User:{
-    AllVerifiedUser:"users/admin/appUsers?isVerified=0",
-    AllActiveUsers:""
+  User: {
+    AllVerifiedUser: "users/admin/appUsers?isVerified=0",
+    AllActiveUsers: "",
   },
-  Role : [
-    "L1 Support",
-    "L2 Support",
-    "L3 Support",
-    "Admin",
-    "Super Admin",
-  ],
-
+  Role: ["L1 Support", "L2 Support", "L3 Support", "Admin", "Super Admin"],
 };
 
 export const USERID = "id_token";
