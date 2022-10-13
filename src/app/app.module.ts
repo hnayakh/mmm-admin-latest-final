@@ -19,6 +19,7 @@ import { AngularDraggableModule } from "angular2-draggable";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatExpansionModule } from "@angular/material";
+import { UserBalanceComponent } from "./user-balance/user-balance.component";
 
 @NgModule({
   declarations: [AppComponent, FullscreenComponent, BlankscreenComponent],

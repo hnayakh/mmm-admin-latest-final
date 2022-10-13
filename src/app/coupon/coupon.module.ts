@@ -1,21 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { CouponRoutingModule } from './coupon-routing.module';
-import { CouponComponent } from './coupon.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListCouponComponent } from './list-coupon/list-coupon.component';
-import { DataTablesModule } from 'angular-datatables';
-
+import { CouponRoutingModule } from "./coupon-routing.module";
+import { CouponComponent } from "./coupon.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ListCouponComponent } from "./list-coupon/list-coupon.component";
+import { DataTablesModule } from "angular-datatables";
 
 @NgModule({
-  declarations: [CouponComponent,ListCouponComponent],
+  declarations: [CouponComponent, ListCouponComponent],
   imports: [
     CommonModule,
     CouponRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    DataTablesModule
-  ]
+    DataTablesModule,
+  ],
 })
-export class CouponModule { }
+export class CouponModule {}

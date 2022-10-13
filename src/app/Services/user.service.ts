@@ -11,6 +11,12 @@ export class UserService {
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
+  getAllUsersAdmin(){
+    console.log("Api called");
+    let url = environment.baseURL + environment.User.AllActiveUsers;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
   GetActiveUSers(
     searchText = "",
     gender = 3,
@@ -57,6 +63,11 @@ export class UserService {
   }
   RejectUser(id: any) {
     let url = environment.baseURL + "users/admin/rejct/" + id;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
+  getRechargeHistory(id:any){
+    let url = environment.baseURL + "connects/recharge/"+ id
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }

@@ -1,0 +1,113 @@
+<div class="col-md-12 col-lg-12 mt-4">
+    <div class="iq-card">
+      <div class="iq-card-header d-flex justify-content-between">
+        <div class="iq-header-title">
+          <h4 class="card-title"> Manage User Balance</h4>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+            <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="row col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+
+             
+              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3" routerLink="connect-details">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                  <div class="iq-card-body iq-bg-warning rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <!-- <div class="rounded-circle iq-card-icon bg-info">
+                        <i class="fas fa-user-md"></i>
+                      </div> -->
+                      
+                      <div class="text-center">
+                        <h2>Connect Details</h2>
+                        
+                        <!-- <h2 class="mb-0">
+                          <span class="counter">200</span>
+                        </h2>
+                        <h5 class="">All Users</h5> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3" routerLink="payment-details">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                  <div class="iq-card-body iq-bg-success rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <!-- <div class="rounded-circle iq-card-icon bg-info">
+                        <i class="fas fa-user-md"></i>
+                      </div> -->
+                      <div class="text-center">
+                        <h2>Payment Details</h2>
+                        <!-- <h2 class="mb-0">
+                          <span class="counter">200</span>
+                        </h2>
+                        <h5 class="">All Users</h5> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                  <div class="iq-card-body iq-bg-info rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <!-- <div class="rounded-circle iq-card-icon bg-info">
+                        <i class="fas fa-user-md"></i>
+                      </div> -->
+                      <div class="text-center">
+                        <h2>Current Balance</h2>
+                        <!-- <h2>
+                          <span class="counter">200</span>
+                        </h2> -->
+                        <!-- <h5 class="">All Users</h5> -->
+                      </div>
+                      <div>
+                        <span class="counter"><h1>2</h1>Connects</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1"></div>
+
+              </div>  
+              </div>
+              </div>
+              
+  
+  
+      
+      <div class="iq-card-body" style="overflow-x: scroll">
+        <div class="container mt-3" *ngIf="rechargeHistoryUser">
+          <table class="table table-bordered" id="maintable" datatable>
+            <thead>
+              <tr class="table-head-bg">
+                <th >Transection ID</th>
+                <th >Time Stamp</th>
+                <th >Payment Source</th>
+                <th >Discount</th>
+                <th >Discount Source</th>
+                <th >Amount</th>
+                <th >No of Connects</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let data of rechargeHistoryUser;let i = index">
+                <td>{{data.transactionId}}</td>
+                <td>{{data.createdAt}}</td>
+                <td>{{data.modeOfPayment}}</td>
+                <td>{{data.discountedAmount}}</td>
+                <td>{{data.couponCode}}</td>
+                <td>{{data.actualAmount}}</td>
+                <td>{{data.connectCount}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

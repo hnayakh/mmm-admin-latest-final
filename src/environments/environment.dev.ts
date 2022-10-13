@@ -26,7 +26,7 @@ export const environment = {
   },
   User: {
     AllVerifiedUser: "users/admin/appUsers?isVerified=0",
-    AllActiveUsers: "",
+    AllActiveUsers: "users/admin/appUsers?isVerified=1",
   },
   Role: ["L1 Support", "L2 Support", "L3 Support", "Admin", "Super Admin"],
 };

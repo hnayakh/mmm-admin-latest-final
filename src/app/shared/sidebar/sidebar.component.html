@@ -38,6 +38,12 @@
           <span>Active Users</span>
         </a>
       </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/user-balance" class="iq-waves-effect">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span>Users Balance</span>
+        </a>
+      </li>
       <li>
         <a
           href="#charts1"
@@ -128,6 +134,47 @@
           </li>
         </ul>
       </li>
+      <!-- <li>
+        <a
+          href="#charts3"
+          class="iq-waves-effect collapsed"
+          data-toggle="collapse"
+          aria-expanded="false"
+          ><i class="ri-calendar-event-fill"></i><span>User</span
+          ><i class="ri-arrow-right-s-line iq-arrow-right"></i
+        ></a>
+        <ul
+          id="charts3"
+          class="iq-submenu collapse"
+          data-parent="#iq-sidebar-toggle"
+        >
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/payment-details"
+              ><i class="ri-bar-chart-box-fill"></i>Payment Details</a
+            >
+          </li>
+
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/connect-details"
+              ><i class="ri-pie-chart-box-fill"></i>Connect Details</a
+            >
+          </li>
+          <li
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/user-balance"
+              ><i class="ri-pie-chart-box-fill"></i>User Balane</a
+            >
+          </li>
+        </ul>
+      </li> -->
       <li>
         <a class="iq-wave-effect" (click)="Logout()">
           <i class="ri-logout-circle-line"></i>
