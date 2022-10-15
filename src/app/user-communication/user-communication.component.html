@@ -1,78 +1,37 @@
-
-
-
-  <div class="col-md-12 col-lg-12 mt-4">
-    <div class="iq-card">
-      <div class="iq-card-header d-flex justify-content-between">
-        <div class="iq-header-title">
-          <h4 class="card-title"></h4>
-        </div>
-        
+<div class="col-md-12 col-lg-12 mt-4">
+  <div class="iq-card">
+    <div class="iq-card-header d-flex justify-content-between">
+      <div class="iq-header-title">
       </div>
-      <div
-        class="iq-card-body"
-        style="overflow-x: scroll"
-      >
-      <div class="container mt-3">        
-        <table class="table table-bordered">
+    </div>
+    
+    <div class="iq-card-body" style="overflow-x: scroll">
+      <div class="container mt-3" *ngIf="rechargeHistoryUser">
+        <table class="table table-bordered" id="maintable" datatable>
           <thead>
-            <tr>
-              <th class="table-head-bg">Users</th>
-              <th class="table-head-bg"></th>
-              <th class="table-head-bg">Calling Duration</th>
-              <th class="table-head-bg">Masked chat</th>
-              <th class="table-head-bg">Contact Details Privacy</th>
-              <th class="table-head-bg">Connect spend Date</th>
-              <th class="table-head-bg">Last Seen</th>
-              <th class="table-head-bg">MPID</th>
-              <th class="table-head-bg">Transection status</th>
-
+            <tr class="table-head-bg">
+              <th >users</th>
+              <th >Calling Duration</th>
+              <th >Masked Chat</th>
+              <th >contact Details<br>Privacy</th>
+              <th >connect<br>Spend Date</th>
+              <th >Last Seen</th>
+              <th >Refund</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>MPID</td>
-              <td>User B</td>
-              <td>0 min</td>
-              <td>20%</td>
-              <td>Coupon</td>
-              <td>80</td>
-              <td>2</td>
+            <tr  *ngFor="let data of rechargeHistoryUser;let i = index">
+              <td>{{data.transactionId}}</td>
               <td></td>
               <td></td>
-
-            </tr>
-            <tr>
-              <td>MPID</td>
-              <td>User C</td>
-              <td>NA</td>
-              <td>100%</td>
-              <td>Referral</td>
-              <td>0</td>
-              <td>1</td>
               <td></td>
-              <td></td>
-
-            </tr>
-            <tr>
-              <td>NEFT/dfhcjd/034</td>
-              <td>DD:MM:YY:HH:MM</td>
-              <td>Online banking</td>
-              <td>0%</td>
-              <td>NA</td>
-              <td>200</td>
-              <td>4</td>
-              <td></td>
+              <td>{{data.createdAt | date: "dd/MM/yyyy"}}</td>
+              <td>{{data.createdAt | date: "dd/MM/yyyy"}}</td>
               <td></td>
             </tr>
-            
           </tbody>
         </table>
       </div>
-      
-
-      </div>
-      </div>
-      </div>
-
-
+    </div>
+  </div>
+</div>

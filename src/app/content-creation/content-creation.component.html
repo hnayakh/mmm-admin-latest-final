@@ -182,15 +182,22 @@
                   <mat-panel-title>
                     {{ task.question }}
                   </mat-panel-title>
-                  <mat-panel-description>
-                    {{ task.answer }}
-                  </mat-panel-description>
+                  <i class="fa fa-edit" style="font-size: 24px"></i>
+                  <i
+                  class="fa fa-trash"
+                  aria-hidden="true"
+                  style="font-size: 24px"
+                ></i>
+                  
                 </mat-expansion-panel-header>
+                <mat-panel-description>
+                  {{ task.answer }}
+                </mat-panel-description>
               </mat-expansion-panel>
             </mat-accordion>
           </div>
 
-          <div
+          <!-- <div
             class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 text-center"
           >
             <div class="row">
@@ -209,7 +216,7 @@
                 ></i>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </form>
     </div>

@@ -28,6 +28,10 @@ export const environment = {
     AllVerifiedUser: "users/admin/appUsers?isVerified=0",
     AllActiveUsers: "users/admin/appUsers?isVerified=1",
   },
+  Cms: {
+    AllFaqs: "cms/faq/all",
+    CREATE_FAQ: "cms/faq"
+  },
   Role: ["L1 Support", "L2 Support", "L3 Support", "Admin", "Super Admin"],
 };
 
