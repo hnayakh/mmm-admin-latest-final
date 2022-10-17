@@ -6,6 +6,8 @@ import {
 } from "@angular/cdk/drag-drop";
 import { CmsService } from "../Services/cms.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import swal from "sweetalert2";
+import Swal from "sweetalert2";
 @Component({
   selector: "app-faq",
   templateUrl: "./faq.component.html",
@@ -21,6 +23,7 @@ export class FaqComponent implements OnInit {
   };
   faqs = [];
   targetFAQs = [];
+  taskNeedToUpdate;
   faqForm: FormGroup;
 
   constructor(
@@ -47,7 +50,6 @@ export class FaqComponent implements OnInit {
     this.faqForm = this.formbuilder.group({
       question: ["", Validators.required],
       answer: ["", Validators.required],
-     
     });
     this.GetallFaqs();
     // this.faqs = [
@@ -85,21 +87,34 @@ export class FaqComponent implements OnInit {
   GetallFaqs() {
     this.cmsService.getAllFaqs().subscribe(
       (data: any) => {
-        console.log(data);
+        // console.log(data);
+        // swal.fire("created!", "", "success")
         this.faqs = data.data;
         this.targetFAQs = data.data;
       },
       (err) => {
         console.log(err);
+        swal.fire("unable to create!", "", "error");
       }
     );
   }
   CreateFaqs() {
-    console.log(this.faqForm.value)
-      this.cmsService.updateAndAddFaqs({...this.faqForm.value,position:0}).subscribe(
-        (data: any) => {
-     alert("one more question added successfully") 
-     this.GetallFaqs()
-        });
+    console.log(this.faqForm.value);
+    this.cmsService
+      .updateAndAddFaqs({ ...this.faqForm.value, position: 0 })
+      .subscribe((data: any) => {
+        console.log(data);
+        Swal.fire("Created!", "", "success");
+
+        //  alert("one more question added successfully")
+        this.GetallFaqs();
+      });
+  }
+  onClickEditItem(task) {
+    this.taskNeedToUpdate = task;
+    this.faqForm.setValue({
+      question: task.question,
+      answer: task.answer,
+    });
   }
 }

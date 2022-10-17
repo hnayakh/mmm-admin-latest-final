@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="iq-card-body" style="overflow-x: scroll">
-      <form  [formGroup]="faqForm"(submit)="CreateFaqs()" >
+      <form [formGroup]="faqForm" (submit)="CreateFaqs()">
         <div class="row">
           <div
             class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-start"
@@ -16,6 +16,7 @@
               type="text"
               formControlName="question"
               class="form-control text-start"
+              
               placeholder="What is a connect?"
             />
           </div>
@@ -47,6 +48,7 @@
               <div class="d-flex justify-content-end">
                 <button
                   type="submit"
+                  (click)="CreateFaqs()"
                   class="btn btn-primary rounded-pill"
                   style="width: 100%"
                 >
@@ -86,7 +88,7 @@
              </mat-expansion-panel-header>   
           </mat-expansion-panel>
         </mat-accordion> -->
-        
+
             <mat-accordion
               cdkDropList
               #assignedList="cdkDropList"
@@ -94,38 +96,47 @@
               [cdkDropListConnectedTo]="[unassignedList]"
               (cdkDropListDropped)="drop($event)"
             >
-            
               <mat-expansion-panel *ngFor="let task of targetFAQs" cdkDrag>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
-                      <i class="fas fa-align-justify" style="font-size: 24px"></i>
+                    <div
+                      class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1"
+                    >
+                      <i
+                        class="fas fa-align-justify"
+                        style="font-size: 24px"
+                      ></i>
                     </div>
-                 <div class="col-xs-8 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9 text-center">
-                    {{ task.question }}
-                  </div>
+                    <div
+                      class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9 text-center"
+                    >
+                      {{ task.question }}
+                    </div>
                   </mat-panel-title>
-                  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-                  <i class="fa fa-edit" style="font-size: 24px"></i>
-                  <i
-                  class="fa fa-trash"
-                  aria-hidden="true"
-                  style="font-size: 24px"
-                ></i>
-              </div>
+                  <div
+                    class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"
+                  >
+                    <i class= "mx-2 fa fa-edit" style="font-size: 24px" (click)="onClickEditItem(task)"></i>
+                    <i
+                      class=" fa fa-trash"
+                      aria-hidden="true"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
                 </mat-expansion-panel-header>
                 <mat-panel-description>
-                  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10 text-center">
-                  {{ task.answer }}
-                </div>
+                  <div
+                    class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10 text-center"
+                  >
+                    {{ task.answer }}
+                  </div>
                 </mat-panel-description>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-                </div>
+                <div
+                  class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"
+                ></div>
               </mat-expansion-panel>
             </mat-accordion>
           </div>
-
-         
         </div>
       </form>
     </div>

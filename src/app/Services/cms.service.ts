@@ -7,6 +7,9 @@ import { environment } from 'src/environments/environment.dev';
   providedIn: 'root'
 })
 export class CmsService {
+  getCreateFaqs() {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(private http: HttpClient) { }
   getAllFaqs() {
@@ -24,4 +27,5 @@ export class CmsService {
     const headers = { "content-type": "application/json" };
     return this.http.post(url, data, { headers: headers });
   }
+
 }

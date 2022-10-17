@@ -106,20 +106,26 @@
             <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
             <i class="fas fa-align-justify" style="font-size: 24px"></i>
           </div>
-          <div class="col-xs-9 col-">
+          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9 text-center">
             {{ task.question }}
           </div>
           </mat-panel-title>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
           <i class="fa fa-edit" style="font-size: 24px"></i>
           <i
           class="fa fa-trash"
           aria-hidden="true"
           style="font-size: 24px"
         ></i>
+        </div>
         </mat-expansion-panel-header>
         <mat-panel-description>
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10 text-center">
           {{ task.answer }}
+        </div>
         </mat-panel-description>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+        </div>
       </mat-expansion-panel>
     </mat-accordion>
             </div>
