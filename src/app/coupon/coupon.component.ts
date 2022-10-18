@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { MasterService } from "../Services/master.service";
 import * as moment from "moment";
-
+import Swal from "sweetalert2";
 @Component({
   selector: "app-coupon",
   templateUrl: "./coupon.component.html",
@@ -68,9 +68,12 @@ export class CouponComponent implements OnInit {
         .subscribe(
           (data: any) => {
             console.log(data);
+            Swal.fire("Created!", "", "success");
+            this.router.navigate(['/coupon'])
           },
           (error) => {
             console.log(error);
+            Swal.fire("Unable to create!", "", "error");
           }
         );
     } else {
@@ -78,14 +81,17 @@ export class CouponComponent implements OnInit {
         .updateAndAddCoupon({
           ...this.percenetageDiscount.value,
           discountType: 0,
-          type: 1
+          type: 1,
         })
         .subscribe(
           (data: any) => {
             console.log(data);
+            Swal.fire("Created!", "", "success");
+            this.router.navigate(['coupon'])
           },
           (error) => {
             console.log(error);
+            Swal.fire("Unable to create!", "", "error");
           }
         );
     }
@@ -103,9 +109,12 @@ export class CouponComponent implements OnInit {
         .subscribe(
           (data: any) => {
             console.log(data);
+            Swal.fire("Created!", "", "success");
+            this.router.navigate(['coupon'])
           },
           (error) => {
             console.log(error);
+            Swal.fire("Unable to create!", "", "error");
           }
         );
     } else {
@@ -113,14 +122,17 @@ export class CouponComponent implements OnInit {
         .updateAndAddCoupon({
           ...this.amountDiscount.value,
           discountType: 1,
-          type: 1
+          type: 1,
         })
         .subscribe(
           (data: any) => {
             console.log(data);
+            Swal.fire("Created!", "", "success");
+            this.router.navigate(['coupon'])
           },
           (error) => {
             console.log(error);
+            Swal.fire("Unable to create!", "", "error");
           }
         );
     }
@@ -140,20 +152,19 @@ export class CouponComponent implements OnInit {
         this.couponList = data.data;
         this.id = data.data.id;
         this.typeSelected = data.data.discountType;
-        if(data.data.discountType==0){
+        if (data.data.discountType == 0) {
           this.percenetageDiscount.setValue({
             couponCode: data.data.couponCode,
             validTill: moment(data.data.validTill).format("YYYY-MM-DD"),
             discount: data.data.discount,
           });
-        }else{
+        } else {
           this.amountDiscount.setValue({
             couponCode: data.data.couponCode,
             validTill: moment(data.data.validTill).format("YYYY-MM-DD"),
             discount: data.data.discount,
           });
         }
-
       },
       (error) => {
         console.log(error);

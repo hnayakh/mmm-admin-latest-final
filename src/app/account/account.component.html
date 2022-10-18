@@ -1,0 +1,37 @@
+<div class="col-md-12 col-lg-12 mt-4">
+  <div class="iq-card">
+    <div class="iq-card-header d-flex justify-content-between">
+      <div class="iq-header-title">
+      </div>
+    </div>
+    
+    <div class="iq-card-body" style="overflow-x: scroll">
+      <div class="container mt-3" *ngIf="rechargeHistoryUser">
+        <table class="table table-bordered" id="maintable" datatable>
+          <thead>
+            <tr class="table-head-bg">
+              <th >Transection ID</th>
+              <th >Time Stamp</th>
+              <th >Payment Source</th>
+              <th >Discount</th>
+              <th >Discount Source</th>
+              <th >Amount</th>
+              <th >No of Connects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let data of rechargeHistoryUser;let i = index">
+              <td>{{data.transactionId}}</td>
+              <td>{{data.createdAt}}</td>
+              <td>{{data.modeOfPayment}}</td>
+              <td>{{data.discountedAmount}}</td>
+              <td>{{data.couponCode}}</td>
+              <td>{{data.actualAmount}}</td>
+              <td>{{data.connectCount}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

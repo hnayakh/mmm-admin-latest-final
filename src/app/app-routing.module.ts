@@ -163,6 +163,33 @@ const routes: Routes = [
           ),
       },
       {
+        // lazy loading
+
+        path: "meet",
+        loadChildren: () =>
+          import("./meet/meet.module").then(
+            (m) => m.MeetModule
+          ),
+      },
+      {
+        // lazy loading
+
+        path: "account",
+        loadChildren: () =>
+          import("./account/account.module").then(
+            (m) => m.AccountModule
+          ),
+      },
+      {
+        // lazy loading
+
+        path: "user-communication",
+        loadChildren: () =>
+          import("./user-communication/user-communication.module").then(
+            (m) => m.UserCommunicationModule
+          ),
+      },
+      {
         path: "report",
         loadChildren: () =>
           import("./report/report.module").then((m) => m.ReportModule),

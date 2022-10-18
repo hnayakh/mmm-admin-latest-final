@@ -1,0 +1,37 @@
+<div class="col-md-12 col-lg-12 mt-4">
+  <div class="iq-card">
+    <div class="iq-card-header d-flex justify-content-between">
+      <div class="iq-header-title">
+      </div>
+    </div>
+    
+    <div class="iq-card-body" style="overflow-x: scroll">
+      <div class="container mt-3" *ngIf="rechargeHistoryUser">
+        <table class="table table-bordered" id="maintable" datatable>
+          <thead>
+            <tr class="table-head-bg">
+              <th >users</th>
+              <th >Calling Duration</th>
+              <th >Masked Chat</th>
+              <th >contact Details<br>Privacy</th>
+              <th >connect<br>Spend Date</th>
+              <th >Last Seen</th>
+              <th >Refund</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let data of rechargeHistoryUser;let i = index">
+              <td>{{data.transactionId}}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>{{data.createdAt | date: "dd/MM/yyyy"}}</td>
+              <td>{{data.createdAt | date: "dd/MM/yyyy"}}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

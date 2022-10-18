@@ -1,52 +1,60 @@
 <div class="col-md-12 col-lg-12 mt-4">
-    <div class="iq-card">
-      <div class="iq-card-header d-flex justify-content-between">
-        <div class="iq-header-title">
-          <h4 class="card-title">All Coupons</h4>
-        </div>
-        <div class="add-staff">
-          <a routerLink="manage-coupon/add">
-            <i class="fa fa-plus"></i>
-            <span>Add Coupon</span>
-          </a>
-        </div>
+  <div class="iq-card">
+    <div class="iq-card-header d-flex justify-content-between">
+      <div class="iq-header-title">
+        <h4 class="card-title">Coupons History</h4>
       </div>
-  
-      <div class="iq-card-body" style="overflow-x: scroll;" *ngIf="couponList">
-        <table class="table text-center table-hover" id="maintable" datatable #dt>
-          <ng-template p-template="caption">
-            <div>
-              <i class="pi pi-search"></i>
-              <input
-                type="text"
-                pInputText
-                size="50"
-                placeholder="Search"
-                (input)="dt.filterGlobal($event.target.value, 'contains')"
-                style="width: auto;"
-              />
-            </div>
-          </ng-template>
-          <thead>
-            <tr class="table-head-bg">
-              <th scope="col">Sr no.</th>
-              <th scope="col">Coupon Code</th>
-              <th scope="col">Discount</th>
-              <th scope="col">Discount Type</th>
-              <th scope="col">Valit till</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let data of couponList">
-              <td><a routerLink="manage-coupon/edit/{{data.couponCode}}"> {{ data.id | slice: 24 }}</a></td>
-              <td>{{ data.couponCode }}</td>
-              <td>{{ data.discount }}</td>
-              <td>{{ data.discountType }}</td>
-              <td>{{ data.validTill }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="add-staff">
+        <a routerLink="manage-coupon/add">
+          <i class="fa fa-plus"></i>
+          <span>Add Coupon</span>
+        </a>
       </div>
     </div>
+
+    <div class="iq-card-body" style="overflow-x: scroll" *ngIf="couponList">
+      <table class="table text-center table-hover" id="maintable" datatable #dt>
+        <ng-template p-template="caption">
+          <div>
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              pInputText
+              size="50"
+              placeholder="Search"
+              (input)="dt.filterGlobal($event.target.value, 'contains')"
+              style="width: auto"
+            />
+          </div>
+        </ng-template>
+        <thead>
+          <tr class="table-head-bg">
+            <th scope="col">Coupon Code</th>
+            <th scope="col">Benifit</th>
+            <th scope="col">Benifit Type</th>
+            <th scope="col">Expiry Date</th>
+            <th scope="col">Expiry status</th>
+            <th scope="col">Force Inactive</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of couponList">
+            <td>
+              <a routerLink="manage-coupon/edit/{{ data.couponCode }}">
+                {{ data.id | slice: 30 }}</a
+              >{{ data.couponCode }}
+            </td>
+
+            <td>{{ data.discount }}</td>
+            <td>{{ allDiscountTypes[data.discountType] }}</td>
+            <td>{{ data.validTill | date: "dd/MM/yyyy" }}</td>
+            <td>{{ data.expire_status }}</td>
+            <td>
+              <button class="btn btn-primary" type="button">Trash</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  
+</div>
