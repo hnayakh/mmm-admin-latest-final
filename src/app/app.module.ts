@@ -13,15 +13,13 @@ import { AuthGuard } from "./auth.guard";
 import { AdminUsersModule } from "./admin-users/admin-users.module";
 import { PendingVerificationsModule } from "./pending-verifications/pending-verifications.module";
 import { DataTablesModule } from "angular-datatables";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
-import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
-import { AngularDraggableModule } from 'angular2-draggable';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatExpansionModule } from '@angular/material';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgxMuiDatatablesModule } from "ngx-mui-datatables";
+import { AngularDraggableModule } from "angular2-draggable";
+import { DragDropModule } from "@angular/cdk/drag-drop";
+import { MatSliderModule } from "@angular/material/slider";
+import { MatExpansionModule } from "@angular/material";
 import { UserBalanceComponent } from "./user-balance/user-balance.component";
-
-
 
 @NgModule({
   declarations: [AppComponent, FullscreenComponent, BlankscreenComponent],
@@ -37,12 +35,10 @@ import { UserBalanceComponent } from "./user-balance/user-balance.component";
     DataTablesModule,
     BrowserAnimationsModule,
     NgxMuiDatatablesModule,
-     AngularDraggableModule,
-     DragDropModule,
-     MatSliderModule,
-     MatExpansionModule,
-     
-
+    AngularDraggableModule,
+    DragDropModule,
+    MatSliderModule,
+    MatExpansionModule,
   ],
 
   providers: [
