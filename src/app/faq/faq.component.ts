@@ -117,4 +117,11 @@ export class FaqComponent implements OnInit {
       answer: task.answer,
     });
   }
+  onClick(id) {
+    this.taskNeedToUpdate = id;
+    this.faqForm.setValue({
+      question: id.question,
+      answer: id.answer,
+    });
+  }
 }
