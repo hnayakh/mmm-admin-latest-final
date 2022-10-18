@@ -6,6 +6,7 @@ import { SuccessStoriesComponent } from './success-stories.component';
 import { AngularDraggableModule } from 'angular2-draggable';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatExpansionModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { MatExpansionModule } from '@angular/material';
     SuccessStoriesRoutingModule,
     AngularDraggableModule,
     DragDropModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class SuccessStoriesModule { }

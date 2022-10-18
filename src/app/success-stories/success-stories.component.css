@@ -1,0 +1,24 @@
+.label{
+    padding: 10px;
+    color: #fff;
+  }
+  
+  
+  
+  input[type="file"] {
+      display: none;
+  }
+  
+  .label-input{
+    font: bold 13px Arial;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: rgb(234, 71, 161);
+    color: #EEEEEE;
+    /* padding: 4px 8px 5px 6px; */
+    padding: 14px 14px;
+    border-top: 1px solid #CCCCCC;
+    /* border-right: 1px solid #333333; */
+    /* border-bottom: 1px solid #333333; */
+    border-left: 1px solid #CCCCCC;
+  }

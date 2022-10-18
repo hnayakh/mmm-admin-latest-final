@@ -6,7 +6,6 @@ import {
 } from "@angular/cdk/drag-drop";
 import { CmsService } from "../Services/cms.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import swal from "sweetalert2";
 import Swal from "sweetalert2";
 @Component({
   selector: "app-faq",
@@ -52,33 +51,6 @@ export class FaqComponent implements OnInit {
       answer: ["", Validators.required],
     });
     this.GetallFaqs();
-    // this.faqs = [
-    //   {
-    //     id: 1,
-    //     question: "What is a connect?",
-    //     answer:
-    //       "You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples....",
-    //   },
-    //   {
-    //     id: 2,
-    //     question: "What is MMM?",
-    //     answer:
-    //       "You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples....",
-    //   },
-    //   {
-    //     id: 3,
-    //     question: "What is MMM wallet?",
-    //     answer:
-    //       "You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples....",
-    //   },
-    //   {
-    //     id: 4,
-    //     question: "What is Matchmeter?",
-    //     answer:
-    //       "You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples....",
-    //   },
-    // ];
-    // this.targetFAQs = this.faqs;
   }
   checkEdge(event) {
     this.edge = event;
@@ -94,7 +66,7 @@ export class FaqComponent implements OnInit {
       },
       (err) => {
         console.log(err);
-        swal.fire("unable to create!", "", "error");
+        Swal.fire("unable to create!", "", "error");
       }
     );
   }
