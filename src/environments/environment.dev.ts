@@ -1,8 +1,8 @@
 export const environment = {
   production: true,
   //  baseURL: "https://immense-brook-06350.herokuapp.com/api/",
-  baseURL: "http://13.233.130.85:3000/api/",
-  // baseURL: "http://localhost:3000/api/",
+  //baseURL: "http://13.233.130.85:3000/api/",
+   baseURL: "http://localhost:3000/api/",
   Authentication: {
     ADMIN_LOGIN: "auth/admin/login",
     ADMIN_USERS: "users/admin",
@@ -30,7 +30,9 @@ export const environment = {
   },
   Cms: {
     AllFaqs: "cms/faq/all",
-    CREATE_FAQ: "cms/faq"
+    CREATE_FAQ: "cms/faq",
+    CREATE_SUCCESS: "cms/success_stories",
+    ALL_SUCCESS:"cms/success_stories/all"
   },
   Role: ["L1 Support", "L2 Support", "L3 Support", "Admin", "Super Admin"],
 };
