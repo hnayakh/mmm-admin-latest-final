@@ -5,6 +5,7 @@ import { ContentCreationRoutingModule } from './content-creation-routing.module'
 import { ContentCreationComponent } from './content-creation.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatExpansionModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { MatExpansionModule } from '@angular/material';
     CommonModule,
     ContentCreationRoutingModule,
     DragDropModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class ContentCreationModule { }

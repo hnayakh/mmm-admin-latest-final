@@ -77,5 +77,29 @@ export class SuccessStoriesComponent implements OnInit {
       }
     );
   }
-  createSuccessStories() {}
+  createSuccessStories() {
+    console.log(this.successForm.value);
+    this.cmsService
+      .updateAndAddSuccess(
+        { ...this.successForm.value, position: 0 },
+        { type: "add" }
+      )
+      .subscribe((data: any) => {
+        console.log(data);
+        Swal.fire("Fetch!", "", "success");
+        this.getAllSuccessStories();
+      });
+  }
+  delete(id) {
+    Swal.fire({
+      title: "Do you want to Delete this ?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Delete",
+      denyButtonText: `Cancel`,
+    })
+    // .then((result) => {
+    //   Swal.fire("Deleted!", "", "success");
+    // });
+  }
 }

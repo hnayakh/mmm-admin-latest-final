@@ -73,7 +73,7 @@ export class FaqComponent implements OnInit {
   CreateFaqs() {
     console.log(this.faqForm.value);
     this.cmsService
-      .updateAndAddFaqs({ ...this.faqForm.value, position: 0 })
+      .updateAndAddFaqs({ ...this.faqForm.value, position: 0 }, { type: "add" })
       .subscribe((data: any) => {
         console.log(data);
         Swal.fire("Created!", "", "success");
@@ -95,5 +95,17 @@ export class FaqComponent implements OnInit {
       question: id.question,
       answer: id.answer,
     });
+  }
+  delete(id) {
+    Swal.fire({
+      title: "Do you want to Delete this ?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Delete",
+      denyButtonText: `Cancel`,
+    })
+    // .then((result) => {
+    //   Swal.fire("Deleted!", "", "success");
+    // });
   }
 }

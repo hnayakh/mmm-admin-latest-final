@@ -32,7 +32,10 @@ export const environment = {
     AllFaqs: "cms/faq/all",
     CREATE_FAQ: "cms/faq",
     CREATE_SUCCESS: "cms/success_stories",
-    ALL_SUCCESS:"cms/success_stories/all"
+    ALL_SUCCESS:"cms/success_stories/all",
+    ALL_CONTENT:"cms/content_creation/all",
+    CREATE_CONTENT:"cms/content_creation",
+
   },
   Role: ["L1 Support", "L2 Support", "L3 Support", "Admin", "Super Admin"],
 };
