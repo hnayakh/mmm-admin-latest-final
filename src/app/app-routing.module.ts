@@ -95,18 +95,13 @@ const routes: Routes = [
 
         path: "coupon",
         loadChildren: () =>
-          import("./coupon/coupon.module").then(
-            (m) => m.CouponModule
-          ),
+          import("./coupon/coupon.module").then((m) => m.CouponModule),
       },
       {
         // lazy loading
 
         path: "faq",
-        loadChildren: () =>
-          import("./faq/faq.module").then(
-            (m) => m.FaqModule
-          ),
+        loadChildren: () => import("./faq/faq.module").then((m) => m.FaqModule),
       },
       {
         // lazy loading
@@ -167,18 +162,14 @@ const routes: Routes = [
 
         path: "meet",
         loadChildren: () =>
-          import("./meet/meet.module").then(
-            (m) => m.MeetModule
-          ),
+          import("./meet/meet.module").then((m) => m.MeetModule),
       },
       {
         // lazy loading
 
         path: "account",
         loadChildren: () =>
-          import("./account/account.module").then(
-            (m) => m.AccountModule
-          ),
+          import("./account/account.module").then((m) => m.AccountModule),
       },
       {
         // lazy loading
