@@ -85,7 +85,7 @@ export class ManageVerificationComponent implements OnInit {
         this.userService.RejectUser(this.UserId).subscribe(
           (response: any) => {
             console.log(response.data);
-            Swal.fire("Verified!", "", "success");
+            Swal.fire("Rejected!", "", "success");
             this.router.navigate(["/pending-verifications"]);
           },
           (error) => {

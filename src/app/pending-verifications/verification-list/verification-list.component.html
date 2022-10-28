@@ -53,7 +53,8 @@
             </th>
             <th scope="col">Location</th>
           </tr>
-        </thead>
+        </thead>*
+        
         <tbody>
           <tr *ngFor="let data of PendingUserList; let i = index">
             <td><a routerLink="manage/verification/{{data.id}}">{{ i + 1 }}</a> </td>

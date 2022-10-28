@@ -75,6 +75,15 @@ const routes: Routes = [
       {
         // lazy loading
 
+        path: "profile-approval",
+        loadChildren: () =>
+          import("./profile-approval/profile-approval.module").then(
+            (m) => m.ProfileApprovalModule
+          ),
+      },
+      {
+        // lazy loading
+
         path: "product-pricing",
         loadChildren: () =>
           import("./product-pricing/product-pricing.module").then(

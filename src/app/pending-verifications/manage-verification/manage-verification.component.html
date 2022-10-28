@@ -1,11 +1,11 @@
 <div class="container-fluid">
-  <div class="row ">
-    <div class="col-lg-12 ">
-      <div class="iq-edit-list-data ">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="iq-edit-list-data">
         <div class="tab-content">
           <div
             *ngIf="PendingUserData"
-            class="tab-pane fade active show "
+            class="tab-pane fade active show"
             id="personal-information"
             role="tabpanel"
           >
@@ -147,7 +147,10 @@
                 <div class="col-12">
                   <div>
                     <label>Occupation:</label>
-                    {{ PendingUserData.userCareers[0]&&PendingUserData.userCareers[0].occupation }}
+                    {{
+                      PendingUserData.userCareers[0] &&
+                        PendingUserData.userCareers[0].occupation
+                    }}
                   </div>
                   <div>
                     <label>Employed In:</label>
@@ -168,11 +171,50 @@
             <button class="btn btn-danger mr-2" (click)="VerifyUser()">
               Verify User
             </button>
-            <button class="btn btn-secondary mr-2" (click)="RejectUser()">
+            <button
+              class="btn btn-secondary mr-2"
+              data-toggle="modal"
+              data-target="#BlockUserModal"
+            >
               Block User
             </button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="modal fade" id="BlockUserModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Comments</h4>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <form>
+          <div class="modal-body">
+            <textarea
+              placeholder="Add some comments in case of rejection"
+              required
+              class="form-control"
+            ></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" (click)="RejectUser()" class="btn btn-primary">Reject</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

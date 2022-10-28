@@ -26,6 +26,7 @@ export class ContentCreationComponent implements OnInit {
   contentForm: FormGroup;
   imageURl =
     "https://pinnacle.works/wp-content/uploads/2022/06/dummy-image.jpg";
+  taskNeedToUpdate: any;
 
   constructor(
     private cmsservice: CmsService,
@@ -110,4 +111,11 @@ export class ContentCreationComponent implements OnInit {
         this.getAllcontent();
       });
   }
+  onClickEditItem(task) {
+    this.taskNeedToUpdate = task;
+    this.contentForm.setValue({
+      question: task.question,
+      answer: task.answer,
+    });
+}
 }
