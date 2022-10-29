@@ -12,7 +12,9 @@ import { UserService } from "src/app/Services/user.service";
 export class UsersListComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   ActiveUserList: any;
+  
   Relationships = ["Self", "Son", "Daughter", "Sister", "Brother", "Friend", "Relative"];
+ 
   constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit() {
@@ -29,4 +31,5 @@ export class UsersListComponent implements OnInit {
       }
     );
   }
+ 
 }

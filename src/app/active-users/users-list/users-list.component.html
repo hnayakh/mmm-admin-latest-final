@@ -5,7 +5,7 @@
         <h4 class="card-title">Active users</h4>
       </div>
 
-      <form class="form-inline">
+      <form   class="form-inline">
         <input
           class="form-control mr-sm-2"
           type="search"
@@ -29,7 +29,8 @@
           <form>
             <div class="row">
               <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
-                <input class="form-control" type="text" placeholder="None" />
+               
+                <input class="form-control" type="text" placeholder="None" (keyup)="applyFilter($event.target.value)" />
               </div>
 
               <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
@@ -101,6 +102,7 @@
                 <div class="form-group">
                   <select class="select form-control">
                     <option>None</option>
+                    <option>India</option>
                     <option>Afghanistan</option>
                     <option>Albania</option>
                     <option>Algeria</option>
@@ -141,12 +143,7 @@
                     <option>Cape Verde</option>
                     <option>Cayman Islanda</option>
                     <option>Central African Republic</option>
-                    <option>Chad</option>
-                    <option>Chad</option>
-                    <option>Chad</option>
-                    <option>Chad</option>
-                    <option>Chad</option>
-                    <option>Chad</option>
+                   
                   </select>
                 </div>
               </div>
@@ -156,12 +153,17 @@
                 <div class="form-group">
                   <select class="select form-control">
                     <option>None</option>
-                    <option>Self</option>
-                    <option>Son</option>
-                    <option>Daughter</option>
-                    <option>Brother</option>
-                    <option>Friend</option>
-                    <option>Relative</option>
+                    <option>odisha</option>
+                    <option>Banglore</option>
+                    <option>Kerala</option>
+                    <option>punjab</option>
+                    <option>West Bengal</option>
+                    <option>Karnatak</option>
+                    <option>jharkhand</option>
+                    <option>Assam</option>
+                    <option>Rajasthan</option>
+                    <option>Uttarakhand</option>
+
                   </select>
                 </div>
               </div>

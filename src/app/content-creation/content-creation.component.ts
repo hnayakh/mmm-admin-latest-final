@@ -118,4 +118,20 @@ export class ContentCreationComponent implements OnInit {
       answer: task.answer,
     });
 }
+onClick(id) {
+  this.taskNeedToUpdate =id;
+  this.contentForm.setValue({
+    question: id.question,
+    answer: id.answer,
+  });
+}
+delete(id) {
+  Swal.fire({
+    title: "Do you want to Delete this ?",
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: "Delete",
+    denyButtonText: `Cancel`,
+  })
+}
 }
