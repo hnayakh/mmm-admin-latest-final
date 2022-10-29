@@ -5,7 +5,7 @@
         <h4 class="card-title">Active users</h4>
       </div>
 
-      <form   class="form-inline">
+      <form class="form-inline">
         <input
           class="form-control mr-sm-2"
           type="search"
@@ -18,37 +18,20 @@
       <div class="col">
         <label>Recent Search</label>
         <div class="col-8 d-flex">
-          <div class="col-3 mb-2" *ngFor="let data of ActiveUserList.lastSearchedIds; let i = index">
-            <input class="form-control" type="text" placeholder="None" [value]="data.displayId" disabled/>
+          <div
+            class="col-3 mb-2"
+            *ngFor="let data of ActiveUserList.lastSearchedIds; let i = index"
+          >
+            <input
+              class="form-control"
+              type="text"
+              placeholder="None"
+              [value]="data.displayId"
+              disabled
+            />
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-sm-8 col-md-8 col-8 col-lg-8 col-xl-8">
-          <form>
-            <div class="row">
-              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
-               
-                <input class="form-control" type="text" placeholder="None" (keyup)="applyFilter($event.target.value)" />
-              </div>
-
-              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
-                <input class="form-control" type="text" placeholder="None" />
-              </div>
-              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
-                <input class="form-control" type="text" placeholder="None" />
-              </div>
-
-              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
-                <input class="form-control" type="text" placeholder="None" />
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="col-sm-4 col-md-4 col-4 col-lg-4 col-xl-4"></div>
-      </div>
-
       <div class="row">
         <div class="col-sm-8 col-md-8 col-8 col-lg-8 col-xl-8">
           <form>
@@ -56,11 +39,14 @@
               <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
                 <label>Gender<span class="text-danger"></span></label>
                 <div class="form-group">
-                  <select class="select form-control">
-                    <option>None</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>other</option>
+                  <select
+                    class="select form-control"
+                    (change)="onChangeGender($event)"
+                  >
+                    <option value="3">None</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                    <option value="2">other</option>
                   </select>
                 </div>
               </div>
@@ -68,14 +54,17 @@
               <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
                 <label>Created For<span class="text-danger"></span></label>
                 <div class="form-group">
-                  <select class="select form-control">
-                    <option>None</option>
-                    <option>Self</option>
-                    <option>Son</option>
-                    <option>Daughter</option>
-                    <option>Brother</option>
-                    <option>Friend</option>
-                    <option>Relative</option>
+                  <select
+                    class="select form-control"
+                    (change)="onCreatedForChange($event)"
+                  >
+                    <option value="7">None</option>
+                    <option value="0">Self</option>
+                    <option value="1">Son</option>
+                    <option value="2">Daughter</option>
+                    <option value="3">Brother</option>
+                    <option value="4">Friend</option>
+                    <option value="5">Relative</option>
                   </select>
                 </div>
               </div>
@@ -100,70 +89,54 @@
               <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
                 <label>Country<span class="text-danger"></span></label>
                 <div class="form-group">
-                  <select class="select form-control">
-                    <option>None</option>
-                    <option>India</option>
-                    <option>Afghanistan</option>
-                    <option>Albania</option>
-                    <option>Algeria</option>
-                    <option>American Samoa</option>
-                    <option>Andorra</option>
-                    <option>Angola</option>
-                    <option>Anguilla</option>
-                    <option>Antarctica</option>
-                    <option>Antigua And Barbuda</option>
-                    <option>Argentina</option>
-                    <option>Armenia</option>
-                    <option>Aruba</option>
-                    <option>Australia</option>
-                    <option>Austria</option>
-                    <option>Azebaijan</option>
-                    <option>Bahamas The</option>
-                    <option>Bahrain</option>
-                    <option>Barbados</option>
-                    <option>Belarus</option>
-                    <option>Belgium</option>
-                    <option>Belize</option>
-                    <option>Benin</option>
-                    <option>Bermuda</option>
-                    <option>Bhutan</option>
-                    <option>Bolivia</option>
-                    <option>Bosina and Herzegovina</option>
-                    <option>Botswana</option>
-                    <option>Bouvet Island</option>
-                    <option>Brazil</option>
-                    <option>British India Ocean Territory</option>
-                    <option>Brunei</option>
-                    <option>Bulgaria</option>
-                    <option>Burkina Faso</option>
-                    <option>Burundi</option>
-                    <option>Cambodia</option>
-                    <option>Cameroon</option>
-                    <option>canada</option>
-                    <option>Cape Verde</option>
-                    <option>Cayman Islanda</option>
-                    <option>Central African Republic</option>
-                   
+                  <select
+                    class="select form-control"
+                    (change)="onChangeCountry($event)"
+                  >
+                    <option value="">None</option>
+                    <option
+                      *ngFor="let item of countryList; let i = index"
+                      [value]="item.id"
+                    >
+                      {{ item.name }}
+                    </option>
                   </select>
                 </div>
               </div>
 
-              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+              <div
+                class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3"
+                
+                *ngIf="stateList&&stateList.length > 0"
+              >
                 <label>State<span class="text-danger"></span></label>
                 <div class="form-group">
-                  <select class="select form-control">
+                  <select class="select form-control" (change)="onChangeState($event)">
                     <option>None</option>
-                    <option>odisha</option>
-                    <option>Banglore</option>
-                    <option>Kerala</option>
-                    <option>punjab</option>
-                    <option>West Bengal</option>
-                    <option>Karnatak</option>
-                    <option>jharkhand</option>
-                    <option>Assam</option>
-                    <option>Rajasthan</option>
-                    <option>Uttarakhand</option>
-
+                    <option
+                      *ngFor="let item of stateList; let i = index"
+                      [value]="item.id"
+                    >
+                      {{ item.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3"
+                
+                *ngIf="cityList&&cityList.length > 0"
+              >
+                <label>State<span class="text-danger"></span></label>
+                <div class="form-group">
+                  <select class="select form-control" (change)="onChangeCity($event)">
+                    <option>None</option>
+                    <option
+                      *ngFor="let item of cityList; let i = index"
+                      [value]="item.id"
+                    >
+                      {{ item.name }}
+                    </option>
                   </select>
                 </div>
               </div>
