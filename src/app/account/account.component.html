@@ -20,7 +20,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr  *ngFor="let data of rechargeHistoryUser;let i = index">
+            <tr>
+              <td>{{data.transactionId}}</td>
+              <td>{{data.createdAt}}</td>
+              <td>{{data.modeOfPayment}}</td>
+              <td>{{data.discountedAmount}}</td>
+              <td>{{data.couponCode}}</td>
+              <td>{{data.actualAmount}}</td>
+              <td>{{data.connectCount}}</td>
+            </tr>
+            <tr>
               <td>{{data.transactionId}}</td>
               <td>{{data.createdAt}}</td>
               <td>{{data.modeOfPayment}}</td>
