@@ -11,6 +11,26 @@ export class MasterService {
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
+  getAllMasterData() {
+    let url = environment.baseURL + environment.Master.GET_ALL_MASTER_DATA;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
+  getAllCounties() {
+    let url = environment.baseURL + environment.Master.GET_ALL_MASTER_COUNTRY;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
+  getStateData(id) {
+    let url = environment.baseURL + environment.Master.GET_ALL_MASTER_STATE+'/'+id;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
+  getCitiesData(id) {
+    let url = environment.baseURL + environment.Master.GET_ALL_MASTER_CITIES+'/'+id;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
   getAllCouponById(data: any) {
     let url = environment.baseURL + environment.Master.GET_ALL_COUPONS;
     const headers = { "content-type": "application/json" };
@@ -22,28 +42,36 @@ export class MasterService {
     return this.http.post(url, data, { headers: headers });
   }
   updateAndCreateReferral(data: any) {
-    let url = environment.baseURL + environment.Master.UPDATE_REFERRALS+'&'+"isActive="+data.isActive;
+    let url =
+      environment.baseURL +
+      environment.Master.UPDATE_REFERRALS +
+      "&" +
+      "isActive=" +
+      data.isActive;
     const headers = { "content-type": "application/json" };
     return this.http.post(url, data, { headers: headers });
   }
-  getReferal(){
+  getReferal() {
     let url = environment.baseURL + environment.Master.GET_ALL_REFERRALS;
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
-  getAllConnects(){
+  getAllConnects() {
     let url = environment.baseURL + environment.Master.GET_ALL_CONNECTS;
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
-  getConnectById(data:any){
-    let url = environment.baseURL + environment.Master.GET_CONNECT_BY_ID+data.id;
+  getConnectById(data: any) {
+    let url =
+      environment.baseURL + environment.Master.GET_CONNECT_BY_ID + data.id;
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
-  updateAndCreateConnect(data:any){
+  updateAndCreateConnect(data: any) {
     let url = environment.baseURL + environment.Master.CREATE_AND_UPDATE_CONNET;
     const headers = { "content-type": "application/json" };
     return this.http.post(url, data, { headers: headers });
   }
+
+  
 }

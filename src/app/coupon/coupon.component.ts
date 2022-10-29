@@ -69,7 +69,7 @@ export class CouponComponent implements OnInit {
           (data: any) => {
             console.log(data);
             Swal.fire("Created!", "", "success");
-            this.router.navigate(['/coupon'])
+            this.router.navigate(["/coupon"]);
           },
           (error) => {
             console.log(error);
@@ -87,7 +87,7 @@ export class CouponComponent implements OnInit {
           (data: any) => {
             console.log(data);
             Swal.fire("Created!", "", "success");
-            this.router.navigate(['coupon'])
+            this.router.navigate(["coupon"]);
           },
           (error) => {
             console.log(error);
@@ -110,7 +110,7 @@ export class CouponComponent implements OnInit {
           (data: any) => {
             console.log(data);
             Swal.fire("Created!", "", "success");
-            this.router.navigate(['coupon'])
+            this.router.navigate(["coupon"]);
           },
           (error) => {
             console.log(error);
@@ -128,7 +128,7 @@ export class CouponComponent implements OnInit {
           (data: any) => {
             console.log(data);
             Swal.fire("Created!", "", "success");
-            this.router.navigate(['coupon'])
+            this.router.navigate(["coupon"]);
           },
           (error) => {
             console.log(error);

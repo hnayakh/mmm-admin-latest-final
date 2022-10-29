@@ -29,15 +29,17 @@ export class ListCouponComponent implements OnInit {
     const currentDate = new Date().toISOString().toString().split("T")[0];
     this.masterService.getAllCoupons().subscribe(
       (data: any) => {
-        this.couponList = data.data.map((c: any) => {
-          return {
-            ...c,
-            expire_status:
-              c.validTill.toString().split("T")[0] >= currentDate
-                ? "Active"
-                : "Expired",
-          };
-        });
+        this.couponList = data.data
+          // .filter((y: any, i) => y.isActive)
+          .map((c: any) => {
+            return {
+              ...c,
+              expire_status:
+                c.validTill.toString().split("T")[0] >= currentDate
+                  ? "Active"
+                  : "Expired",
+            };
+          });
         console.log("couponList", this.couponList);
       },
       (error) => {
@@ -45,5 +47,39 @@ export class ListCouponComponent implements OnInit {
       }
     );
   }
-  
+
+  deleteCoupon(id) {
+    Swal.fire({
+      title: "Do you want to delete?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Delete",
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(id);
+        let obj = {
+          couponCode: id.couponCode,
+          validTill: id.validTill,
+          discount: id.discount,
+          discountType: 0,
+          type: 3,
+          couponId: id.id,
+        };
+        this.masterService.updateAndAddCoupon({ ...obj }).subscribe(
+          (data: any) => {
+            console.log(data);
+            Swal.fire("Deleted!", "", "success");
+            this.getAllCoupons();
+          },
+          (error) => {
+            console.log(error);
+            Swal.fire("Unable to Delete!", "", "error");
+          }
+        );
+      } else if (result.isDenied) {
+        Swal.fire("Not Deleted", "", "info");
+      }
+    });
+  }
 }

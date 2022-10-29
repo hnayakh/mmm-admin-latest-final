@@ -29,9 +29,11 @@
         </ng-template>
         <thead>
           <tr class="table-head-bg">
+            <th>id</th>
             <th scope="col">Coupon Code</th>
             <th scope="col">Benifit</th>
             <th scope="col">Benifit Type</th>
+            <th scope="col">Active Status</th>
             <th scope="col">Expiry Date</th>
             <th scope="col">Expiry status</th>
             <th scope="col">Force Inactive</th>
@@ -42,15 +44,27 @@
             <td>
               <a routerLink="manage-coupon/edit/{{ data.couponCode }}">
                 {{ data.id | slice: 30 }}</a
-              >{{ data.couponCode }}
+              >
+            </td>
+            <td>
+              <a routerLink="manage-coupon/edit/{{ data.couponCode }}">{{
+                data.couponCode
+              }}</a>
             </td>
 
             <td>{{ data.discount }}</td>
             <td>{{ allDiscountTypes[data.discountType] }}</td>
+            <td>{{ data.isActive?'Active':'Inactive' }}</td>
             <td>{{ data.validTill | date: "dd/MM/yyyy" }}</td>
             <td>{{ data.expire_status }}</td>
             <td>
-              <button class="btn btn-primary" type="button">Trash</button>
+              <button
+                class="btn btn-primary"
+                (click)="deleteCoupon(data)"
+                type="button"
+              >
+                Trash
+              </button>
             </td>
           </tr>
         </tbody>

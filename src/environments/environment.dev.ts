@@ -15,6 +15,10 @@ export const environment = {
     getAllNotification: "caregiver/booking/getallnotifications",
   },
   Master: {
+    GET_ALL_MASTER_DATA:"masters/profile-raw-data",
+    GET_ALL_MASTER_COUNTRY:"masters/countries",
+    GET_ALL_MASTER_STATE:"masters/states",
+    GET_ALL_MASTER_CITIES:"masters/cities",
     GET_ALL_COUPONS: "masters/coupons",
     ADD_AND_UPDATE_COUPONS: "masters/coupon",
     GET_ALL_REFERRALS: "masters/referrals",
