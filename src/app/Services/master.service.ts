@@ -36,7 +36,7 @@ export class MasterService {
     const headers = { "content-type": "application/json" };
     return this.http.get(url + "/" + data, { headers: headers });
   }
-  updateAndAddCoupon(data: any) {
+    updateAndAddCoupon(data: any) {
     let url = environment.baseURL + environment.Master.ADD_AND_UPDATE_COUPONS;
     const headers = { "content-type": "application/json" };
     return this.http.post(url, data, { headers: headers });
