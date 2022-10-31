@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     return this.signinform.controls;
   }
   onSubmit() {
+    //  this.router.navigate(["/dashboard"]);
     this.submitted = true;
     this.sign_api.SignIn(this.signinform.value).subscribe(
       (res: any) => {

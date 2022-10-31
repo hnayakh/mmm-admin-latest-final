@@ -24,6 +24,7 @@ export class FaqComponent implements OnInit {
   targetFAQs = [];
   taskNeedToUpdate;
   faqForm: FormGroup;
+  id: any;
 
   constructor(
     private cmsService: CmsService,
@@ -97,15 +98,9 @@ export class FaqComponent implements OnInit {
     });
   }
   delete(id) {
-    Swal.fire({
-      title: "Do you want to Delete this ?",
-      showDenyButton: true,
-      showCancelButton: false,
-      confirmButtonText: "Delete",
-      denyButtonText: `Cancel`,
-    })
-    // .then((result) => {
-    //   Swal.fire("Deleted!", "", "success");
-    // });
+  
   }
+
+
 }
+

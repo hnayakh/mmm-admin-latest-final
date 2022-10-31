@@ -57,6 +57,10 @@ export class CmsService {
     const headers = { "content-type": "application/json" };
     return this.http.post(url, data, { headers: headers });
   }
+  delete(id) {
+    let url = environment.baseURL + environment.Cms.DELETE_FAQ;
+    return  this.http.delete(url,id);
+  }
   updateAndAddSuccess(data: any, type: any) {
     if (type === "update") {
       let url = environment.baseURL + environment.Cms.CREATE_SUCCESS;
