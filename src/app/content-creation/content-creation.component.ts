@@ -27,6 +27,7 @@ export class ContentCreationComponent implements OnInit {
   imageURl =
     "https://pinnacle.works/wp-content/uploads/2022/06/dummy-image.jpg";
   taskNeedToUpdate: any;
+ 
 
   constructor(
     private cmsservice: CmsService,
@@ -121,17 +122,34 @@ export class ContentCreationComponent implements OnInit {
 onClick(id) {
   this.taskNeedToUpdate =id;
   this.contentForm.setValue({
-    question: id.question,
-    answer: id.answer,
+  
   });
 }
-delete(id) {
-  Swal.fire({
-    title: "Do you want to Delete this ?",
-    showDenyButton: true,
-    showCancelButton: false,
-    confirmButtonText: "Delete",
-    denyButtonText: `Cancel`,
-  })
-}
+
+deletecontent(id) {  
+  console.log(id)
+    Swal.fire({
+      title: "Do you want to delete?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Delete",
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      if (result.isConfirmed) {   
+        this.cmsservice.deletecontent(id.id).subscribe(
+          (data: any) => {
+            this. getAllcontent();
+            console.log(data);
+            Swal.fire("Deleted!", "", "success");
+          },
+          (error) => {
+            console.log(error);
+            Swal.fire("Unable to Delete!", "", "error");
+          }
+        );
+      } else if (result.isDenied) {
+        Swal.fire("Not Deleted", "", "info");
+      }
+    });
+  }
 }

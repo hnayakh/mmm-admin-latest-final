@@ -93,14 +93,37 @@ export class FaqComponent implements OnInit {
   onClick(id) {
     this.taskNeedToUpdate = id;
     this.faqForm.setValue({
-      question: id.question,
-      answer: id.answer,
+     
     });
   }
-  delete(id) {
-  
+  delete(id) {  
+    console.log(id)
+      Swal.fire({
+        title: "Do you want to delete?",
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: "Delete",
+        denyButtonText: `Cancel`,
+      }).then((result) => {
+        if (result.isConfirmed) {   
+          this.cmsService.delete(id.id).subscribe(
+            (data: any) => {
+              this.GetallFaqs();
+              console.log(data);
+              Swal.fire("Deleted!", "", "success");
+            },
+            (error) => {
+              console.log(error);
+              Swal.fire("Unable to Delete!", "", "error");
+            }
+          );
+        } else if (result.isDenied) {
+          Swal.fire("Not Deleted", "", "info");
+        }
+      });
+    }
   }
 
 
-}
+
 

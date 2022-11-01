@@ -58,8 +58,16 @@ export class CmsService {
     return this.http.post(url, data, { headers: headers });
   }
   delete(id) {
-    let url = environment.baseURL + environment.Cms.DELETE_FAQ;
-    return  this.http.delete(url,id);
+    let url = environment.baseURL + environment.Cms.DELETE_FAQ + "/" + id;
+    return this.http.delete(url, id);
+  }
+  deletecontent(id) {
+    let url = environment.baseURL + environment.Cms.DELETE_CONTENT + "/" + id;
+    return this.http.delete(url, id);
+  }
+  deleteSuccess(id) {
+    let url = environment.baseURL + environment.Cms.DELETE_SUCCESS + "/" + id;
+    return this.http.delete(url, id);
   }
   updateAndAddSuccess(data: any, type: any) {
     if (type === "update") {

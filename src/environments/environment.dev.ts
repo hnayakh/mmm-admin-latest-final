@@ -39,8 +39,9 @@ export const environment = {
     ALL_SUCCESS:"cms/success_stories/all",
     ALL_CONTENT:"cms/content_creation/all",
     CREATE_CONTENT:"cms/content_creation",
-    DELETE_FAQ:"cms/faq/all"
-
+    DELETE_FAQ:"cms/faq",
+    DELETE_CONTENT:"cms/content_creation",
+    DELETE_SUCCESS:"cms/success_stories",
   },
   Role: ["L1 Support", "L2 Support", "L3 Support", "Admin", "Super Admin"],
 };

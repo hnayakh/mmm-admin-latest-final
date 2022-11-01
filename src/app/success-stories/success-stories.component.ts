@@ -26,6 +26,8 @@ export class SuccessStoriesComponent implements OnInit {
   successForm: FormGroup;
   imageURl =
     "https://pinnacle.works/wp-content/uploads/2022/06/dummy-image.jpg";
+  taskNeedToUpdate: any;
+
   constructor(
     private cmsService: CmsService,
     private formbuilder: FormBuilder
@@ -52,8 +54,8 @@ export class SuccessStoriesComponent implements OnInit {
   }
   setDefaultForm() {
     this.successForm = this.formbuilder.group({
-      question: ["", Validators.required],
-      answer: ["", Validators.required],
+      heading: ["", Validators.required],
+      story: ["", Validators.required],
       photo: ["", Validators.required],
     });
   }
@@ -66,7 +68,7 @@ export class SuccessStoriesComponent implements OnInit {
   getAllSuccessStories() {
     this.cmsService.getAllSuccess().subscribe(
       (data: any) => {
-        // console.log(data);
+        console.log(data);
         // swal.fire("created!", "", "success")
         this.faqs = data.data;
         this.targetFAQs = data.data;
@@ -90,16 +92,41 @@ export class SuccessStoriesComponent implements OnInit {
         this.getAllSuccessStories();
       });
   }
+  onClickEditItem(task) {
+    this.taskNeedToUpdate = task;
+    this.successForm.setValue({
+      question: task.question,
+      answer: task.answer,
+    });
+  }
+  onClick(id) {
+    this.taskNeedToUpdate = id;
+    this.successForm.setValue({});
+  }
   delete(id) {
+    console.log(id);
     Swal.fire({
       title: "Do you want to Delete this ?",
       showDenyButton: true,
       showCancelButton: false,
       confirmButtonText: "Delete",
       denyButtonText: `Cancel`,
-    })
-    // .then((result) => {
-    //   Swal.fire("Deleted!", "", "success");
-    // });
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cmsService.deleteSuccess(id.id).subscribe(
+          (data: any) => {
+            this.getAllSuccessStories();
+            console.log(data);
+            Swal.fire("Deleted!", "", "success");
+          },
+          (error) => {
+            console.log(error);
+            Swal.fire("Unable to Delete!", "", "error");
+          }
+        );
+      } else if (result.isDenied) {
+        Swal.fire("Not Deleted", "", "info");
+      }
+    });
   }
 }
