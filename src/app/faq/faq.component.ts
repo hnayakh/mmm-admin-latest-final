@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
   styleUrls: ["./faq.component.css"],
 })
 export class FaqComponent implements OnInit {
-  inBounds = true;
+  isUpdate = false;
   edge = {
     top: true,
     bottom: true,
@@ -71,6 +71,14 @@ export class FaqComponent implements OnInit {
       }
     );
   }
+
+  EditAndAdd() {
+    if (!this.isUpdate) {
+      this.CreateFaqs();
+    } else {
+      this.updateFaq();
+    }
+  }
   CreateFaqs() {
     console.log(this.faqForm.value);
     this.cmsService
@@ -78,13 +86,27 @@ export class FaqComponent implements OnInit {
       .subscribe((data: any) => {
         console.log(data);
         Swal.fire("Created!", "", "success");
-
-        //  alert("one more question added successfully")
         this.GetallFaqs();
       });
   }
+  updateFaq() {
+    this.cmsService
+      .updateAndAddFaqs(
+        { ...this.faqForm.value, id: this.taskNeedToUpdate.id, position: 0 },
+        { type: "update" }
+      )
+      .subscribe((data: any) => {
+        console.log(data);
+        Swal.fire("Updated!", "", "success");
+        this.GetallFaqs();
+        this.isUpdate = false;
+        this.faqForm.reset();
+      });
+  }
+
   onClickEditItem(task) {
     this.taskNeedToUpdate = task;
+    this.isUpdate = true;
     this.faqForm.setValue({
       question: task.question,
       answer: task.answer,
@@ -92,38 +114,32 @@ export class FaqComponent implements OnInit {
   }
   onClick(id) {
     this.taskNeedToUpdate = id;
-    this.faqForm.setValue({
-     
+    this.faqForm.setValue({});
+  }
+  delete(id) {
+    console.log(id);
+    Swal.fire({
+      title: "Do you want to delete?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Delete",
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cmsService.delete(id.id).subscribe(
+          (data: any) => {
+            this.GetallFaqs();
+            console.log(data);
+            Swal.fire("Deleted!", "", "success");
+          },
+          (error) => {
+            console.log(error);
+            Swal.fire("Unable to Delete!", "", "error");
+          }
+        );
+      } else if (result.isDenied) {
+        Swal.fire("Not Deleted", "", "info");
+      }
     });
   }
-  delete(id) {  
-    console.log(id)
-      Swal.fire({
-        title: "Do you want to delete?",
-        showDenyButton: true,
-        showCancelButton: false,
-        confirmButtonText: "Delete",
-        denyButtonText: `Cancel`,
-      }).then((result) => {
-        if (result.isConfirmed) {   
-          this.cmsService.delete(id.id).subscribe(
-            (data: any) => {
-              this.GetallFaqs();
-              console.log(data);
-              Swal.fire("Deleted!", "", "success");
-            },
-            (error) => {
-              console.log(error);
-              Swal.fire("Unable to Delete!", "", "error");
-            }
-          );
-        } else if (result.isDenied) {
-          Swal.fire("Not Deleted", "", "info");
-        }
-      });
-    }
-  }
-
-
-
-
+}

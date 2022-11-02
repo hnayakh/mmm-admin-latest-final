@@ -15,6 +15,7 @@ import { CmsService } from "../Services/cms.service";
 })
 export class SuccessStoriesComponent implements OnInit {
   inBounds = true;
+  isUpdate = false;
   edge = {
     top: true,
     bottom: true,
@@ -23,10 +24,13 @@ export class SuccessStoriesComponent implements OnInit {
   };
   faqs = [];
   targetFAQs = [];
+  taskNeedToUpdate;
   successForm: FormGroup;
+  id: any;
+
   imageURl =
     "https://pinnacle.works/wp-content/uploads/2022/06/dummy-image.jpg";
-  taskNeedToUpdate: any;
+ 
 
   constructor(
     private cmsService: CmsService,
@@ -79,6 +83,15 @@ export class SuccessStoriesComponent implements OnInit {
       }
     );
   }
+
+  EditAndAddSuccess() {
+    if (!this.isUpdate) {
+      this.createSuccessStories();
+    } else {
+      this.updateSuccessStories();
+    }
+  }
+
   createSuccessStories() {
     console.log(this.successForm.value);
     this.cmsService
@@ -92,11 +105,28 @@ export class SuccessStoriesComponent implements OnInit {
         this.getAllSuccessStories();
       });
   }
+
+  updateSuccessStories() {
+    this.cmsService
+      .updateAndAddFaqs(
+        { ...this.successForm.value, id: this.taskNeedToUpdate.id, position: 0 },
+        { type: "update" }
+      )
+      .subscribe((data: any) => {
+        console.log(data);
+        Swal.fire("Updated!", "", "success");
+        this.getAllSuccessStories() ;
+        this.isUpdate = false;
+        this.successForm.reset();
+      });
+  }
+
   onClickEditItem(task) {
     this.taskNeedToUpdate = task;
     this.successForm.setValue({
-      question: task.question,
-      answer: task.answer,
+      heading: task.heading,
+      story: task.story,
+      photo: task.photo,
     });
   }
   onClick(id) {

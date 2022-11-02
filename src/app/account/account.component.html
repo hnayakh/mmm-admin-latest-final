@@ -9,6 +9,49 @@
       <div class="container mt-3" *ngIf="rechargeHistoryUser">
         <table class="table table-bordered" id="maintable" datatable>
           <thead>
+            <tr>
+              <th >Created Form Date</th>
+              <th >Created To Date</th>
+              <th >Gender</th>
+              <th >Location</th>
+              <th >Discount </th>
+              <th >Discount Source</th>
+              <th >payment status</th>
+              <th ></th>
+              <th ></th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input  type="date" /></td>
+              <td><input  type="date" /></td>
+              <td><select>
+                <option>None</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>other</option>
+              </select></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+          <thead>
             <tr class="table-head-bg">
               <th >Transection ID</th>
               <th >Time Stamp</th>
@@ -17,6 +60,8 @@
               <th >Discount Source</th>
               <th >Amount</th>
               <th >No of Connects</th>
+              <th >MPID</th>
+              <th >Transaction status</th>
             </tr>
           </thead>
           <tbody>
@@ -28,6 +73,9 @@
               <td>{{data.couponCode}}</td>
               <td>{{data.actualAmount}}</td>
               <td>{{data.connectCount}}</td>
+              <td></td>
+              <td></td>
+
             </tr>
             <tr>
               <td>{{data.transactionId}}</td>
@@ -37,6 +85,8 @@
               <td>{{data.couponCode}}</td>
               <td>{{data.actualAmount}}</td>
               <td>{{data.connectCount}}</td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>

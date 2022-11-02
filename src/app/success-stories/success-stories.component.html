@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="iq-card-body" style="overflow-x: scroll;">
-      <form [formGroup]="successForm">
+      <form [formGroup]="successForm"(submit)="EditAndAddSuccess()">
         <div class="row">
           <div
             class="col-xs col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 text-center"

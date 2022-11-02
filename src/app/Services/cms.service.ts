@@ -37,25 +37,39 @@ export class CmsService {
       return this.http.post(url, data, { headers: headers });
     }
   }
-  CreateSuccess(data: any) {
+  CreateSuccess(data: any, type: any) {
+    if (type === "update") {
+      let url = environment.baseURL + environment.Cms.CREATE_SUCCESS;
+      const headers = { "content-type": "application/json" };
+      return this.http.put(url, data, { headers: headers });
+    } else {
     let url = environment.baseURL + environment.Cms.CREATE_SUCCESS;
     const headers = { "content-type": "application/json" };
     return this.http.post(url, data, { headers: headers });
+    }
   }
-  CreateContent(data: any) {
+  CreateContent(data: any, type: any) {
+    if (type === "update") {
+      let url = environment.baseURL + environment.Cms.CREATE_CONTENT;
+      const headers = { "content-type": "application/json" };
+      return this.http.put(url, data, { headers: headers });
+    } else {
     let url = environment.baseURL + environment.Cms.CREATE_CONTENT;
     const headers = { "content-type": "application/json" };
     return this.http.post(url, data, { headers: headers });
+   }
   }
   updateAndAddFaqs(data: any, type: any) {
-    if (type === "update") {
+    console.log(type);
+    if (type.type === "update") {
       let url = environment.baseURL + environment.Cms.CREATE_FAQ;
       const headers = { "content-type": "application/json" };
       return this.http.put(url, data, { headers: headers });
+    } else {
+      let url = environment.baseURL + environment.Cms.CREATE_FAQ;
+      const headers = { "content-type": "application/json" };
+      return this.http.post(url, data, { headers: headers });
     }
-    let url = environment.baseURL + environment.Cms.CREATE_FAQ;
-    const headers = { "content-type": "application/json" };
-    return this.http.post(url, data, { headers: headers });
   }
   delete(id) {
     let url = environment.baseURL + environment.Cms.DELETE_FAQ + "/" + id;
@@ -70,6 +84,7 @@ export class CmsService {
     return this.http.delete(url, id);
   }
   updateAndAddSuccess(data: any, type: any) {
+    console.log(type);
     if (type === "update") {
       let url = environment.baseURL + environment.Cms.CREATE_SUCCESS;
       const headers = { "content-type": "application/json" };
@@ -81,6 +96,7 @@ export class CmsService {
     }
   }
   updateAndAddcontent(data: any, type: any) {
+    console.log(type);
     if (type === "update") {
       let url = environment.baseURL + environment.Cms.CREATE_CONTENT;
       const headers = { "content-type": "application/json" };

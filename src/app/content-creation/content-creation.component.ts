@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
   styleUrls: ["./content-creation.component.css"],
 })
 export class ContentCreationComponent implements OnInit {
-  inBounds = true;
+  isUpdate = false;
   edge = {
     top: true,
     bottom: true,
@@ -23,10 +23,11 @@ export class ContentCreationComponent implements OnInit {
   };
   faqs = [];
   targetFAQs = [];
+  taskNeedToUpdate;
   contentForm: FormGroup;
   imageURl =
     "https://pinnacle.works/wp-content/uploads/2022/06/dummy-image.jpg";
-  taskNeedToUpdate: any;
+ 
  
 
   constructor(
@@ -99,6 +100,18 @@ export class ContentCreationComponent implements OnInit {
       }
     );
   }
+
+
+  EditAndAddcontent(){
+    if (!this.isUpdate) {
+      this.createcontent();
+    } else {
+      this. updatecontent();
+    }
+  }
+
+
+
   createcontent() {
     console.log(this.contentForm.value);
     this.cmsservice
@@ -112,11 +125,31 @@ export class ContentCreationComponent implements OnInit {
         this.getAllcontent();
       });
   }
+
+  updatecontent() {
+    this.cmsservice
+      .updateAndAddFaqs(
+        { ...this.contentForm.value, id: this.taskNeedToUpdate.id, position: 0 },
+        { type: "update" }
+      )
+      .subscribe((data: any) => {
+        console.log(data);
+        Swal.fire("Updated!", "", "success");
+        this.getAllcontent();
+        this.isUpdate = false;
+        this.contentForm.reset();
+      });
+  }
+
   onClickEditItem(task) {
     this.taskNeedToUpdate = task;
     this.contentForm.setValue({
-      question: task.question,
-      answer: task.answer,
+      channel: task.channel,
+      template_name: task.template_name,
+      content_heading: task.content_heading,
+      content: task.content,
+      photo: task.photo,
+
     });
 }
 onClick(id) {
