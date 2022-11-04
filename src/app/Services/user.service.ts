@@ -11,13 +11,14 @@ export class UserService {
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
-  getAllUsersAdmin(){
+  getAllUsersAdmin() {
     console.log("Api called");
     let url = environment.baseURL + environment.User.AllActiveUsers;
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
   GetActiveUSers(
+    isVerified=1,
     searchText = "",
     gender = 3,
     createdFor = 7,
@@ -32,7 +33,7 @@ export class UserService {
   ) {
     var url =
       environment.baseURL +
-      `users/admin/appUsers?isVerified=1${
+      `users/admin/appUsers?isVerified=${isVerified}${
         searchText.length > 0 ? `&displayId=${searchText}` : ""
       }${gender !== 3 ? `&gender=${gender}` : ""}
   ${location.length > 0 ? `&location=${location}` : ""}${
@@ -66,8 +67,8 @@ export class UserService {
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
-  getRechargeHistory(id:any){
-    let url = environment.baseURL + "connects/recharge/"+ id
+  getRechargeHistory(id: any) {
+    let url = environment.baseURL + "connects/recharge/" + id;
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
