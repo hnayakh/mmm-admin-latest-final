@@ -24,6 +24,7 @@ export class SuccessStoriesComponent implements OnInit {
   };
   faqs = [];
   targetFAQs = [];
+  unassignedList=[]
   taskNeedToUpdate;
   successForm: FormGroup;
   id: any;
