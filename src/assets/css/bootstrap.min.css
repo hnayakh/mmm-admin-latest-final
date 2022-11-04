@@ -1812,6 +1812,7 @@ pre code {
 }
 
 .table thead th {
+	text-align: center;
 	vertical-align: bottom;
 	border-bottom: 2px solid #dee2e6
 }

@@ -1,3 +1,9 @@
 .MuiToolbar-root-53{
 background:#ff54a2
 }
+.cursor-pointer{
+    cursor: pointer;
+    }
+    td {
+        text-align: left;
+      }

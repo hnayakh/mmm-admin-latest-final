@@ -1,0 +1,9 @@
+.cursor-pointer{
+    cursor: pointer;
+    }
+    td {
+        text-align: center;
+      }
+      .card-title{
+        margin-top: 15px;
+      }

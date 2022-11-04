@@ -25,7 +25,7 @@ export class UsersListComponent implements OnInit {
   selectedEndDate = "";
   countryList: any;
   stateList: any;
-
+  isVerified=1;
   Relationships = [
     "Self",
     "Son",
@@ -69,6 +69,7 @@ export class UsersListComponent implements OnInit {
   }
 
   GetAllActiveUsers(
+    isVerified=1,
     searchText = "",
     gender = 3,
     createdFor = 7,
@@ -83,6 +84,7 @@ export class UsersListComponent implements OnInit {
   ) {
     this.userService
       .GetActiveUSers(
+        isVerified,
         searchText,
         gender,
         createdFor,
@@ -113,6 +115,7 @@ export class UsersListComponent implements OnInit {
       this.GetAllActiveUsers();
     } else {
       this.GetAllActiveUsers(
+        this.isVerified,
         this.searchText,
         event.target.value,
         this.createdBy,
@@ -135,6 +138,7 @@ export class UsersListComponent implements OnInit {
       this.GetAllActiveUsers();
     } else {
       this.GetAllActiveUsers(
+        this.isVerified,
         this.searchText,
         this.gender,
         event.target.value,
@@ -158,6 +162,7 @@ export class UsersListComponent implements OnInit {
         this.stateList = result.data;
 
         this.GetAllActiveUsers(
+          this.isVerified,
           this.searchText,
           this.gender,
           this.createdBy,
@@ -183,6 +188,7 @@ export class UsersListComponent implements OnInit {
         console.log(result);
         this.cityList = result.data;
         this.GetAllActiveUsers(
+          this.isVerified,
           this.searchText,
           this.gender,
           this.createdBy,
@@ -201,9 +207,28 @@ export class UsersListComponent implements OnInit {
       }
     );
   }
+  onChangeUserType(event){
+    console.log(event.target.value)
+    this.isVerified=event.target.value
+    this.GetAllActiveUsers(
+      event.target.value,
+      this.searchText,
+      this.gender,
+      this.createdBy,
+      this.religion,
+      this.caste,
+      this.motherTongue,
+      this.country,
+      this.locationState,
+      this.location,
+      this.date,
+      this.selectedEndDate
+    );
+  }
 
   onChangeCity(event) {
     this.GetAllActiveUsers(
+      this.isVerified,
       this.searchText,
       this.gender,
       this.createdBy,
@@ -216,5 +241,8 @@ export class UsersListComponent implements OnInit {
       this.date,
       this.selectedEndDate
     );
+    
   }
+
+
 }
