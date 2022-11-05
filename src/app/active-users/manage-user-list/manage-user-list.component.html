@@ -12,7 +12,14 @@
             <div class="iq-card iq-bg-success">
               <div class="iq-card-header d-flex justify-content-between">
                 <div class="iq-header-title">
-                  <h4 class="card-title">Verify User</h4>
+                  <h4 class="card-title">
+                    <span class="mx-2" routerLink="/active-users">
+                      <i
+                        class="fa fa-arrow-left"
+                        style="color: rgb(214, 24, 94); cursor: pointer"
+                      ></i></span
+                    >Verify User
+                  </h4>
                 </div>
               </div>
               <div class="iq-card-body">
@@ -26,8 +33,15 @@
                       </ng-template>
                     </ng-container>
                   </owl-carousel-o> -->
-                  <div class="col-12 d-flex"  style="width:100%;display:flex; flex-wrap: wrap;   " >
-                    <div class="'col-md-4" *ngFor="let item of slides" style=" flex: 0 0 33.333333%;row-gap: 1em; padding: 40px ; ">
+                  <div
+                    class="col-12 d-flex"
+                    style="width: 100%; display: flex; flex-wrap: wrap"
+                  >
+                    <div
+                      class="'col-md-4"
+                      *ngFor="let item of slides"
+                      style="flex: 0 0 33.333333%; row-gap: 1em; padding: 40px"
+                    >
                       <img [src]="item.thumbnailURL" class="img-thumbnail" />
                     </div>
                   </div>
