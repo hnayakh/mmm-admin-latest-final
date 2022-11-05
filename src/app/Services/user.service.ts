@@ -18,7 +18,7 @@ export class UserService {
     return this.http.get(url, { headers: headers });
   }
   GetActiveUSers(
-    isVerified=1,
+    isVerified = 1,
     searchText = "",
     gender = 3,
     createdFor = 7,

@@ -11,27 +11,28 @@
           type="search"
           placeholder="Search"
           aria-label="Search"
+          (change)="onSearch($event)"
         />
       </form>
     </div>
-    <div class="iq-card-body" style="overflow-x: scroll">
-      <div class="col">
+    <div class="iq-card-body" style="overflow-x: scroll" >
+      <div class="col" ngIF="recentSearchList.length">
         <label>Recent Search</label>
-        <div class="col-8 d-flex" >
+        <div class="row d-flex">
           <div
             class="col-3 mb-2"
-            *ngFor="let data of ActiveUserList&&ActiveUserList.lastSearchedIds; let i = index"
+            *ngFor="let data of recentSearchList; let i = index"
           >
-          <a routerLink="manage/users/{{ data.userId }}">
-            <input
-            class="form-control"
-            type="text"
-            placeholder="None"
-            [value]="data.displayId"
-            disabled
-          />
-          </a>
-        
+            <a routerLink="manage/users/{{ data.id }}">
+              <!-- <input
+                class="form-control "
+                type="text"
+                placeholder="None"
+                [value]="data.displayId"
+                disabled
+              /> -->
+              <button class="btn btn-secondary">{{data.displayId}} </button>
+            </a>
           </div>
         </div>
       </div>
@@ -95,12 +96,14 @@
                   >
                     <option value="">None</option>
                     <option
-                    *ngFor="let item of masterData&&masterData.religion; let i = index"
-                    [value]="item.id"
-                  >
-                {{item.text}}
-                </option>
-                   
+                      *ngFor="
+                        let item of masterData && masterData.religion;
+                        let i = index
+                      "
+                      [value]="item.id"
+                    >
+                      {{ item.text }}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -123,12 +126,14 @@
                   >
                     <option value="">None</option>
                     <option
-                      *ngFor="let item of masterData&&masterData.motherTongue; let i = index"
+                      *ngFor="
+                        let item of masterData && masterData.motherTongue;
+                        let i = index
+                      "
                       [value]="item.id"
                     >
-                  {{item.text}}
-                  </option>
-                  
+                      {{ item.text }}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -192,11 +197,21 @@
               </div>
               <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
                 <label>Created Form<span class="text-danger"></span></label>
-                <input class="form-control" type="date" placeholder="None" />
+                <input
+                  class="form-control"
+                  type="date"
+                  placeholder="None"
+                  (change)="onFromDateChange($event)"
+                />
               </div>
               <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
                 <label>Created To<span class="text-danger"></span></label>
-                <input class="form-control" type="date" placeholder="None" />
+                <input
+                  class="form-control"
+                  type="date"
+                  placeholder="None"
+                  (change)="onChangeToDate($event)"
+                />
               </div>
             </div>
           </form>
@@ -214,6 +229,7 @@
               data-toggle="button"
               aria-pressed="false"
               autocomplete="off"
+              (click)="onClearClick()"
             >
               CLEAR
             </button>
@@ -275,12 +291,18 @@
           <tbody>
             <tr *ngFor="let data of ActiveUserList.users; let i = index">
               <td>
-                <a routerLink="manage/users/{{ data.id }}">{{ i + 1 }}</a>
+                <a>{{ i + 1 }}</a>
               </td>
               <td>
-                <a routerLink="manage/users/{{ data.id }}">{{
+                <!-- <a routerLink="manage/users/{{ data.id }}">{{
                   data.displayId
-                }}</a>
+                }}</a> -->
+                <a
+                  (click)="onNavigateManageUser(data)"
+                  style="color: rgb(99, 74, 226); cursor: pointer"
+                >
+                  {{ data.displayId }}
+                </a>
               </td>
               <td>{{ data.name }}</td>
               <td>{{ data.email }}</td>

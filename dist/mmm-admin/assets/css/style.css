@@ -1642,7 +1642,7 @@ body.sidebar-main .iq-menu-bt-sidebar .iq-menu-bt {
 .iq-show .iq-sub-dropdown {
   display: inline-block;
   position: absolute;
-  left: -36px;
+  /* left: -36px; */
   top: 60px;
 }
 .navbar-list li .iq-sub-dropdown .iq-sub-card {
@@ -4606,4 +4606,8 @@ Add User Page
   a.search-toggle.iq-waves-effect.language-title {
     display: none !important;
   }
+}
+
+table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {
+  text-align: center !important;
 }
