@@ -22,13 +22,16 @@
             class="col-3 mb-2"
             *ngFor="let data of ActiveUserList.lastSearchedIds; let i = index"
           >
+          <a routerLink="manage/users/{{ data.userId }}">
             <input
-              class="form-control"
-              type="text"
-              placeholder="None"
-              [value]="data.displayId"
-              disabled
-            />
+            class="form-control"
+            type="text"
+            placeholder="None"
+            [value]="data.displayId"
+            disabled
+          />
+          </a>
+        
           </div>
         </div>
       </div>

@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 import { Router } from "@angular/router";
 import { AdminService } from "src/app/Services/admin.service";
 import { environment } from "src/environments/environment.dev";
@@ -22,22 +27,43 @@ export class AddAdminUserComponent implements OnInit {
   roleList: any;
   ngOnInit() {
     this.roleList = environment.Role;
-    this.addAdminForm = this.formbuilder.group({
-      email: ["", Validators.required],
-      password: ["", Validators.required],
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      confirmPassword: ["", Validators.required],
-      role: ["", Validators.required],
-      phoneNumber: ["", Validators.required],
-      gender: ["", Validators.required],
-    });
+    this.addAdminForm = this.formbuilder.group(
+      {
+        email: ["", Validators.required],
+        password: ["", Validators.required],
+        firstName: ["", Validators.required],
+        lastName: ["", Validators.required],
+        confirmPassword: ["", Validators.required],
+        role: ["", Validators.required],
+        phoneNumber: ["", Validators.required],
+        gender: ["", Validators.required],
+      },
+      { validator: this.passwordConfirming }
+    );
   }
   get f() {
     return this.addAdminForm.controls;
   }
+
+  passwordConfirming(c: AbstractControl): { invalid: boolean } {
+    if (c.get("password").value !== c.get("confirmPassword").value) {
+      return { invalid: true };
+    }
+  }
   onSubmit() {
     console.log(this.addAdminForm.value);
+    if (
+      this.addAdminForm.value.password !=
+      this.addAdminForm.value.confirmPassword
+    ) {
+      return Swal.fire({
+        position: "top",
+        icon: "error",
+        title: 'Password not matched with confirm password',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
     this.adminService.CreateAdminUser(this.addAdminForm.value).subscribe(
       (res) => {
         console.log(res);
