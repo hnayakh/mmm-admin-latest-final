@@ -12,8 +12,7 @@
       </div>
     </div>
 
-    <div class="iq-card-body" style="overflow-x: scroll;" *ngIf="AdminList">
-      
+    <div class="iq-card-body" style="overflow-x: scroll" *ngIf="AdminList">
       <table class="table text-center table-hover" id="maintable" datatable #dt>
         <ng-template p-template="caption">
           <div>
@@ -24,7 +23,7 @@
               size="50"
               placeholder="Search"
               (input)="dt.filterGlobal($event.target.value, 'contains')"
-              style="width: auto;"
+              style="width: auto"
             />
           </div>
         </ng-template>
@@ -47,24 +46,24 @@
             <td>{{ data.lastName }}</td>
             <td>{{ data.email }}</td>
             <td>{{ data.phoneNumber }}</td>
-            <td>{{ data.gender == '0' ? 'Male' : 'Female' }}</td>
+            <td>{{ data.gender == "0" ? "Male" : "Female" }}</td>
             <td>
               {{
-                data.role == '5'
-                  ? 'Super Admin'
-                  : data.role == '2'
-                  ? 'L2 Support'
-                  : data.role == '4'
-                  ? 'Admin'
-                  : data.role == '3'
-                  ? 'L3 Support'
-                  : 'L1 Support'
+                data.role == "5"
+                  ? "Super Admin"
+                  : data.role == "2"
+                  ? "L2 Support"
+                  : data.role == "4"
+                  ? "Admin"
+                  : data.role == "3"
+                  ? "L3 Support"
+                  : "L1 Support"
               }}
             </td>
             <td>
               <i
                 class="ri-delete-bin-7-fill text-danger cursor-pointer"
-                (click)="onRemoveUser(data.id)"
+                (click)="onRemoveUser(data)"
               ></i>
             </td>
           </tr>

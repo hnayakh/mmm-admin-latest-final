@@ -23,6 +23,7 @@ export class FaqComponent implements OnInit {
   faqs = [];
   targetFAQs = [];
   taskNeedToUpdate;
+  unassignedList=[]
   faqForm: FormGroup;
   id: any;
 

@@ -3,10 +3,21 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { OwlOptions } from "ngx-owl-carousel-o";
 import { UserService } from "src/app/Services/user.service";
 import Swal from "sweetalert2";
+import {
+  MotherOccupation,
+  Gender,
+  MaritalStatus,
+  ChildrenStatus,
+  EatingHabit,
+  SmokingHabit,
+  DrinkingHabit,
+  Manglik,
+  AnualIncome,
+} from "src/app/shared/enums/user-profile.enum";
 @Component({
-    selector: "manage-user-list",
-    templateUrl: "./manage-user-list.component.html",
-    styleUrls: ["./manage-user-list.component.css"],
+  selector: "manage-user-list",
+  templateUrl: "./manage-user-list.component.html",
+  styleUrls: ["./manage-user-list.component.css"],
 })
 export class ManageUserListComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
@@ -29,26 +40,6 @@ export class ManageUserListComponent implements OnInit {
     dots: false,
     navSpeed: 600,
     navText: ["&#8249", "&#8250;"],
-    // responsive: {
-    //   0: {
-    //     items: 1
-    //   },
-    //   400: {
-    //     items: 1
-    //   },
-    //   740: {
-    //     items: 1
-    //   },
-    //   940: {
-    //     items: 1
-    //   },
-    //   1440: {
-    //     items: 1
-    //   },
-    //   2640: {
-    //     items: 1
-    //   }
-    // },
     nav: false,
   };
 
@@ -66,7 +57,7 @@ export class ManageUserListComponent implements OnInit {
       (error) => {}
     );
   }
-//for verify a user
+  //for verify a user
   VerifyUser() {
     Swal.fire({
       title: "Do you want to Verify?",
@@ -93,6 +84,31 @@ export class ManageUserListComponent implements OnInit {
     });
   }
 
+  getGender(idx) {
+    return Gender[idx];
+  }
+  getMaritalStatus(idx) {
+    return MaritalStatus[idx];
+  }
+  getChildrenStatus(idx) {
+    return ChildrenStatus[idx];
+  }
+
+  getEatingHabit(idx) {
+    return EatingHabit[idx];
+  }
+  getSmokingHabit(idx) {
+    return SmokingHabit[idx];
+  }
+  getDrinkingHabits(idx) {
+    return DrinkingHabit[idx];
+  }
+  getMangalik(idx){
+    return Manglik[idx]
+  }
+  getAnnualIncome(idx){
+    return AnualIncome[idx]
+  }
   //for reject user
   RejectUser() {
     Swal.fire({

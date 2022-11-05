@@ -20,10 +20,15 @@ export class AdminService {
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
-  CreateAdminUser(data:any){
+  UpdateAdminUser(data:any) {
     let url = environment.baseURL + environment.Authentication.ADMIN_USERS;
     const headers = { "content-type": "application/json" };
-    return this.http.post(url,data, { headers: headers });
+    return this.http.put(url,data, { headers: headers });
+  }
+  CreateAdminUser(data: any) {
+    let url = environment.baseURL + environment.Authentication.ADMIN_USERS;
+    const headers = { "content-type": "application/json" };
+    return this.http.post(url, data, { headers: headers });
   }
 
   loggedIn() {

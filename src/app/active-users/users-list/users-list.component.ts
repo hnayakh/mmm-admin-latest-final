@@ -1,5 +1,6 @@
 import { Component, OnInit, Pipe } from "@angular/core";
 import { Router } from "@angular/router";
+import * as moment from "moment";
 import { MasterService } from "src/app/Services/master.service";
 import { UserService } from "src/app/Services/user.service";
 // import { PhysiciansService } from "src/app/Services/physicians.service";
@@ -12,9 +13,9 @@ import { UserService } from "src/app/Services/user.service";
 export class UsersListComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   ActiveUserList: any;
-  masterData:any;
-  motherTongueList:any;
-  religionList:any
+  masterData: any;
+  motherTongueList: any;
+  religionList: any;
   searchText = "";
   gender = 3;
   createdBy = 7;
@@ -28,7 +29,8 @@ export class UsersListComponent implements OnInit {
   selectedEndDate = "";
   countryList: any;
   stateList: any;
-  isVerified=1;
+  isVerified = 1;
+  recentSearchList = [];
   Relationships = [
     "Self",
     "Son",
@@ -49,13 +51,14 @@ export class UsersListComponent implements OnInit {
   ngOnInit() {
     this.GetAllActiveUsers();
     this.getALlMasterData();
+    this.getRececntSearchedList();
   }
 
   getALlMasterData() {
     this.masterService.getAllMasterData().subscribe(
       (data: any) => {
-        console.log('teststststs',data);
-        this.masterData=data&&data.data&&data.data.profileRawData
+        console.log("teststststs", data);
+        this.masterData = data && data.data && data.data.profileRawData;
       },
       (error) => {
         console.log(error);
@@ -73,7 +76,7 @@ export class UsersListComponent implements OnInit {
   }
 
   GetAllActiveUsers(
-    isVerified=1,
+    isVerified = 1,
     searchText = "",
     gender = 3,
     createdFor = 7,
@@ -134,7 +137,7 @@ export class UsersListComponent implements OnInit {
       );
     }
   }
-  onChangeMotherTongue(event){
+  onChangeMotherTongue(event) {
     this.GetAllActiveUsers(
       this.isVerified,
       this.searchText,
@@ -151,6 +154,21 @@ export class UsersListComponent implements OnInit {
     );
   }
 
+  onClearClick() {
+    this.isVerified = 1;
+    this.searchText;
+    this.gender = 3;
+    this.createdBy = 7;
+    this.religion = "";
+    this.caste = "";
+    this.motherTongue = "";
+    this.country = "";
+    this.locationState = "";
+    this.location = "";
+    this.date = "";
+    this.selectedEndDate = "";
+    this.GetAllActiveUsers();
+  }
   onCreatedForChange(event) {
     console.log(event.target.value);
     this.createdBy = event.target.value;
@@ -173,7 +191,8 @@ export class UsersListComponent implements OnInit {
       );
     }
   }
-  onChangeReligion (event) {
+
+  onChangeReligion(event) {
     console.log(event.target.value);
     this.createdBy = event.target.value;
     if (event.target.value == 7) {
@@ -195,6 +214,7 @@ export class UsersListComponent implements OnInit {
       );
     }
   }
+
   onChangeCountry(event) {
     console.log(event.target.value);
     this.country = event.target.value;
@@ -223,6 +243,42 @@ export class UsersListComponent implements OnInit {
       }
     );
   }
+  onFromDateChange(event) {
+    console.log(event.target.value);
+    this.date = moment(event.target.value).format("yyyy-MM-DD");
+    this.GetAllActiveUsers(
+      this.isVerified,
+      this.searchText,
+      this.gender,
+      this.createdBy,
+      this.religion,
+      this.caste,
+      this.motherTongue,
+      this.country,
+      this.locationState,
+      this.location,
+      moment(event.target.value).format("yyyy-MM-DD"),
+      this.selectedEndDate
+    );
+  }
+  onChangeToDate(event) {
+    this.selectedEndDate = moment(event.target.value).format("yyyy-MM-DD");
+    this.GetAllActiveUsers(
+      this.isVerified,
+      this.searchText,
+      this.gender,
+      this.createdBy,
+      this.religion,
+      this.caste,
+      this.motherTongue,
+      this.country,
+      this.locationState,
+      this.location,
+      this.date,
+      moment(event.target.value).format("yyyy-MM-DD")
+    );
+  }
+
   onChangeState(event) {
     this.locationState = event.target.value;
     this.masterService.getCitiesData(event.target.value).subscribe(
@@ -249,9 +305,27 @@ export class UsersListComponent implements OnInit {
       }
     );
   }
-  onChangeUserType(event){
-    console.log(event.target.value)
-    this.isVerified=event.target.value
+  onSearch(event) {
+    this.searchText = event.target.value;
+    this.GetAllActiveUsers(
+      this.isVerified,
+      event.target.value,
+      this.gender,
+      this.createdBy,
+      this.religion,
+      this.caste,
+      this.motherTongue,
+      this.country,
+      this.locationState,
+      this.location,
+      this.date,
+      this.selectedEndDate
+    );
+    this.getRececntSearchedList()
+  }
+  onChangeUserType(event) {
+    console.log(event.target.value);
+    this.isVerified = event.target.value;
     this.GetAllActiveUsers(
       event.target.value,
       this.searchText,
@@ -266,6 +340,11 @@ export class UsersListComponent implements OnInit {
       this.date,
       this.selectedEndDate
     );
+  }
+
+  getRececntSearchedList() {
+    let requiredSearched = JSON.parse(localStorage.getItem("recentSearch"));
+    this.recentSearchList = requiredSearched.filter((x, i) => i < 12);
   }
 
   onChangeCity(event) {
@@ -283,8 +362,33 @@ export class UsersListComponent implements OnInit {
       this.date,
       this.selectedEndDate
     );
-    
   }
 
+  userExists(arr, id) {
+    return arr.some(function (el) {
+      return el.id === id;
+    });
+  }
 
+  onNavigateManageUser(event) {
+    let recentSearched = JSON.parse(localStorage.getItem("recentSearch"));
+    if (recentSearched) {
+      console.log(this.userExists(recentSearched, event.id));
+      if (this.userExists(recentSearched, event.id)) {
+        this.router.navigate([`active-users/manage/users/${event.id}`]);
+        this.getRececntSearchedList();
+        return;
+      }
+      let newSearched = [...recentSearched, event];
+      localStorage.setItem("recentSearch", JSON.stringify(newSearched));
+    } else {
+      let latestSearched = [];
+      localStorage.setItem(
+        "recentSearch",
+        JSON.stringify([...latestSearched, event])
+      );
+    }
+    this.router.navigate([`active-users/manage/users/${event.id}`]);
+    this.getRececntSearchedList();
+  }
 }

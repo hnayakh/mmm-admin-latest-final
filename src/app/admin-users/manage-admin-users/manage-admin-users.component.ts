@@ -19,7 +19,7 @@ export class ManageAdminUsersComponent implements OnInit {
   getAllAdminUsers() {
     this.adminService.GetAllAdminUsers().subscribe(
       (data: any) => {
-        this.AdminList = data.data;
+        this.AdminList = data.data.filter(x=>x.isActive==true);
       },
       (error) => {
         console.log(error);
@@ -37,12 +37,15 @@ export class ManageAdminUsersComponent implements OnInit {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "", "success");
-        console.log(id);
-        var index = this.AdminList.map((x) => {
-          return x.Id;
-        }).indexOf(id);
+        this.adminService.UpdateAdminUser({...id,isActive:false}).subscribe(
+          (data: any) => {
+            this.getAllAdminUsers()
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
 
-        this.AdminList.splice(index, 1);
       } else if (result.isDenied) {
         Swal.fire("Not Deleted", "", "info");
       }
