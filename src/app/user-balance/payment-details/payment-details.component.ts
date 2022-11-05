@@ -10,6 +10,7 @@ import { UserService } from "src/app/Services/user.service";
 export class PaymentDetailsComponent implements OnInit {
   UserId: any;
   RechargeHistory: any;
+  paymentDetails: any;
   constructor(
     private activatedRoute: ActivatedRoute,
     private userService: UserService
@@ -22,7 +23,7 @@ export class PaymentDetailsComponent implements OnInit {
   }
 
   getRechargeHistory(id: any) {
-    this.userService.getRechargeHistory("dbcf9b43-dda5-43e1-aaf8-7d53fa9edb16").subscribe(
+    this.userService.getRechargeHistory(id).subscribe(
       (data: any) => {
         this.RechargeHistory = data.data;
       },

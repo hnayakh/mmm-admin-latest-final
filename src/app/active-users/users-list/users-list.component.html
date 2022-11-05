@@ -17,10 +17,10 @@
     <div class="iq-card-body" style="overflow-x: scroll">
       <div class="col">
         <label>Recent Search</label>
-        <div class="col-8 d-flex">
+        <div class="col-8 d-flex" >
           <div
             class="col-3 mb-2"
-            *ngFor="let data of ActiveUserList.lastSearchedIds; let i = index"
+            *ngFor="let data of ActiveUserList&&ActiveUserList.lastSearchedIds; let i = index"
           >
             <input
               class="form-control"
@@ -32,6 +32,7 @@
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="col-sm-8 col-md-8 col-8 col-lg-8 col-xl-8">
           <form>
@@ -87,20 +88,16 @@
                 <div class="form-group">
                   <select
                     class="select form-control"
-                    (change)="onCreatedForChange($event)"
+                    (change)="onChangeReligion($event)"
                   >
-                    <option value="7">None</option>
-                    <option value="7">Hindu</option>
-                    <option value="0">Muslim</option>
-                    <option value="1">Christian</option>
-                    <option value="2">Jain</option>
-                    <option value="3">Sikh</option>
-                    <option value="4">Buddhist</option>
-                    <option value="5">Jewish</option>
-                    <option value="5">Other</option>
-                    <option value="5">No Religion</option>
-                    <option value="5">Spiritual-not religious</option>
-
+                    <option value="">None</option>
+                    <option
+                    *ngFor="let item of masterData&&masterData.religion; let i = index"
+                    [value]="item.id"
+                  >
+                {{item.text}}
+                </option>
+                   
                   </select>
                 </div>
               </div>
@@ -119,15 +116,16 @@
                 <div class="form-group">
                   <select
                     class="select form-control"
-                    (change)="onCreatedForChange($event)"
+                    (change)="onChangeMotherTongue($event)"
                   >
-                    <option value="7">None</option>
-                    <option value="0">Odia</option>
-                    <option value="1">Bengali</option>
-                    <option value="2">Daughter</option>
-                    <option value="3">Brother</option>
-                    <option value="4">Friend</option>
-                    <option value="5">Relative</option>
+                    <option value="">None</option>
+                    <option
+                      *ngFor="let item of masterData&&masterData.motherTongue; let i = index"
+                      [value]="item.id"
+                    >
+                  {{item.text}}
+                  </option>
+                  
                   </select>
                 </div>
               </div>

@@ -12,6 +12,9 @@ import { UserService } from "src/app/Services/user.service";
 export class UsersListComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   ActiveUserList: any;
+  masterData:any;
+  motherTongueList:any;
+  religionList:any
   searchText = "";
   gender = 3;
   createdBy = 7;
@@ -51,7 +54,8 @@ export class UsersListComponent implements OnInit {
   getALlMasterData() {
     this.masterService.getAllMasterData().subscribe(
       (data: any) => {
-        console.log(data);
+        console.log('teststststs',data);
+        this.masterData=data&&data.data&&data.data.profileRawData
       },
       (error) => {
         console.log(error);
@@ -130,8 +134,46 @@ export class UsersListComponent implements OnInit {
       );
     }
   }
+  onChangeMotherTongue(event){
+    this.GetAllActiveUsers(
+      this.isVerified,
+      this.searchText,
+      this.gender,
+      this.createdBy,
+      this.religion,
+      this.caste,
+      event.target.value,
+      this.country,
+      this.locationState,
+      this.location,
+      this.date,
+      this.selectedEndDate
+    );
+  }
 
   onCreatedForChange(event) {
+    console.log(event.target.value);
+    this.createdBy = event.target.value;
+    if (event.target.value == 7) {
+      this.GetAllActiveUsers();
+    } else {
+      this.GetAllActiveUsers(
+        this.isVerified,
+        this.searchText,
+        this.gender,
+        event.target.value,
+        this.religion,
+        this.caste,
+        this.motherTongue,
+        this.country,
+        this.locationState,
+        this.location,
+        this.date,
+        this.selectedEndDate
+      );
+    }
+  }
+  onChangeReligion (event) {
     console.log(event.target.value);
     this.createdBy = event.target.value;
     if (event.target.value == 7) {

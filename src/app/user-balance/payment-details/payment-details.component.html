@@ -14,48 +14,26 @@
       <div class="container mt-3">        
         <table class="table table-bordered">
           <thead>
-            <tr>
-              <th class="table-head-bg">Transection ID</th>
-              <th class="table-head-bg">Time Stamp</th>
-              <th class="table-head-bg">Payment Source</th>
-              <th class="table-head-bg">Discount</th>
-              <th class="table-head-bg">Discount Source</th>
-              <th class="table-head-bg">Amount</th>
-              <th class="table-head-bg">No of Connects</th>
+            <tr class="table-head-bg">
+              <th >Transection ID</th>
+              <th>Time Stamp</th>
+              <th>Payment Source</th>
+              <th>Discount</th>
+              <th>Discount Source</th>
+              <th>Amount</th>
+              <th>No of Connects</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>NEFT/dfhcjd/034</td>
-              <td>DD:MM:YY:HH:MM</td>
-              <td>UPI</td>
-              <td>20%</td>
-              <td>Coupon</td>
-              <td>80</td>
-              <td>2</td>
-
+            <tr *ngFor = "let item of RechargeHistory" >
+              <td>{{ item.transactionId}}</td>
+              <td>{{ item.date}}</td>
+              <td>{{ item.modeOfPayment}}</td>
+              <td>{{ item.discountedAmount}}</td>
+              <td>{{ item.paymentStatus}}</td>
+              <td>{{ item.actualAmount}}</td>
+              <td>{{ item.connectCount}}</td>
             </tr>
-            <tr>
-              <td>NA</td>
-              <td>DD:MM:YY:HH:MM</td>
-              <td>NA</td>
-              <td>100%</td>
-              <td>Referral</td>
-              <td>0</td>
-              <td>1</td>
-
-            </tr>
-            <tr>
-              <td>NEFT/dfhcjd/034</td>
-              <td>DD:MM:YY:HH:MM</td>
-              <td>Online banking</td>
-              <td>0%</td>
-              <td>NA</td>
-              <td>200</td>
-              <td>4</td>
-
-            </tr>
-            
           </tbody>
         </table>
       </div>
