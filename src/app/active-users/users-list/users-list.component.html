@@ -9,13 +9,13 @@
         <input
           class="form-control mr-sm-2"
           type="search"
-          placeholder="Search"
+          placeholder="Search (By MPID, Email,Mobile No) "
           aria-label="Search"
           (change)="onSearch($event)"
         />
       </form>
     </div>
-    <div class="iq-card-body" style="overflow-x: scroll" >
+    <div class="iq-card-body" style="overflow-x: scroll">
       <div class="col" ngIF="recentSearchList.length">
         <label>Recent Search</label>
         <div class="row d-flex">
@@ -31,7 +31,7 @@
                 [value]="data.displayId"
                 disabled
               /> -->
-              <button class="btn btn-secondary">{{data.displayId}} </button>
+              <button class="btn btn-secondary">{{ data.displayId }}</button>
             </a>
           </div>
         </div>
@@ -92,7 +92,7 @@
                 <div class="form-group">
                   <select
                     class="select form-control"
-                    (change)="onChangeReligion($event)"
+                    (change)="onReligionChange($event)"
                   >
                     <option value="">None</option>
                     <option
