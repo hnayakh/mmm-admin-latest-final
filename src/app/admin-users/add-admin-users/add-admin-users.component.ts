@@ -59,7 +59,7 @@ export class AddAdminUserComponent implements OnInit {
       return Swal.fire({
         position: "top",
         icon: "error",
-        title: 'Password not matched with confirm password',
+        title: "Password not matched with confirm password",
         showConfirmButton: false,
         timer: 1500,
       });

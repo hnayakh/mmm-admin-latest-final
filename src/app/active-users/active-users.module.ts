@@ -10,7 +10,12 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 console.log("active");
 
 @NgModule({
-  declarations: [UsersListComponent,ManageUserListComponent],
-  imports: [CommonModule, ActiveUsersRoutingModule,DataTablesModule,CarouselModule],
+  declarations: [UsersListComponent, ManageUserListComponent],
+  imports: [
+    CommonModule,
+    ActiveUsersRoutingModule,
+    DataTablesModule,
+    CarouselModule,
+  ],
 })
 export class ActiveUsersModule {}
