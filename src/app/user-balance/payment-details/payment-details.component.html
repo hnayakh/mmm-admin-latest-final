@@ -12,9 +12,12 @@
         </h4>
       </div>
     </div>
+  
+
+
     <div class="iq-card-body" style="overflow-x: scroll">
-      <div class="container mt-3">
-        <table class="table table-bordered">
+      <div class="container mt-3" >
+        <table class="table table-bordered" id="maintable" datatable>
           <thead>
             <tr class="table-head-bg">
               <th>Transection ID</th>
@@ -28,17 +31,18 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of RechargeHistory">
-              <td>{{ item.transactionId }}</td>
+              <td>{{ item.transactionId}}</td>
               <td>{{ item.date }}</td>
               <td>{{ item.modeOfPayment }}</td>
               <td>{{ item.discountedAmount }}</td>
               <td>{{ item.paymentStatus }}</td>
-              <td>{{ item.actualAmount }}</td>
+              <td>{{ item.actualAmount  }}</td>
               <td>{{ item.connectCount }}</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+
   </div>
 </div>

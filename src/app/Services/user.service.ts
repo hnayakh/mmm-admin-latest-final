@@ -5,6 +5,9 @@ import { environment } from "src/environments/environment.dev";
   providedIn: "root",
 })
 export class UserService {
+  getConnectHistory(id: any) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient) {}
   GetAllPendingUsers() {
     let url = environment.baseURL + environment.User.AllVerifiedUser;

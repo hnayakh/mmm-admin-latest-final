@@ -10,25 +10,32 @@
       </h4>
     </div>
   </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th class="table-head-bg">Time Stamp</th>
-        <th class="table-head-bg">User B(MPID - NAME)</th>
-        <th class="table-head-bg">CR/DB</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td>DB</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td>Refund</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <div class="iq-card-body" style="overflow-x: scroll">
+    <div class="container mt-3" >
+      <table class="table table-bordered" id="maintable" datatable>
+        <thead>
+          <tr class="table-head-bg">
+            <th>Time Stamp</th>
+            <th>User B(MPID - NAME)</th>
+            <th>CR/DB</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of  ConnectHistory">
+            <td>{{ item.transactionId}}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.modeOfPayment }}</td>
+            <!-- <td>{{ item.discountedAmount }}</td>
+            <td>{{ item.paymentStatus }}</td>
+            <td>{{ item.actualAmount  }}</td>
+            <td>{{ item.connectCount }}</td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
