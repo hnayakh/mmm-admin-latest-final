@@ -18,25 +18,25 @@
                         class="fa fa-arrow-left"
                         style="color: rgb(214, 24, 94); cursor: pointer"
                       ></i></span
-                    >Verify User</h4>
+                    >Verify User
+                  </h4>
                 </div>
               </div>
               <div class="iq-card-body">
                 <div class="col-12">
                   <div
-                  class="col-12 d-flex"
-                  style="width: 100%; display: flex; flex-wrap: wrap"
-                >
-                  <div
-                    class="'col-md-4"
-                    *ngFor="let item of slides"
-                    style="flex: 0 0 33.333333%; row-gap: 1em; padding: 40px"
+                    class="col-12 d-flex"
+                    style="width: 100%; display: flex; flex-wrap: wrap"
                   >
-                    <img [src]="item.thumbnailURL" class="img-thumbnail" />
+                    <div
+                      class="'col-md-4"
+                      *ngFor="let item of slides"
+                      style="flex: 0 0 33.333333%; row-gap: 1em; padding: 40px"
+                    >
+                      <img [src]="item.thumbnailURL" class="img-thumbnail" />
+                    </div>
                   </div>
-                </div>
 
-                
                   <!-- <owl-carousel-o [options]="customOptions">
                     <ng-container *ngFor="let slide of slides">
                       <ng-template carouselSlide [id]="slide.id">
@@ -82,7 +82,7 @@
                   </div>
                   <div>
                     <label>Gender:</label>
-                    {{ PendingUserData.gender }}
+                    {{ getGender(PendingUserData.gender) }}
                   </div>
                   <div>
                     <label>Phone:</label>
@@ -94,11 +94,19 @@
                   </div>
                   <div>
                     <label>Marital Status:</label>
-                    {{ PendingUserData.userAbouts[0].maritalStatus }}
+                    {{
+                      getMaritalStatus(
+                        PendingUserData.userAbouts[0].maritalStatus
+                      )
+                    }}
                   </div>
                   <div>
                     <label>No of Children:</label>
-                    {{ PendingUserData.userAbouts[0].childrenStatus }}
+                    {{
+                      getChildrenStatus(
+                        PendingUserData.userAbouts[0].childrenStatus
+                      )
+                    }}
                   </div>
                 </div>
               </div>
@@ -113,15 +121,33 @@
                 <div class="col-12">
                   <div>
                     <label>Eating:</label>
-                    {{ PendingUserData.userHabits[0].eatingHabit }}
+                    {{
+                      getEatingHabit(
+                        PendingUserData.userHabits[0] &&
+                          PendingUserData.userHabits[0].eatingHabit &&
+                          PendingUserData.userHabits[0].eatingHabit
+                      )
+                    }}
                   </div>
                   <div>
                     <label>Smoking:</label>
-                    {{ PendingUserData.userHabits[0].smokingHabit }}
+                    {{
+                      getSmokingHabit(
+                        PendingUserData.userHabits[0] &&
+                        PendingUserData.userHabits[0].smokingHabit &&
+                          PendingUserData.userHabits[0].smokingHabit
+                      )
+                    }}
                   </div>
                   <div>
                     <label>Drinking:</label>
-                    {{ PendingUserData.userHabits[0].drinkingHabit }}
+                    {{
+                      getDrinkingHabits(
+                        PendingUserData.userHabits[0] &&
+                        PendingUserData.userHabits[0].drinkingHabit &&
+                          PendingUserData.userHabits[0].drinkingHabit
+                      )
+                    }}
                   </div>
                 </div>
               </div>
@@ -144,7 +170,7 @@
                   </div>
                   <div>
                     <label>Gothra:</label>
-                    {{ PendingUserData.userReligions[0].aboutMe }}
+                    {{ PendingUserData.userReligions[0].gothra }}
                   </div>
                   <div>
                     <label>Mother Tongue:</label>
@@ -152,7 +178,9 @@
                   </div>
                   <div>
                     <label>Manglik:</label>
-                    {{ PendingUserData.userReligions[0].isManglik }}
+                    {{
+                      getMangalik(PendingUserData.userReligions[0].isManglik)
+                    }}
                   </div>
                 </div>
               </div>
@@ -167,7 +195,7 @@
                 <div class="col-12">
                   <div>
                     <label>Occupation:</label>
-                    {{ data.userCareers[0].occupation }}
+                    {{ PendingUserData.userCareers[0].occupation }}
                   </div>
                   <div>
                     <label>Employed In:</label>
@@ -175,7 +203,11 @@
                   </div>
                   <div>
                     <label>Annual Income:</label>
-                    {{ PendingUserData.userCareers[0].annualIncome }}
+                    {{
+                      getAnnualIncome(
+                        PendingUserData.userCareers[0].annualIncome
+                      )
+                    }}
                   </div>
                   <div>
                     <label>Highest Education:</label>
@@ -222,7 +254,13 @@
             ></textarea>
           </div>
           <div class="modal-footer">
-            <button type="button" (click)="RejectUser()" class="btn btn-primary">Reject</button>
+            <button
+              type="button"
+              (click)="RejectUser()"
+              class="btn btn-primary"
+            >
+              Reject
+            </button>
             <button
               type="button"
               class="btn btn-secondary"
