@@ -14,17 +14,30 @@
 
   <div class="iq-card-body" style="overflow-x: scroll">
     <div class="container mt-3" >
-      <table class="table table-bordered" id="maintable" datatable>
+      <table class="table table-bordered" id="maintable" datatable #dt>
+        <ng-template p-template="caption">
+          <div>
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              pInputText
+              size="50"
+              placeholder="Search"
+              (input)="dt.filterGlobal($event.target.value, 'contains')"
+              style="width: auto"
+            />
+          </div>
+        </ng-template>
         <thead>
           <tr class="table-head-bg">
-            <th>Time Stamp</th>
+            <th>transactionId</th>
             <th>User B(MPID - NAME)</th>
             <th>CR/DB</th>
             
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of RechargeHistory  ">
+          <tr *ngFor="let item of  RechargeHistory">
             <td>{{ item.transactionId}}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.modeOfPayment }}</td>
