@@ -1,36 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UserService } from 'src/app/Services/user.service';
-
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { UserService } from "src/app/Services/user.service";
 
 @Component({
-  selector: 'app-connect-details',
-  templateUrl: './connect-details.component.html',
-  styleUrls: ['./connect-details.component.css']
+  selector: "app-connect-details",
+  templateUrl: "./connect-details.component.html",
+  styleUrls: ["./connect-details.component.css"],
 })
 export class ConnectDetailsComponent implements OnInit {
-  UserId:any;
+  UserId: any;
   RechargeHistory: any;
   connectDetails: any;
 
-  constructor( 
+  constructor(
     private activatedRoute: ActivatedRoute,
-    private userService: UserService) { 
+    private userService: UserService
+  ) {
     this.UserId = this.activatedRoute.snapshot.params.id;
   }
- 
+
   ngOnInit() {
-   this.RechargeHistory(this.UserId)
+    this.GetRechargeHistory(this.UserId);
   }
-  getRechargeHistory(id: any) {
+  GetRechargeHistory(id: any) {
     this.userService.getRechargeHistory(id).subscribe(
       (data: any) => {
-        this.RechargeHistory  = data.data;
+        this.RechargeHistory = data.data;
       },
       (error) => {
         console.log(error);
       }
     );
   }
-  
 }

@@ -4611,3 +4611,7 @@ Add User Page
 table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {
   text-align: center !important;
 }
+/* .dataTables_wrapper ,.dataTables_length {
+padding-left: 22%;
+padding-top: 0%;
+} */
