@@ -52,6 +52,44 @@ export class AddAdminUserComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.addAdminForm.value);
+    var validRegex = new RegExp(
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    );
+    this.submitted = true;
+    const {
+      confirmPassword,
+      email,
+      firstName,
+      gender,
+      lastName,
+      password,
+      phoneNumber,
+      role,
+    } = this.addAdminForm.value;
+    if (!firstName || !lastName) {
+      return;
+    }
+    console.log(validRegex.test(email));
+
+    if (!validRegex.test(email)) {
+      return Swal.fire({
+        position: "top",
+        icon: "error",
+        title: "Enter a valid email Address",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+    if (!phoneNumber) {
+      return Swal.fire({
+        position: "top",
+        icon: "error",
+        title: "Phone number cannot be empty",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+
     if (
       this.addAdminForm.value.password !=
       this.addAdminForm.value.confirmPassword
@@ -64,6 +102,7 @@ export class AddAdminUserComponent implements OnInit {
         timer: 1500,
       });
     }
+
     this.adminService.CreateAdminUser(this.addAdminForm.value).subscribe(
       (res) => {
         console.log(res);

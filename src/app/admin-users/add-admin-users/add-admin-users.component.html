@@ -21,7 +21,7 @@
                 </div>
               </div>
               <div class="iq-card-body">
-                <form [formGroup]="addAdminForm" (submit)="onSubmit()">
+                <form [formGroup]="addAdminForm" (ngSubmit)="onSubmit()">
                   <div class="form-group row align-items-center">
                     <div class="row align-items-center">
                       <div class="form-group col-sm-6">
@@ -53,12 +53,12 @@
                           placeholder="Smith"
                           formControlName="lastName"
                           [ngClass]="{
-                            'is-invalid': submitted && f.lName.errors
+                            'is-invalid': submitted && f.lastName.errors
                           }"
                         />
-                        <div *ngIf="submitted && f.lName.errors">
+                        <div *ngIf="submitted && f.lastName.errors">
                           <div
-                            *ngIf="f.lName.errors.required"
+                            *ngIf="f.lastName.errors.required"
                             class="text-danger"
                           >
                             Last Name is required
@@ -79,12 +79,12 @@
                         />
                         <div *ngIf="submitted && f.email.errors">
                           <div
-                            *ngIf="f.email.errors.required"
+                            ngIf="f.email.errors.required"
                             class="text-danger"
                           >
                             Email is required
                           </div>
-                          <div *ngIf="f.email.errors.email" class="text-danger">
+                          <div ngIf="f.email.errors.email" class="text-danger">
                             Please, Enter Valid Email Address
                           </div>
                         </div>
