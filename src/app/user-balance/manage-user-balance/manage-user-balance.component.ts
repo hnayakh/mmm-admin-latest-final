@@ -33,10 +33,10 @@ export class ManageUserBalance implements OnInit {
   }
 
   getRechargeHistoryOfUser(userId) {
-    this.userService.getRechargeHistory("dbcf9b43-dda5-43e1-aaf8-7d53fa9edb16").subscribe(
+    this.userService.getRechargeHistory(userId).subscribe(
       (data: any) => {
         console.log(data.data);
-        this.rechargeHistoryUser=data.data
+        this.rechargeHistoryUser = data.data;
       },
       (error) => {
         console.log(error);
