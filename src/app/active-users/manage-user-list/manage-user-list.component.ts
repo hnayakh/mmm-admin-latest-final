@@ -72,7 +72,7 @@ export class ManageUserListComponent implements OnInit {
           (response: any) => {
             console.log(response.data);
             Swal.fire("Verified!", "", "success");
-            this.router.navigate(["/pending-verifications"]);
+            this.router.navigate(["/active-users"]);
           },
           (error) => {
             console.log(error);
@@ -124,7 +124,7 @@ export class ManageUserListComponent implements OnInit {
           (response: any) => {
             console.log(response.data);
             Swal.fire("Verified!", "", "success");
-            this.router.navigate(["/pending-verifications"]);
+            this.router.navigate(["/active-users"]);
           },
           (error) => {
             console.log(error);

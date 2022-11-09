@@ -23,7 +23,21 @@
               </div>
               <div class="iq-card-body">
                 <div class="col-12">
-                  <owl-carousel-o [options]="customOptions">
+                  <div
+                  class="col-12 d-flex"
+                  style="width: 100%; display: flex; flex-wrap: wrap"
+                >
+                  <div
+                    class="'col-md-4"
+                    *ngFor="let item of slides"
+                    style="flex: 0 0 33.333333%; row-gap: 1em; padding: 40px"
+                  >
+                    <img [src]="item.thumbnailURL" class="img-thumbnail" />
+                  </div>
+                </div>
+
+                
+                  <!-- <owl-carousel-o [options]="customOptions">
                     <ng-container *ngFor="let slide of slides">
                       <ng-template carouselSlide [id]="slide.id">
                         <div class="slide">
@@ -31,7 +45,7 @@
                         </div>
                       </ng-template>
                     </ng-container>
-                  </owl-carousel-o>
+                  </owl-carousel-o> -->
                 </div>
               </div>
             </div>
@@ -153,10 +167,7 @@
                 <div class="col-12">
                   <div>
                     <label>Occupation:</label>
-                    {{
-                      PendingUserData.userCareers[0] &&
-                        PendingUserData.userCareers[0].occupation
-                    }}
+                    {{ data.userCareers[0].occupation }}
                   </div>
                   <div>
                     <label>Employed In:</label>

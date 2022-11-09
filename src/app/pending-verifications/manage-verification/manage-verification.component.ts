@@ -3,6 +3,17 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { OwlOptions } from "ngx-owl-carousel-o";
 import { UserService } from "src/app/Services/user.service";
 import Swal from "sweetalert2";
+import {
+  MotherOccupation,
+  Gender,
+  MaritalStatus,
+  ChildrenStatus,
+  EatingHabit,
+  SmokingHabit,
+  DrinkingHabit,
+  Manglik,
+  AnualIncome,
+} from "src/app/shared/enums/user-profile.enum";
 @Component({
   selector: "app-verification-list",
   templateUrl: "./manage-verification.component.html",
@@ -72,6 +83,34 @@ export class ManageVerificationComponent implements OnInit {
       }
     });
   }
+
+
+  getGender(idx) {
+    return Gender[idx];
+  }
+  getMaritalStatus(idx) {
+    return MaritalStatus[idx];
+  }
+  getChildrenStatus(idx) {
+    return ChildrenStatus[idx];
+  }
+
+  getEatingHabit(idx) {
+    return EatingHabit[idx];
+  }
+  getSmokingHabit(idx) {
+    return SmokingHabit[idx];
+  }
+  getDrinkingHabits(idx) {
+    return DrinkingHabit[idx];
+  }
+  getMangalik(idx){
+    return Manglik[idx]
+  }
+  getAnnualIncome(idx){
+    return AnualIncome[idx]
+  }
+  
   RejectUser() {
     Swal.fire({
       title: "Do you want to Reject this User?",
