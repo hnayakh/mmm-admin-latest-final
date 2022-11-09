@@ -167,7 +167,9 @@ label {
 }
 .form-control-sm {
   height: 30px;
-  line-height: 30px;
+  line-height: 16px;
+  align-self: center;
+  padding-left: 2em;
 }
 .form-control-lg {
   height: 50px;

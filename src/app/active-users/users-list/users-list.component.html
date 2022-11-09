@@ -46,6 +46,7 @@
                 <div class="form-group">
                   <select
                     class="select form-control"
+                    [value]="isVerified"
                     (change)="onChangeUserType($event)"
                   >
                     <option value="3">None</option>
@@ -59,6 +60,7 @@
                 <label>Gender<span class="text-danger"></span></label>
                 <div class="form-group">
                   <select
+                  [value]="gender"
                     class="select form-control"
                     (change)="onChangeGender($event)"
                   >
@@ -75,6 +77,7 @@
                 <div class="form-group">
                   <select
                     class="select form-control"
+                    [value]="createdBy"
                     (change)="onCreatedForChange($event)"
                   >
                     <option value="7">None</option>
@@ -92,9 +95,10 @@
                 <div class="form-group">
                   <select
                     class="select form-control"
+                    [value]="(religion)"
                     (change)="onReligionChange($event)"
                   >
-                    <option value="">None</option>
+                    <option value="" selected="religion?false:true">None</option>
                     <option
                       *ngFor="
                         let item of masterData && masterData.religion;
@@ -122,6 +126,7 @@
                 <div class="form-group">
                   <select
                     class="select form-control"
+                    [value]="motherTongue"
                     (change)="onChangeMotherTongue($event)"
                   >
                     <option value="">None</option>
@@ -142,6 +147,7 @@
                 <div class="form-group">
                   <select
                     class="select form-control"
+                    [value]="country"
                     (change)="onChangeCountry($event)"
                   >
                     <option value="">None</option>
@@ -163,6 +169,7 @@
                 <div class="form-group">
                   <select
                     class="select form-control"
+                    [value]="locationState"
                     (change)="onChangeState($event)"
                   >
                     <option>None</option>
@@ -183,6 +190,7 @@
                 <div class="form-group">
                   <select
                     class="select form-control"
+                    [value]="location"
                     (change)="onChangeCity($event)"
                   >
                     <option>None</option>
@@ -201,6 +209,7 @@
                   class="form-control"
                   type="date"
                   placeholder="None"
+                  [value]="date"
                   (change)="onFromDateChange($event)"
                 />
               </div>
@@ -209,6 +218,7 @@
                 <input
                   class="form-control"
                   type="date"
+                  [value]="selectedEndDate"
                   placeholder="None"
                   (change)="onChangeToDate($event)"
                 />
