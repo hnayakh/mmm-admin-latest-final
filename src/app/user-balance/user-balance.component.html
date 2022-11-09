@@ -193,18 +193,40 @@
     </div>
 
     <div class="iq-card-body" style="overflow-x: scroll" *ngIf="ActiveUserList&&ActiveUserList.users">
+
+      <div class="col" ngIF="recentSearchList.length">
+        <label>Recent Search</label>
+        <div class="row d-flex">
+          <div
+            class="col-3 mb-2"
+            *ngFor="let data of recentSearchList; let i = index"
+          >
+            <a routerLink="manage/users/{{ data.id }}">
+              <!-- <input
+                class="form-control "
+                type="text"
+                placeholder="None"
+                [value]="data.displayId"
+                disabled
+              /> -->
+              <button class="btn btn-secondary">{{ data.displayId }}</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <table class="table text-center table-hover" id="maintable" datatable #dt>
         <ng-template p-template="caption">
           <div>
             <i class="pi pi-search"></i>
-            <input
+            <!-- <input
               type="text"
               pInputText
               size="50"
               placeholder="Search"
               (input)="dt.filterGlobal($event.target.value, 'contains')"
               style="width: auto"
-            />
+            /> -->
           </div>
         </ng-template>
         <thead>

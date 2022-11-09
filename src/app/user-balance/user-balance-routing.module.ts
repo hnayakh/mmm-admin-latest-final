@@ -8,8 +8,14 @@ import { UserBalanceComponent } from "./user-balance.component";
 const routes: Routes = [
   { path: "", component: UserBalanceComponent },
   { path: "manage-user-balance/:id", component: ManageUserBalance },
-  { path: "manage-user-balance/:id/connect-details", component: ConnectDetailsComponent },
-  { path: "manage-user-balance/:id/payment-details", component: PaymentDetailsComponent },
+  {
+    path: "manage-user-balance/:id/connect-details",
+    component: ConnectDetailsComponent,
+  },
+  {
+    path: "manage-user-balance/:id/payment-details",
+    component: PaymentDetailsComponent,
+  },
 ];
 
 @NgModule({
