@@ -1,0 +1,198 @@
+<div class="col-md-12 col-lg-12 mt-4">
+    <div class="iq-card">
+      <div class="iq-card-header d-flex justify-content-between">
+        <div class="iq-header-title">
+          <h4 class="card-title">User Request</h4>
+        </div>
+  
+        <form class="form-inline">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search (By MPID, Email,Mobile No) "
+            aria-label="Search"
+            (change)="onSearch($event)"
+          />
+        </form>
+      </div>
+      <div class="iq-card-body" style="overflow-x: scroll">
+        <div class="col" ngIF="recentSearchList.length">
+          <label>Recent Search</label>
+          <div class="row d-flex">
+            <div
+              class="col-3 mb-2"
+              *ngFor="let data of recentSearchList; let i = index"
+            >
+              <a routerLink="manage/users/{{ data.id }}">
+                <!-- <input
+                  class="form-control "
+                  type="text"
+                  placeholder="None"
+                  [value]="data.displayId"
+                  disabled
+                /> -->
+                <button class="btn btn-secondary">{{ data.displayId }}</button>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-8 col-md-8 col-8 col-lg-8 col-xl-8">
+            <form>
+              <div class="row">
+                <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                  <label>Request Status<span class="text-danger"></span></label>
+                  <div class="form-group">
+                    <select
+                      class="select form-control"
+                      [value]="isVerified"
+                      (change)="onChangeUserType($event)"
+                    >
+                      <option value="3">None</option>
+                      <option value="1">Pending</option>
+                      <option value="0">Accepted</option>
+                      <option value="2">Rejected</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                  <label>Connect Status<span class="text-danger"></span></label>
+                  <div class="form-group">
+                    <select
+                    [value]="gender"
+                      class="select form-control"
+                      (change)="onChangeGender($event)"
+                    >
+                      <option value="3">None</option>
+                      <option value="0">Name of the User</option>
+                      <option value="1">Not Connected</option>
+                     
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                    <label>Request send Date<span class="text-danger"></span></label>
+                    <input
+                      class="form-control"
+                      type="date"
+                      placeholder="None"
+                      [value]="date"
+                      (change)="onFromDateChange($event)"
+                    />
+                  </div>
+                  <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                    <label>Connect Used Date<span class="text-danger"></span></label>
+                    <input
+                      class="form-control"
+                      type="date"
+                      [value]="selectedEndDate"
+                      placeholder="None"
+                      (change)="onChangeToDate($event)"
+                    />
+                  </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-sm-4 col-md-4 col-4 col-lg-4 col-xl-4"></div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-8 col-md-8 col-8 col-lg-8 col-xl-8">
+          </div>
+          <div
+            class="col-sm-4 col-md-4 col-4 col-lg-4 col-xl-4 d-flex justify-content-end"
+          >
+            <form class="form-inline">
+              <h4 class="card-title">
+                Total Users:{{ ActiveUserList && ActiveUserList.users.length }}
+              </h4>
+              <button
+                type="button"
+                class="btn btn-primary ml-2"
+                data-toggle="button"
+                aria-pressed="false"
+                autocomplete="off"
+                (click)="onClearClick()"
+              >
+                CLEAR
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div class="iq-card">
+        <div class="iq-card-header d-flex justify-content-between">
+          <div class="iq-header-title">
+            <h4 class="card-title">User Request</h4>
+          </div>
+        </div>
+  
+        <div
+          class="iq-card-body"
+          style="overflow-x: scroll"
+          *ngIf="ActiveUserList && ActiveUserList.users"
+        >
+          <table
+            class="table text-center table-hover"
+            id="maintable"
+            datatable
+            #dt
+          >
+            <ng-template p-template="caption">
+              <div>
+                <i class="pi pi-search"></i>
+                <input
+                  type="text"
+                  pInputText
+                  size="50"
+                  placeholder="Search"
+                  (input)="dt.filterGlobal($event.target.value, 'contains')"
+                  style="width: auto"
+                />
+              </div>
+            </ng-template>
+            <thead>
+              <tr class="table-head-bg">
+                <th scope="col">Sl No.</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Request Status</th>
+                <th scope="col">Connect Status</th>               
+                <th scope="col">Request Send Date </th>
+                <th scope="col">Request Acceptance Or Rejected Date</th>
+                <th scope="col">Connect Used Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of ActiveUserList.users; let i = index">
+                <td>
+                  <a>{{ i + 1 }}</a>
+                </td>
+                <td>
+                
+                  <a
+                    (click)="onNavigateManageUser(data)"
+                    style="color: rgb(99, 74, 226); cursor: pointer"
+                  >
+                    {{ data.displayId }}
+                  </a>
+                </td>
+                <td>{{ data.name }}</td>
+                
+                
+                <td></td>
+                <td></td>
+                <td>{{ data.createdAt | date: "dd/MM/yyyy" }}</td>
+                <td>{{ data.createdAt | date: "dd/MM/yyyy" }}</td>
+                <td>{{ data.createdAt | date: "dd/MM/yyyy" }}</td>
+                <td></td>
+               <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

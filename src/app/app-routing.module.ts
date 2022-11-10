@@ -169,6 +169,15 @@ const routes: Routes = [
       {
         // lazy loading
 
+        path: "user-request",
+        loadChildren: () =>
+          import("./user-request/user-request.module").then(
+            (m) => m.UserRequestModule
+          ),
+      },
+      {
+        // lazy loading
+
         path: "meet",
         loadChildren: () =>
           import("./meet/meet.module").then((m) => m.MeetModule),
