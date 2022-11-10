@@ -102,7 +102,7 @@ export class SuccessStoriesComponent implements OnInit {
       )
       .subscribe((data: any) => {
         console.log(data);
-        Swal.fire("Fetch!", "", "success");
+        Swal.fire("Story Created Successfully!", "", "success");
         this.getAllSuccessStories();
       });
   }

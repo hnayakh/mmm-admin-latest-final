@@ -27,14 +27,15 @@ export class ContentCreationComponent implements OnInit {
   contentForm: FormGroup;
   imageURl =
     "https://pinnacle.works/wp-content/uploads/2022/06/dummy-image.jpg";
- 
- 
 
   constructor(
     private cmsservice: CmsService,
     private formbuilder: FormBuilder
   ) {}
 
+  get formGet(){
+    return this.contentForm.controls;
+  }
   drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -52,26 +53,33 @@ export class ContentCreationComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.faqs=[{
-      id:1,
-      question:"What is a connect?",
-      answer:"You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples...."
-     },
-     {
-      id:2,
-      question:"What is MMM?",
-      answer:"You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples...."
-     },{
-      id:3,
-      question:"What is MMM wallet?",
-      answer:"You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples...."
-     },
-     {
-      id:4,
-      question:"What is Matchmeter?",
-      answer:"You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples...."
-     }]
-     this.targetFAQs= this.faqs;
+    this.faqs = [
+      {
+        id: 1,
+        question: "What is a connect?",
+        answer:
+          "You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples....",
+      },
+      {
+        id: 2,
+        question: "What is MMM?",
+        answer:
+          "You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples....",
+      },
+      {
+        id: 3,
+        question: "What is MMM wallet?",
+        answer:
+          "You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples....",
+      },
+      {
+        id: 4,
+        question: "What is Matchmeter?",
+        answer:
+          "You can think of it like a virtual currency Which can be use to connect or Communicate with other peoples....",
+      },
+    ];
+    this.targetFAQs = this.faqs;
     this.setDefaultForm();
     this.getAllcontent();
   }
@@ -101,16 +109,14 @@ export class ContentCreationComponent implements OnInit {
     );
   }
 
-
-  EditAndAddcontent(){
+  EditAndAddcontent() {
     if (!this.isUpdate) {
       this.createcontent();
+
     } else {
-      this. updatecontent();
+      this.updatecontent();
     }
   }
-
-
 
   createcontent() {
     console.log(this.contentForm.value);
@@ -121,15 +127,26 @@ export class ContentCreationComponent implements OnInit {
       )
       .subscribe((data: any) => {
         console.log(data);
-        Swal.fire("Fetch!", "", "success");
+        Swal.fire(" Content create Successfully !", "", "success");
         this.getAllcontent();
+        this.contentForm.reset({
+          channel: "",
+          template_name: "",
+          content_heading: "",
+          content: "",
+          photo: "",
+        });
       });
   }
 
   updatecontent() {
     this.cmsservice
       .updateAndAddFaqs(
-        { ...this.contentForm.value, id: this.taskNeedToUpdate.id, position: 0 },
+        {
+          ...this.contentForm.value,
+          id: this.taskNeedToUpdate.id,
+          position: 0,
+        },
         { type: "update" }
       )
       .subscribe((data: any) => {
@@ -149,18 +166,15 @@ export class ContentCreationComponent implements OnInit {
       content_heading: task.content_heading,
       content: task.content,
       photo: task.photo,
-
     });
-}
-onClick(id) {
-  this.taskNeedToUpdate =id;
-  this.contentForm.setValue({
-  
-  });
-}
+  }
+  onClick(id) {
+    this.taskNeedToUpdate = id;
+    this.contentForm.setValue({});
+  }
 
-deletecontent(id) {  
-  console.log(id)
+  deletecontent(id) {
+    console.log(id);
     Swal.fire({
       title: "Do you want to delete?",
       showDenyButton: true,
@@ -168,10 +182,10 @@ deletecontent(id) {
       confirmButtonText: "Delete",
       denyButtonText: `Cancel`,
     }).then((result) => {
-      if (result.isConfirmed) {   
+      if (result.isConfirmed) {
         this.cmsservice.deletecontent(id.id).subscribe(
           (data: any) => {
-            this. getAllcontent();
+            this.getAllcontent();
             console.log(data);
             Swal.fire("Deleted!", "", "success");
           },
