@@ -72,6 +72,10 @@ export class MasterService {
     const headers = { "content-type": "application/json" };
     return this.http.post(url, data, { headers: headers });
   }
-
+getAllRequests() {
+  let url = environment.baseURL + environment.Master.CONNECT_REQUEST;
+  const headers = { "content-type": "application/json" };
+  return this.http.get(url, { headers: headers });
+}
   
 }

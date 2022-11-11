@@ -1,8 +1,8 @@
 export const environment = {
   production: true,
   //  baseURL: "https://immense-brook-06350.herokuapp.com/api/",
-  baseURL: "http://13.233.130.85:3000/api/",
-  // baseURL: "http://localhost:3000/api/",
+  // baseURL: "http://13.233.130.85:3000/api/",
+  baseURL: "http://localhost:3000/api/",
   Authentication: {
     ADMIN_LOGIN: "auth/admin/login",
     ADMIN_USERS: "users/admin",
@@ -27,6 +27,7 @@ export const environment = {
     GET_ALL_CONNECTS: "masters/connects",
     GET_CONNECT_BY_ID: "masters/connect/",
     CREATE_AND_UPDATE_CONNET: "masters/connect",
+    CONNECT_REQUEST: "connects/all_users_connect_request",
   },
   User: {
     AllVerifiedUser: "users/admin/appUsers?isVerified=0",

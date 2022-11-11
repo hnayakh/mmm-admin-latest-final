@@ -40,37 +40,35 @@ export class UserRequestComponent implements OnInit {
     "Relative",
   ];
   cityList: any;
+  RequestList: any;
+  userId: any;
+ 
 
   constructor(
      private router: Router,
     private userService: UserService,
     private masterService: MasterService
-  ) { }
+  ) {
+
+   }
 
   ngOnInit() {
     this.GetAllActiveUsers();
-    this.getALlMasterData();
+    this.getALlRequestData();
     this.getRececntSearchedList();
   }
-  getALlMasterData() {
-    this.masterService.getAllMasterData().subscribe(
+  
+  getALlRequestData() {
+    this.masterService.getAllRequests().subscribe(
       (data: any) => {
-        console.log("teststststs", data);
-        this.masterData = data && data.data && data.data.profileRawData;
+        console.log('ghhgjh',data)
+        this.RequestList = data.data;
       },
       (error) => {
         console.log(error);
       }
     );
-    this.masterService.getAllCounties().subscribe(
-      (data: any) => {
-        console.log(data);
-        this.countryList = data.data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+   
   }
   GetAllActiveUsers(
     isVerified = 1,
