@@ -362,12 +362,12 @@ export class UserRequestComponent implements OnInit {
     );
   }
 
-  onNavigateManageUser(event) {
+  onNavigateRequestReceiver(event) {
     let recentSearched = JSON.parse(localStorage.getItem("recentSearch"));
     if (recentSearched) {
       console.log(this.userExists(recentSearched, event.id));
       if (this.userExists(recentSearched, event.id)) {
-        this.router.navigate([`active-users/manage/users/${event.id}`]);
+        this.router.navigate([`user-request/request/receiver/${event.id}`]);
         this.getRececntSearchedList();
         return;
       }
@@ -380,7 +380,7 @@ export class UserRequestComponent implements OnInit {
         JSON.stringify([...latestSearched, event])
       );
     }
-    this.router.navigate([`active-users/manage/users/${event.id}`]);
+    this.router.navigate([`user-request/request/receiver/${event.id}`]);
     this.getRececntSearchedList();
   }
 }

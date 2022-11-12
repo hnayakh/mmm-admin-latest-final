@@ -4,7 +4,6 @@ import { MasterService } from 'src/app/Services/master.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/Services/user.service';
-import Swal from "sweetalert2";
 
 import {
   MotherOccupation,
@@ -26,13 +25,10 @@ export class RequestReceiverComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   PendingUserData: any;
   UserId: any;
-  slides: any;
-  requestReceiver:any;
   constructor(
     private router: Router,
     private userService: UserService,
-    private activatedRoute: ActivatedRoute,
-    private masterService: MasterService
+    private activatedRoute: ActivatedRoute
   ) {
     console.log(this.activatedRoute.snapshot.params.id);
     this.UserId = this.activatedRoute.snapshot.params.id;
@@ -47,24 +43,26 @@ export class RequestReceiverComponent implements OnInit {
     navText: ["&#8249", "&#8250;"],
     nav: false,
   };
+  slides = [];
   ngOnInit() {
     this.GetUserProfileData(this.UserId);
+
   }
-  GetUserProfileData(id: any) {
+ 
+GetUserProfileData(id: any) {
     this.userService.GetUserProfile(id).subscribe(
       (response: any) => {
-        console.log(response.data);
-        this.PendingUserData = response.data;
-        this.slides = response.data.userImages;
+        console.log(response);
+        this.PendingUserData = response;
+        this.slides = response;
       },
       (error) => {}
     );
   }
-
   getGender(idx) {
     return Gender[idx];
   }
-  getMaritalStatus(idx) {
+  getMaritalStatus(idx) { 
     return MaritalStatus[idx];
   }
   getChildrenStatus(idx) {
@@ -86,7 +84,6 @@ export class RequestReceiverComponent implements OnInit {
   getAnnualIncome(idx){
     return AnualIncome[idx]
   }
-
 
 
 }

@@ -75,7 +75,7 @@ export class MasterService {
 getAllRequests() {
   let url = environment.baseURL + environment.Master.CONNECT_REQUEST;
   const headers = { "content-type": "application/json" };
-  return this.http.get(url, { headers: headers });
+  return this.http.get(url, { headers: headers })
 }
   
 }
