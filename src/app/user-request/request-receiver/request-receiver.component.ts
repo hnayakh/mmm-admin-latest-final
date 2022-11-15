@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { OwlOptions } from "ngx-owl-carousel-o";
-import { MasterService } from 'src/app/Services/master.service';
+import { MasterService } from "src/app/Services/master.service";
 
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from 'src/app/Services/user.service';
+import { ActivatedRoute, Router } from "@angular/router";
+import { UserService } from "src/app/Services/user.service";
 
 import {
   MotherOccupation,
@@ -17,9 +17,9 @@ import {
   AnualIncome,
 } from "src/app/shared/enums/user-profile.enum";
 @Component({
-  selector: 'app-request-receiver',
-  templateUrl: './request-receiver.component.html',
-  styleUrls: ['./request-receiver.component.css']
+  selector: "app-request-receiver",
+  templateUrl: "./request-receiver.component.html",
+  styleUrls: ["./request-receiver.component.css"],
 })
 export class RequestReceiverComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
@@ -32,8 +32,8 @@ export class RequestReceiverComponent implements OnInit {
   ) {
     console.log(this.activatedRoute.snapshot.params.id);
     this.UserId = this.activatedRoute.snapshot.params.id;
-   }
-   customOptions: OwlOptions = {
+  }
+  customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
     touchDrag: false,
@@ -46,15 +46,14 @@ export class RequestReceiverComponent implements OnInit {
   slides = [];
   ngOnInit() {
     this.GetUserProfileData(this.UserId);
-
   }
- 
-GetUserProfileData(id: any) {
+
+  GetUserProfileData(id: any) {
     this.userService.GetUserProfile(id).subscribe(
       (response: any) => {
         console.log(response);
-        this.PendingUserData = response;
-        this.slides = response;
+        this.PendingUserData = response.data;
+        this.slides = response.data.userImages;
       },
       (error) => {}
     );
@@ -62,7 +61,7 @@ GetUserProfileData(id: any) {
   getGender(idx) {
     return Gender[idx];
   }
-  getMaritalStatus(idx) { 
+  getMaritalStatus(idx) {
     return MaritalStatus[idx];
   }
   getChildrenStatus(idx) {
@@ -78,12 +77,10 @@ GetUserProfileData(id: any) {
   getDrinkingHabits(idx) {
     return DrinkingHabit[idx];
   }
-  getMangalik(idx){
-    return Manglik[idx]
+  getMangalik(idx) {
+    return Manglik[idx];
   }
-  getAnnualIncome(idx){
-    return AnualIncome[idx]
+  getAnnualIncome(idx) {
+    return AnualIncome[idx];
   }
-
-
 }

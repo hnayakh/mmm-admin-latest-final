@@ -1,96 +1,385 @@
+
 <div class="col-md-12 col-lg-12 mt-4">
   <div class="iq-card">
     <div class="iq-card-header d-flex justify-content-between">
       <div class="iq-header-title">
+        <h4 class="card-title">Account</h4>
+      </div>
+
+      <form class="form-inline">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search (By MPID, Email,Mobile No) "
+          aria-label="Search"
+          (change)="onSearch($event)"
+        />
+      </form>
+    </div>
+    <div class="iq-card-body" style="overflow-x: scroll">
+      <div class="col" ngIF="recentSearchList.length">
+        <label>Recent Search</label>
+        <div class="row d-flex">
+          <div
+            class="col-3 mb-2"
+            *ngFor="let data of recentSearchList; let i = index"
+          >
+            <a routerLink="manage/users/{{ data.id }}">
+             
+              <button class="btn btn-secondary">{{ data.displayId }}</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-10 col-md-10 col-10 col-lg-10 col-xl-10">
+          <form>
+            <div class="row">
+              <div class="col-sm-2 col-md-2 col-2 col-lg-2 col-xl-2">
+                <label>Date<span class="text-danger"></span></label>
+                <input
+                  class="form-control"
+                  type="date"
+                  placeholder="None"
+                  [value]="date"
+                  (change)="onFromDateChange($event)"
+                />
+              </div>
+              <div class="col-sm-2 col-md-2 col-2 col-lg-2 col-xl-2">
+                <label>Gender<span class="text-danger"></span></label>
+                <div class="form-group">
+                  <select
+                  [value]="gender"
+                    class="select form-control"
+                    (change)="onChangeGender($event)"
+                  >
+                    <option value="3">None</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                    <option value="2">other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-2 col-md-2 col-2 col-lg-2 col-xl-2">
+                <label>Location Filter<span class="text-danger"></span></label>
+                <div class="form-group">
+                  <select
+                    class="select form-control"
+                    [value]="isVerified"
+                    (change)="onChangeUserType($event)"
+                  >
+                    <option value="3">None</option>
+                    <option value="1">Active Users</option>
+                    <option value="0">Dormant Users</option>
+                    <option value="2">Incomplete Profiles</option>
+                  </select>
+                </div>
+              </div>
+              
+
+              <div class="col-sm-2 col-md-2 col-2 col-lg-2 col-xl-2">
+                <label>Discount Filter <span class="text-danger"></span></label>
+                <div class="form-group">
+                  <select
+                    class="select form-control"
+                    [value]="createdBy"
+                    (change)="onCreatedForChange($event)"
+                  >
+                    <option value="7">None</option>
+                    <option value="0">Self</option>
+                    <option value="1">Son</option>
+                    <option value="2">Daughter</option>
+                    <option value="3">Brother</option>
+                    <option value="4">Friend</option>
+                    <option value="5">Relative</option>
+                  </select>
+                </div>
+              </div>
+             
+              <div class="col-sm-2 col-md-2 col-2 col-lg-2 col-xl-2">
+                <label>Discount Source Filter <span class="text-danger"></span></label>
+                <div class="form-group">
+                  <select
+                    class="select form-control"
+                    [value]="createdBy"
+                    (change)="onCreatedForChange($event)"
+                  >
+                    <option value="7">None</option>
+                    <option value="0"></option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5"></option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="col-sm-2 col-md-2 col-2 col-lg-2 col-xl-2">
+                <label>Payment Status Filter <span class="text-danger"></span></label>
+                <div class="form-group">
+                  <select
+                    class="select form-control"
+                    [value]="createdBy"
+                    (change)="onCreatedForChange($event)"
+                  >
+                    <option value="7">None</option>
+                    <option value="0"></option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5"></option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-2 col-md-2 col-2 col-lg-2 col-xl-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-12 col-lg-12 col-xl-12">
+          <form>
+            <div class="row">
+              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height" style="cursor:pointer;">
+                  <div class="iq-card-body iq-bg-info rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="text-center">
+                        <h2>Total Transaction</h2>
+                      </div>
+                      <div>
+                        <span class="counter"
+                          ><h1>{{rechargeHistoryUser.length}}</h1>
+                        </span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height" style="cursor:pointer;">
+                  <div class="iq-card-body iq-bg-info rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="text-center">
+                        <h2>Success Transaction</h2>
+                      </div>
+                      <div>
+                        <span class="counter"
+                          ><h1>{{rechargeHistoryUser.length}}</h1>
+                          </span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height" style="cursor:pointer;">
+                  <div class="iq-card-body iq-bg-info rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="text-center">
+                        <h2>Failure Transaction</h2>
+                      </div>
+                      <div>
+                        <span class="counter"
+                          ><h1>{{rechargeHistoryUser.length}}</h1>
+                          </span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height" style="cursor:pointer;">
+                  <div class="iq-card-body iq-bg-info rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="text-center">
+                        <h2>Total Connect Sale</h2>
+                      </div>
+                      <div>
+                        <span class="counter"
+                          ><h1>{{rechargeHistoryUser.length}}</h1>
+                          </span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+           
+            </div>
+          </form>
+        </div>
+      
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-12 col-lg-12 col-xl-12">
+          <form>
+            <div class="row">
+              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height" style="cursor:pointer;">
+                  <div class="iq-card-body iq-bg-info rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="text-center">
+                        <h2>Gross Sale (Total connect sale * Per connect Price)</h2>
+                      </div>
+                      <div>
+                        <span class="counter"
+                          ><h1>{{rechargeHistoryUser.length}}</h1>
+                         </span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height" style="cursor:pointer;">
+                  <div class="iq-card-body iq-bg-info rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="text-center">
+                        <h2>Net sale(Gross Sale Discounts)</h2>
+                      </div>
+                      <div>
+                        <span class="counter"
+                          ><h1>{{rechargeHistoryUser.length}}</h1>
+                         </span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height" style="cursor:pointer;">
+                  <div class="iq-card-body iq-bg-info rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="text-center">
+                        <h2>Total Discount</h2>
+                      </div>
+                      <div>
+                        <span class="counter"
+                          ><h1>{{rechargeHistoryUser.length}}</h1>
+                          </span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height" style="cursor:pointer;">
+                  <div class="iq-card-body iq-bg-info rounded">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="text-center">
+                        <h2>Total Amount (sum of all transaction)</h2>
+                      </div>
+                      <div>
+                        <span class="counter"
+                          ><h1>{{rechargeHistoryUser.length}}</h1>
+                          </span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-    
-    <div class="iq-card-body" style="overflow-x: scroll">
-      <div class="container mt-3" *ngIf="rechargeHistoryUser">
-        <table class="table table-bordered" id="maintable" datatable>
-          <thead>
-            <tr>
-              <th >Created Form Date</th>
-              <th >Created To Date</th>
-              <th >Gender</th>
-              <th >Location</th>
-              <th >Discount </th>
-              <th >Discount Source</th>
-              <th >payment status</th>
-              <th ></th>
-              <th ></th>
 
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><input  type="date" /></td>
-              <td><input  type="date" /></td>
-              <td><select>
-                <option>None</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>other</option>
-              </select></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
+    <div class="iq-card">
+      <div class="iq-card-header d-flex justify-content-between">
+        <div class="iq-header-title">
+          <h4 class="card-title">Account List</h4>
+        </div>
+      </div>
+
+      <div
+        class="iq-card-body"
+        style="overflow-x: scroll"
+        *ngIf="ActiveUserList && ActiveUserList.users"
+      >
+        <table
+          class="table text-center table-hover"
+          id="maintable"
+          datatable
+          #dt
+        >
+          <ng-template p-template="caption">
+            <div>
+              <i class="pi pi-search"></i>
+              <input
+                type="text"
+                pInputText
+                size="50"
+                placeholder="Search"
+                (input)="dt.filterGlobal($event.target.value, 'contains')"
+                style="width: auto"
+              />
+            </div>
+          </ng-template>
           <thead>
             <tr class="table-head-bg">
-              <th >Transection ID</th>
-              <th >Time Stamp</th>
-              <th >Payment Source</th>
-              <th >Discount</th>
-              <th >Discount Source</th>
-              <th >Amount</th>
-              <th >No of Connects</th>
-              <th >MPID</th>
-              <th >Transaction status</th>
+              <th scope="col">Sl No.</th>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobile No</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Joined<br />On</th>
+              <th scope="col">Created<br />By</th>
+              <th scope="col">Religion</th>
+              <th scope="col">Caste</th>
+              <th scope="col">
+                Mother<br />
+                Tongue
+              </th>
+              <th scope="col">Location</th>
             </tr>
           </thead>
           <tbody>
-            <!-- <tr>
-              <td>{{data.transactionId}}</td>
-              <td>{{data.createdAt}}</td>
-              <td>{{data.modeOfPayment}}</td>
-              <td>{{data.discountedAmount}}</td>
-              <td>{{data.couponCode}}</td>
-              <td>{{data.actualAmount}}</td>
-              <td>{{data.connectCount}}</td>
-              <td></td>
-              <td></td>
-
+            <tr *ngFor="let data of ActiveUserList.users; let i = index">
+              <td>
+                <a>{{ i + 1 }}</a>
+              </td>
+              <td>
+                <!-- <a routerLink="manage/users/{{ data.id }}">{{
+                  data.displayId
+                }}</a> -->
+                <a
+                  (click)="onNavigateManageUser(data)"
+                  style="color: rgb(99, 74, 226); cursor: pointer"
+                >
+                  {{ data.displayId }}
+                </a>
+              </td>
+              <td>{{ data.name }}</td>
+              <td>{{ data.email }}</td>
+              <td>{{ data.phoneNumber }}</td>
+              <td>{{ data.gender == "0" ? "Male" : "Female" }}</td>
+              <td>{{ data.createdAt | date: "dd/MM/yyyy" }}</td>
+              <td>{{ Relationships[data.relationship] }}</td>
+              <td>{{ data.religion }}</td>
+              <td>{{ data.cast }}</td>
+              <td>{{ data.motherTongue }}</td>
+              <td>{{ data.careerCity }}</td>
             </tr>
-            <tr>
-              <td>{{data.transactionId}}</td>
-              <td>{{data.createdAt}}</td>
-              <td>{{data.modeOfPayment}}</td>
-              <td>{{data.discountedAmount}}</td>
-              <td>{{data.couponCode}}</td>
-              <td>{{data.actualAmount}}</td>
-              <td>{{data.connectCount}}</td>
-              <td></td>
-              <td></td>
-            </tr> -->
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
+
+

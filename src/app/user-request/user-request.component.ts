@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import * as moment from 'moment';
-import { MasterService } from '../Services/master.service';
-import { UserService } from '../Services/user.service';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import * as moment from "moment";
+import { MasterService } from "../Services/master.service";
+import { UserService } from "../Services/user.service";
 
 @Component({
-  selector: 'app-user-request',
-  templateUrl: './user-request.component.html',
-  styleUrls: ['./user-request.component.css']
+  selector: "app-user-request",
+  templateUrl: "./user-request.component.html",
+  styleUrls: ["./user-request.component.css"],
 })
 export class UserRequestComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
@@ -42,33 +42,37 @@ export class UserRequestComponent implements OnInit {
   cityList: any;
   RequestList: any;
   userId: any;
- 
+  UserRequestStatus = ["Pending", "Accepted", "Rejected", "Reverted"];
+
+  UserRequestState = [
+    "Active",
+    "RemovedByRequestingUser",
+    "RemovedByRequestedUser",
+    "NotConnected",
+  ];
 
   constructor(
-     private router: Router,
+    private router: Router,
     private userService: UserService,
     private masterService: MasterService
-  ) {
-
-   }
+  ) {}
 
   ngOnInit() {
     this.GetAllActiveUsers();
     this.getALlRequestData();
     this.getRececntSearchedList();
   }
-  
+
   getALlRequestData() {
     this.masterService.getAllRequests().subscribe(
       (data: any) => {
-        console.log('ghhgjh',data)
+        console.log("ghhgjh", data);
         this.RequestList = data.data;
       },
       (error) => {
         console.log(error);
       }
     );
-   
   }
   GetAllActiveUsers(
     isVerified = 1,
@@ -83,8 +87,7 @@ export class UserRequestComponent implements OnInit {
     location = "",
     createdFrom = "",
     createdTo = ""
-  )
-  {
+  ) {
     this.userService
       .GetActiveUSers(
         isVerified,
@@ -186,7 +189,7 @@ export class UserRequestComponent implements OnInit {
       );
     }
   }
-  
+
   onChangeCountry(event) {
     console.log(event.target.value);
     this.country = event.target.value;
@@ -315,7 +318,6 @@ export class UserRequestComponent implements OnInit {
     );
   }
 
-  
   getRececntSearchedList() {
     let requiredSearched = JSON.parse(localStorage.getItem("recentSearch"));
     this.recentSearchList = requiredSearched.filter((x, i) => i < 12);
@@ -338,7 +340,6 @@ export class UserRequestComponent implements OnInit {
     );
   }
 
-  
   userExists(arr, id) {
     return arr.some(function (el) {
       return el.id === id;
@@ -363,11 +364,12 @@ export class UserRequestComponent implements OnInit {
   }
 
   onNavigateRequestReceiver(event) {
+    console.log("ghghghj", event);
     let recentSearched = JSON.parse(localStorage.getItem("recentSearch"));
     if (recentSearched) {
-      console.log(this.userExists(recentSearched, event.id));
-      if (this.userExists(recentSearched, event.id)) {
-        this.router.navigate([`user-request/request/receiver/${event.id}`]);
+      console.log(this.userExists(recentSearched, event.receiverId));
+      if (this.userExists(recentSearched, event.receiverId)) {
+        this.router.navigate([`user-request/request/receiver/${event.receiverId}`]);
         this.getRececntSearchedList();
         return;
       }
@@ -380,7 +382,7 @@ export class UserRequestComponent implements OnInit {
         JSON.stringify([...latestSearched, event])
       );
     }
-    this.router.navigate([`user-request/request/receiver/${event.id}`]);
+    this.router.navigate([`user-request/request/receiver/${event.receiverId}`]);
     this.getRececntSearchedList();
   }
 }
