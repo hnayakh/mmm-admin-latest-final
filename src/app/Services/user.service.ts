@@ -6,7 +6,7 @@ import { environment } from "src/environments/environment.dev";
 })
 export class UserService {
   getConnectHistory(id: any) {
-    throw new Error('Method not implemented.');
+    throw new Error("Method not implemented.");
   }
   constructor(private http: HttpClient) {}
   GetAllPendingUsers() {
@@ -71,7 +71,13 @@ export class UserService {
     return this.http.get(url, { headers: headers });
   }
   getRechargeHistory(id: any) {
-    let url = environment.baseURL + "connects/recharge/" + id;
+    let url;
+    if (id) {
+      url = environment.baseURL + "connects/recharge/" + id;
+    } else {
+      url = environment.baseURL + "connects/recharge";
+    }
+
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }

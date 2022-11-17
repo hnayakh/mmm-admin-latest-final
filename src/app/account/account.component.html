@@ -70,9 +70,9 @@
                     (change)="onChangeUserType($event)"
                   >
                     <option value="3">None</option>
-                    <option value="1">Active Users</option>
-                    <option value="0">Dormant Users</option>
-                    <option value="2">Incomplete Profiles</option>
+                    <option value="1">Bhubaneswar</option>
+                    <option value="0">Mumbai</option>
+                    <option value="2">West Bengal</option>
                   </select>
                 </div>
               </div>
@@ -150,12 +150,12 @@
                   <div class="iq-card-body iq-bg-info rounded">
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="text-center">
-                        <h2>Total Transaction</h2>
+                        <h2>Total Transection</h2>
                       </div>
                       <div>
                         <span class="counter"
-                          ><h1>{{rechargeHistoryUser.length}}</h1>
-                        </span
+                          >
+                         0</span
                         >
                       </div>
                     </div>
@@ -171,8 +171,8 @@
                       </div>
                       <div>
                         <span class="counter"
-                          ><h1>{{rechargeHistoryUser.length}}</h1>
-                          </span
+                          >
+                          0</span
                         >
                       </div>
                     </div>
@@ -188,8 +188,8 @@
                       </div>
                       <div>
                         <span class="counter"
-                          ><h1>{{rechargeHistoryUser.length}}</h1>
-                          </span
+                          >
+                          0</span
                         >
                       </div>
                     </div>
@@ -205,8 +205,8 @@
                       </div>
                       <div>
                         <span class="counter"
-                          ><h1>{{rechargeHistoryUser.length}}</h1>
-                          </span
+                          >
+                          0</span
                         >
                       </div>
                     </div>
@@ -229,12 +229,12 @@
                   <div class="iq-card-body iq-bg-info rounded">
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="text-center">
-                        <h2>Gross Sale (Total connect sale * Per connect Price)</h2>
+                        <h2>Gross Sale  </h2>
                       </div>
                       <div>
                         <span class="counter"
-                          ><h1>{{rechargeHistoryUser.length}}</h1>
-                         </span
+                          >
+                         0</span
                         >
                       </div>
                     </div>
@@ -246,12 +246,12 @@
                   <div class="iq-card-body iq-bg-info rounded">
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="text-center">
-                        <h2>Net sale(Gross Sale Discounts)</h2>
+                        <h2>Net Sale </h2>
                       </div>
                       <div>
                         <span class="counter"
-                          ><h1>{{rechargeHistoryUser.length}}</h1>
-                         </span
+                          >
+                          0</span
                         >
                       </div>
                     </div>
@@ -263,12 +263,12 @@
                   <div class="iq-card-body iq-bg-info rounded">
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="text-center">
-                        <h2>Total Discount</h2>
+                        <h2>Total Discount </h2>
                       </div>
                       <div>
                         <span class="counter"
-                          ><h1>{{rechargeHistoryUser.length}}</h1>
-                          </span
+                          >
+                          0</span
                         >
                       </div>
                     </div>
@@ -280,12 +280,12 @@
                   <div class="iq-card-body iq-bg-info rounded">
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="text-center">
-                        <h2>Total Amount (sum of all transaction)</h2>
+                        <h2>Total Amount</h2>
                       </div>
                       <div>
                         <span class="counter"
-                          ><h1>{{rechargeHistoryUser.length}}</h1>
-                          </span
+                          >
+                          0</span
                         >
                       </div>
                     </div>
@@ -354,9 +354,7 @@
                 <a>{{ i + 1 }}</a>
               </td>
               <td>
-                <!-- <a routerLink="manage/users/{{ data.id }}">{{
-                  data.displayId
-                }}</a> -->
+              
                 <a
                   (click)="onNavigateManageUser(data)"
                   style="color: rgb(99, 74, 226); cursor: pointer"

@@ -11,6 +11,7 @@ export class UserBalanceComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
   ActiveUserList: any;
+  recentSearchList = []
   adminData:any;
   Relationships = ["Self", "Son", "Daughter", "Sister", "Brother", "Friend", "Relative"];
   constructor(private router: Router, private userService: UserService) {}

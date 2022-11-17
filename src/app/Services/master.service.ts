@@ -77,5 +77,5 @@ getAllRequests() {
   const headers = { "content-type": "application/json" };
   return this.http.get(url, { headers: headers })
 }
-  
+
 }
