@@ -136,6 +136,8 @@ export class ContentCreationComponent implements OnInit {
           content: "",
           photo: "",
         });
+        this.contentForm.reset();
+
       });
   }
 

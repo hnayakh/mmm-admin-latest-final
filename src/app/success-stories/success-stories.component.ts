@@ -104,6 +104,8 @@ export class SuccessStoriesComponent implements OnInit {
         console.log(data);
         Swal.fire("Story Created Successfully!", "", "success");
         this.getAllSuccessStories();
+        this.successForm.reset();
+
       });
   }
 

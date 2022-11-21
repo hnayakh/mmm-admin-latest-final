@@ -15,4 +15,7 @@ export class ProfileApprovalListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCancelClick() {
+
+  }
 }
