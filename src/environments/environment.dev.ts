@@ -1,8 +1,8 @@
 export const environment = {
   production: true,
   //  baseURL: "https://immense-brook-06350.herokuapp.com/api/",
-  // baseURL: "http://13.233.130.85:3000/api/",
-  baseURL: "http://localhost:3000/api/",
+  baseURL: "http://15.206.67.212:3000/api/",
+  // baseURL: "http://localhost:3000/api/",
   Authentication: {
     ADMIN_LOGIN: "auth/admin/login",
     ADMIN_USERS: "users/admin",

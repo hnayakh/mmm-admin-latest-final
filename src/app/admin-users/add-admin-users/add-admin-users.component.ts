@@ -50,6 +50,8 @@ export class AddAdminUserComponent implements OnInit {
       return { invalid: true };
     }
   }
+  
+  
   onSubmit() {
     console.log(this.addAdminForm.value);
     var validRegex = new RegExp(
@@ -60,12 +62,17 @@ export class AddAdminUserComponent implements OnInit {
       confirmPassword,
       email,
       firstName,
-      gender,
+      gender ,
       lastName,
       password,
       phoneNumber,
       role,
     } = this.addAdminForm.value;
+//     if( gender ==  "Male"){
+// this.addAdminForm.value.gender
+//     }
+    // this.addAdminForm.value.gender  ==  "Male" ? 0 :1
+    console.log(this.addAdminForm.value.gender,"gender");
     if (!firstName || !lastName) {
       return;
     }
@@ -102,7 +109,7 @@ export class AddAdminUserComponent implements OnInit {
         timer: 1500,
       });
     }
-
+// return ;
     this.adminService.CreateAdminUser(this.addAdminForm.value).subscribe(
       (res) => {
         console.log(res);

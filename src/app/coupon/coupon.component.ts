@@ -96,6 +96,35 @@ export class CouponComponent implements OnInit {
         );
     }
   }
+
+  percentValidate(event): boolean {
+    if (event.target.value > 100) {
+      return false;
+    }
+  }
+
+  stopSpaceEnter(event: any) {
+    console.log(event.which,'keycode');
+    debugger
+    if (String(event.target.value).length == 0 && event.which == 32) {
+      return false;
+    }
+    if ((((event.keyCode < 65 || event.keyCode > 90) && (event.keyCode < 97 || event.keyCode > 122) && (event.keyCode < 47 || event.keyCode > 58)) && event.keyCode !== 32)) {
+      return false;
+    }
+    return true;
+  }
+
+  numberOnly(event: any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (String(event.target.value).length == 0 && event.which == 48) {
+      return false
+    }
+    else if (event.keyCode != 43 && charCode > 31 && (charCode < 48 || charCode > 57 )) {
+      return false;
+    }
+    return true;
+  }
   onSubmitAmount() {
     console.log(this.amountDiscount.value);
     if (this.couponId) {

@@ -6,11 +6,43 @@ import { environment } from "src/environments/environment.dev";
   providedIn: "root",
 })
 export class CmsService {
+
   getCreateFaqs() {
     throw new Error("Method not implemented.");
   }
 
   constructor(private http: HttpClient) {}
+
+  getUrl(url: any) {
+    return environment.baseURL + url;
+  }
+
+  httpRequest(req: String, serverURL: String, data?: any) {
+    if (req == 'get') {
+      return this.http.get(this.getUrl(serverURL), {
+        params: data ? data : ''
+      })
+    }
+    else if (req == 'post') {
+      return this.http.post(this.getUrl(serverURL), data, {
+      })
+    }
+    else if (req == 'put') {
+      return this.http.put(this.getUrl(serverURL), data, {
+      })
+    }
+    else if (req == 'patch') {
+      return this.http.patch(this.getUrl(serverURL), data, {
+      })
+    }
+    else if (req == 'delete') {
+      return this.http.delete(this.getUrl(serverURL));
+    }
+    else {
+      console.error('Wrong Api calling method')
+    }
+  }
+  
   getAllFaqs() {
     let url = environment.baseURL + environment.Cms.AllFaqs;
     const headers = { "content-type": "application/json" };

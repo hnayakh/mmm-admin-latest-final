@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 })
 export class ListCouponComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-  couponList: any;
+  couponList: any []=[];
 
   DiscountType = {
     Percentage: 0,
@@ -29,17 +29,22 @@ export class ListCouponComponent implements OnInit {
     const currentDate = new Date().toISOString().toString().split("T")[0];
     this.masterService.getAllCoupons().subscribe(
       (data: any) => {
-        this.couponList = data.data
+        let sortedData = data.data.sort(function (a: any, b: any) {
+          var result =  Number(new Date(b.createdAt).getTime()) - Number(new Date(a.createdAt).getTime());
+          return result;
+        });
+        debugger
+        this.couponList = sortedData
+        debugger
+        // this.couponList = data.data.sort((a:any,b:any) =>  Number(new Date (b.createdAt)) - Number(new Date (a.createdAt)))
           // .filter((y: any, i) => y.isActive)
-          .map((c: any) => {
-            return {
-              ...c,
-              expire_status:
-                c.validTill.toString().split("T")[0] >= currentDate
-                  ? "Active"
-                  : "Expired",
-            };
-          });
+          // .map((c: any) => {
+          //   return {
+          //     ...c,
+          //     expire_status:
+          //       c.validTill.toString().split("T")[0] >= currentDate ? "Active" : "Expired",
+          //   };
+          // });
         console.log("couponList", this.couponList);
       },
       (error) => {

@@ -22,7 +22,7 @@
             id="radio1"
             name="optradio"
             value="0"
-            [checked]="typeSelected =='0'?true:false"
+            [checked]="typeSelected =='0'? true:false"
             (change)="onTypeChange($event)"
           />
           Percentage Discount
@@ -66,7 +66,7 @@
               <h4 class="p-2">%</h4>
             </div>
             <div class="col-xs col-sm-6">
-              <input
+              <input maxlength="2"
                 type="text"
                 class="form-control text-center"
                 placeholder="30"
@@ -89,7 +89,7 @@
             </div>
             <div class="col-xs col-sm-6">
               <input
-                type="date"
+                type="date" (keypress)="numberOnly($event)"
                 class="form-control text-center"
                 placeholder="27/02/2022"
                 formControlName="validTill"
@@ -111,7 +111,7 @@
             </div>
             <div class="col-xs col-sm-6">
               <input
-                type="text"
+                type="text" 
                 class="form-control text-center"
                 placeholder="MM30"
                 name="inr"
@@ -165,7 +165,8 @@
             </div>
             <div class="col-xs col-sm-6">
               <input
-                type="text"
+                type="text" (keypress)="numberOnly($event)
+                "
                 class="form-control text-center"
                 placeholder="30"
                 formControlName="discount"

@@ -4,16 +4,20 @@
       <div class="iq-header-title">
         <h4 class="card-title">All users</h4>
       </div>
-
+<!-- 
       <form class="form-inline">
         <input
           class="form-control mr-sm-2"
-          type="search"
+          type="text"
+          pInputText
           placeholder="Search (By MPID, Email,Mobile No) "
-          aria-label="Search"
           (change)="onSearch($event)"
+       
+          (input)="dt.filterGlobal($event.target.value, 'contains')"
         />
-      </form>
+ 
+      </form> -->
+
     </div>
     <div class="iq-card-body" style="overflow-x: scroll">
       <div class="col" ngIF="recentSearchList.length">
@@ -131,11 +135,8 @@
                   >
                     <option value="">None</option>
                     <option
-                      *ngFor="
-                        let item of masterData && masterData.motherTongue;
-                        let i = index
-                      "
-                      [value]="item.id"
+                      *ngFor="let item of masterData && masterData.motherTongue; let i = index"
+                      [value]="item?.id"
                     >
                       {{ item.text }}
                     </option>
@@ -186,7 +187,7 @@
                 class="col-sm-3 col-md-3 col-3 col-lg-3 col-xl-3"
                 *ngIf="cityList && cityList.length > 0"
               >
-                <label>State<span class="text-danger"></span></label>
+                <label>City<span class="text-danger"></span></label>
                 <div class="form-group">
                   <select
                     class="select form-control"
@@ -299,7 +300,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let data of ActiveUserList.users; let i = index">
+            <tr *ngFor="let data of ActiveUserListing; let i = index">
               <td>
                 <a>{{ i + 1 }}</a>
               </td>

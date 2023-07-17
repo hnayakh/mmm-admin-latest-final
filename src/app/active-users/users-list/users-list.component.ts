@@ -13,6 +13,7 @@ import { UserService } from "src/app/Services/user.service";
 export class UsersListComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   ActiveUserList: any;
+  ActiveUserListing:any[]=[]
   masterData: any;
   motherTongueList: any;
   religionList: any;
@@ -25,12 +26,12 @@ export class UsersListComponent implements OnInit {
   country = "";
   locationState = "";
   location = "";
-  date = "";
-  selectedEndDate = "";
+  date:any = "";
+  selectedEndDate:any = "";
   countryList: any;
   stateList: any;
   isVerified = 1;
-  recentSearchList = [];
+  recentSearchList:any[] = [];
   Relationships = [
     "Self",
     "Son",
@@ -41,12 +42,11 @@ export class UsersListComponent implements OnInit {
     "Relative",
   ];
   cityList: any;
-
   constructor(
     private router: Router,
     private userService: UserService,
     private masterService: MasterService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.GetAllActiveUsers();
@@ -108,6 +108,7 @@ export class UsersListComponent implements OnInit {
         (data: any) => {
           console.log(data);
           this.ActiveUserList = data.data;
+          this.ActiveUserListing = data.data.users
         },
         (err) => {
           console.log(err);
@@ -138,6 +139,7 @@ export class UsersListComponent implements OnInit {
     }
   }
   onChangeMotherTongue(event) {
+    this.motherTongue = event.target.value
     this.GetAllActiveUsers(
       this.isVerified,
       this.searchText,
@@ -157,6 +159,7 @@ export class UsersListComponent implements OnInit {
   onClearClick() {
     this.isVerified = 1;
     this.searchText;
+    this.date =""
     this.gender = 3;
     this.createdBy = 7;
     this.religion = "";
@@ -166,6 +169,7 @@ export class UsersListComponent implements OnInit {
     this.locationState = "";
     this.location = "";
     this.date = "";
+    this.cityList = ""
     this.selectedEndDate = "";
     this.GetAllActiveUsers();
   }
@@ -201,7 +205,6 @@ export class UsersListComponent implements OnInit {
       (result: any) => {
         console.log(result);
         this.stateList = result.data;
-
         this.GetAllActiveUsers(
           this.isVerified,
           this.searchText,
@@ -327,6 +330,7 @@ export class UsersListComponent implements OnInit {
   }
 
   onChangeCity(event) {
+    this.cityList = event.target.value
     this.GetAllActiveUsers(
       this.isVerified,
       this.searchText,

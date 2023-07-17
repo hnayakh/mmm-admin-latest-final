@@ -29,8 +29,7 @@ export class SuccessStoriesComponent implements OnInit {
   successForm: FormGroup;
   id: any;
 
-  imageURl =
-    "https://pinnacle.works/wp-content/uploads/2022/06/dummy-image.jpg";
+  imageURl ="https://pinnacle.works/wp-content/uploads/2022/06/dummy-image.jpg";
  
 
   constructor(
@@ -63,6 +62,25 @@ export class SuccessStoriesComponent implements OnInit {
       story: ["", Validators.required],
       photo: ["", Validators.required],
     });
+  }
+
+  profile_pic:any = "";
+  ImageLoader:boolean = false
+  onChangeFile(event: any) {
+    let imageSrc = <File>event.target.files[0];
+    if (imageSrc != undefined) {
+      // this.ImageLoader = true
+      const formData: FormData = new FormData();
+      formData.append('images[]', imageSrc);
+      debugger
+      this.cmsService.httpRequest('post', '', formData).subscribe((response: any) => {
+        // this.ImageLoader = false
+        // this.commonSvc.showSuccess("", 'Uploaded')
+        this.profile_pic = response.image[0]
+      }, (error: any) => {
+        this.ImageLoader = false
+      })
+    }
   }
 
   checkEdge(event) {

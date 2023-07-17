@@ -29,7 +29,7 @@
             <div class="col-xs col-sm-6">
               <input
                 type="text"
-                (input)="onChangeVaule()"
+                (input)="onChangeVaule()" (keypress)="stopSpaceEnter($event)"
                 class="form-control text-center"
                 placeholder="300"
                 formControlName="connectPrice"
@@ -52,7 +52,7 @@
             <div class="col-xs col-sm-6">
               <input
                 type="text"
-                (input)="onChangeVaule()"
+                (input)="onChangeVaule()" (keypress)="stopSpaceEnter($event)" maxlength="2"
                 class="form-control text-center"
                 placeholder="50"
                 formControlName="discount"
@@ -110,7 +110,7 @@
               <input
                 type="text"
                 class="form-control text-center"
-                placeholder="30"
+                placeholder="30" (keypress)="numberOnly($event)"
                 formControlName="firstTimeBenifitMins"
               />
             </div>
@@ -144,7 +144,7 @@
               <input
                 type="text"
                 class="form-control text-center"
-                placeholder="60"
+                placeholder="60" (keypress)="numberOnly($event)"
                 formControlName="secondTimeBenifitMins"
               />
             </div>

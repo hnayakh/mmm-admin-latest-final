@@ -40,12 +40,34 @@ export class ProductPricingComponent implements OnInit {
       this.getConnectById();
     }
     this.productPricingForm = this.formbuilder.group({
-      connectPrice: [0, Validators.required],
-      discountedPrice: [0, Validators.required],
-      discount: [0, Validators.required],
-      firstTimeBenifitMins: [0, Validators.required],
-      secondTimeBenifitMins: [0, Validators.required],
+      connectPrice: ['', Validators.required],
+      discountedPrice: ['', Validators.required],
+      discount: ['', Validators.required],
+      firstTimeBenifitMins: ['', Validators.required],
+      secondTimeBenifitMins: ['', Validators.required],
     });
+  }
+
+  stopSpaceEnter(event: any) {
+    console.log(event.which,'keycode');
+    if (String(event.target.value).length == 0 && event.which == 48) {
+      return false;
+    }
+    if ((((event.keyCode < 65 || event.keyCode > 90) && (event.keyCode < 97 || event.keyCode > 122) && (event.keyCode < 47 || event.keyCode > 58)) && event.keyCode !== 32)) {
+      return false;
+    }
+    return true;
+  }
+
+  numberOnly(event: any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (String(event.target.value).length == 0 && event.which == 48) {
+      return false
+    }
+    else if (event.keyCode != 43 && charCode > 31 && (charCode < 48 || charCode > 57 )) {
+      return false;
+    }
+    return true;
   }
   getConnectById() {
     this.masterService.getConnectById({ id: this.connectID }).subscribe(

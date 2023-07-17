@@ -25,7 +25,7 @@
                                 <a routerLink="forget_password" class="float-right">Forgot password?</a>
                                 <input type="password" class="form-control mb-0" id="exampleInputPassword1"
                                     placeholder="Password"
-                                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }"formControlName="password">
+                                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password">
                                     <div *ngIf="submitted && f.password.errors">
                                         <div *ngIf="f.password.errors.required" class="text-danger">password is required</div>
                               
