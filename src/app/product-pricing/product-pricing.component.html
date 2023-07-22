@@ -34,6 +34,8 @@
                 placeholder="300"
                 formControlName="connectPrice"
               />
+              <p class="text-danger mt-2" *ngIf="productPricingForm.controls['connectPrice'].hasError('required') && productPricingForm.controls['connectPrice'].touched" >Enter MRP</p>
+
             </div>
           </div>
         </div>
@@ -57,6 +59,9 @@
                 placeholder="50"
                 formControlName="discount"
               />
+              <p class="text-danger mt-2" *ngIf="productPricingForm.controls['discount'].hasError('required') && productPricingForm.controls['discount'].touched" >Enter General Discount
+              </p>
+
             </div>
           </div>
         </div>
@@ -80,6 +85,8 @@
                 placeholder="150"
                 formControlName="discountedPrice"
               />
+              <p class="text-danger mt-2" *ngIf="productPricingForm.controls['discountedPrice'].hasError('required') && productPricingForm.controls['discountedPrice'].touched" >Enter Discounted Price</p>
+
             </div>
           </div>
         </div>
@@ -113,6 +120,8 @@
                 placeholder="30" (keypress)="numberOnly($event)"
                 formControlName="firstTimeBenifitMins"
               />
+              <p class="text-danger mt-2" *ngIf="productPricingForm.controls['firstTimeBenifitMins'].hasError('required') && productPricingForm.controls['firstTimeBenifitMins'].touched" >Enter First Time Benifit</p>
+
             </div>
           </div>
         </div>
@@ -147,10 +156,10 @@
                 placeholder="60" (keypress)="numberOnly($event)"
                 formControlName="secondTimeBenifitMins"
               />
+              <p class="mt-2" *ngIf="productPricingForm.controls['secondTimeBenifitMins'].hasError('required') && productPricingForm.controls['secondTimeBenifitMins'].touched" class="text-danger mt-2">Enter Second Time And Onwards Benifits</p>
             </div>
           </div>
         </div>
-
         <div class="row mt-5">
           <div
             class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 col-xxl-7 text-center"
@@ -162,7 +171,7 @@
               class="col-xs col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 d-flex"
             >
               <button
-                type="button"
+                type="button" [routerLink]="['/product-pricing']" routerLinkActive="router-link-active" 
                 class="btn btn-primary rounded-pill"
                 style="width: 100%"
               >
@@ -172,7 +181,7 @@
             <div class="col-xs col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
               <div class="d-flex justify-content-end">
                 <button
-                  type="submit"
+                  type="submit"  [disabled]="productPricingForm.invalid"
                   class="btn btn-primary rounded-pill"
                   style="width: 100%"
                 >

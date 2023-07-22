@@ -36,6 +36,7 @@
               <th scope="col">Discounted Price</th>
               <th scope="col">first Time Benifit Mins</th>
               <th scope="col">Second Time Benifit Mins</th>
+              <th scope="col">Created At</th>
             </tr>
           </thead>
           <tbody>
@@ -47,6 +48,7 @@
               <td>{{ data.discountedPrice }}</td>
               <td>{{ data.firstTimeBenifitMins }}</td>
               <td>{{ data.secondTimeBenifitMins }}</td>
+              <td>{{ data.createdAt | date:'short' }}</td>
             </tr>
           </tbody>
         </table>

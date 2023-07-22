@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { environment } from "src/environments/environment.dev";
 
 @Injectable({
@@ -68,6 +68,12 @@ export class CmsService {
       const headers = { "content-type": "application/json" };
       return this.http.post(url, data, { headers: headers });
     }
+  }
+
+  uploadImage(data:any , id:any){
+    let url =` http://192.168.1.3:3000/api/users/images/${id}`;
+    const headers = { "content-type": "application/json" };
+    return this.http.post(url, data, { headers: headers });
   }
   CreateSuccess(data: any, type: any) {
     if (type === "update") {

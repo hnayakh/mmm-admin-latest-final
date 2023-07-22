@@ -58,7 +58,7 @@ export class UserService {
   GetUserProfile(id: any) {
     let url = environment.baseURL + "users/basic/" + id;
     const headers = { "content-type": "application/json" };
-    return this.http.get(url, { headers: headers });
+    return this.http.post(url, { headers: headers });
   }
   VerifyUser(id: any) {
     let url = environment.baseURL + "users/admin/verify/" + id;

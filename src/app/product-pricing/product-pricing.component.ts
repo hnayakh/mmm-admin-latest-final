@@ -96,45 +96,56 @@ export class ProductPricingComponent implements OnInit {
       this.productPricingForm.get("connectPrice").value - discountPrice;
     this.productPricingForm.get("discountedPrice").setValue(netPrice);
   }
-  onFormSubmit() {
-    if (this.connectID) {
-      this.masterService
-        .updateAndCreateConnect({
-          ...this.productPricingForm.value,
-          connectId: this.connectID,
-          discountType: 1,
-          type: 2,
-        })
-        .subscribe(
-          (data: any) => {
-            console.log(data);
-            Swal.fire('Updated','','success')
 
-            this.getConnectById();
-          },
-          (error) => {
-            console.log(error);
-            Swal.fire('Error While Creating','','error')
-          }
-        );
-    } else {
-      this.masterService
-        .updateAndCreateConnect({
-          ...this.productPricingForm.value,
-          discountType: 1,
-          type: 1,
-        })
-        .subscribe(
-          (data: any) => {
-            console.log(data);
-            Swal.fire('Created','','success')
-            this.location.back()
-          },
-          (error) => {
-            console.log(error);
-            Swal.fire('Error While Creating','','error')
-          }
-        );
+  ErrorMessage:"Please Enter thr Complete Details"
+  onFormSubmit() {
+    if(this.productPricingForm.invalid){
+      debugger
+      return this.ErrorMessage
     }
+    else{
+      if (this.connectID) {
+        this.masterService
+          .updateAndCreateConnect({
+            ...this.productPricingForm.value,
+            connectId: this.connectID,
+            discountType: 1,
+            type: 2,
+          })
+          .subscribe(
+            (data: any) => {
+              console.log(data);
+              Swal.fire('Updated','','success')
+              this.getConnectById();
+            },
+            (error) => {
+              console.log(error);
+              Swal.fire('Error While Creating','','error')
+            }
+          );
+      } 
+      else {
+        this.masterService
+          .updateAndCreateConnect({
+            ...this.productPricingForm.value,
+            discountType: 1,
+            type: 1,
+          })
+          .subscribe(
+            (data: any) => {
+              console.log(data);
+              Swal.fire('Created','','success')
+              this.location.back()
+              this.router.navigateByUrl('/product-pricing')
+            },
+            (error) => {
+              console.log(error);
+              Swal.fire('Error While Creating','','error')
+            }
+          );
+      }
+
+    }
+  
   }
 }

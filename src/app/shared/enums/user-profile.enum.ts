@@ -31,21 +31,21 @@ export enum Gender {
   }
   
   export enum EatingHabit {
-    Vegetarrian = 0,
-    Eggitarrian = 1,
-    Nonvegetarrian = 2,
+    Vegetarrian = 1,
+    Eggitarrian = 2,
+    Nonvegetarrian = 3,
   }
   
   export enum SmokingHabit {
-    Smoker = 0,
-    NonSmoker = 1,
-    Occasionally = 2,
+    Smoker = 1,
+    NonSmoker = 2,
+    Occasionally = 3,
   }
   
   export enum DrinkingHabit {
-    Alcoholic = 0,
-    Nonalcoholic = 1,
-    Occasionally = 2,
+    Alcoholic = 1,
+    Nonalcoholic = 2,
+    Occasionally = 3,
   }
   
   export enum FamilyType {
@@ -96,12 +96,22 @@ export enum Gender {
   }
   
   export enum AnualIncome {
-    LessThanOneLacs = 0,
-    OneToThreeLacs = 1,
-    ThreeToFiveLacs = 2,
-    FiveToSevenLacs = 3,
-    SevenToTenLacs = 4,
-    TenToTwelveLacs = 5,
-    MoreThanTwelveLacs = 6,
+    NoIncome = 0,
+    LessThanOneLacs = 1,
+    OneToTwoLacs = 2,
+    TwoToThreeLacs = 3,
+    ThreeToFourLacs = 4,
+    FourToFiveLacs = 5,
+    FiveToSevenPointFiveLacs = 6,
+    SevenPointFiveToTenLacs = 7,
+    TenToFifteenLacs = 8,
+    FifteenToTwentyLacs = 9,
+    TwentyToTwentyFivelacs = 10,
+    TwentyFiveToThirtyFiveLacs = 11,
+    ThirtyFiveToFiftyLacs = 12,
+    FiftyToSeventyFiveLacs = 13,
+    SeventyFiveLacToOneCrore = 14,
+    MoreThanOneCrore = 15,
+    NotMentioned = 16
   }
   

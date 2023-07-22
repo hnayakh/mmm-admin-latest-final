@@ -47,11 +47,7 @@
         </div>
       </div>
     </div>
-    <div
-      *ngIf="typeSelected == '0'"
-      class="iq-card-body"
-      style="overflow-x: scroll;"
-    >
+    <div *ngIf="typeSelected == '0'" class="iq-card-body" style="overflow-x: scroll;">
       <form [formGroup]="percenetageDiscount" (submit)="onSubmitPercentage()">
         <div class="row">
           <div
@@ -66,12 +62,7 @@
               <h4 class="p-2">%</h4>
             </div>
             <div class="col-xs col-sm-6">
-              <input maxlength="2"
-                type="text"
-                class="form-control text-center"
-                placeholder="30"
-                formControlName="discount"
-              />
+              <input maxlength="2" (keypress)="numberOnly($event)" type="text" class="form-control text-center" placeholder="30" formControlName="discount"/>
             </div>
           </div>
         </div>
@@ -165,8 +156,7 @@
             </div>
             <div class="col-xs col-sm-6">
               <input
-                type="text" (keypress)="numberOnly($event)
-                "
+                type="text" (keypress)="numberOnly($event)"
                 class="form-control text-center"
                 placeholder="30"
                 formControlName="discount"
@@ -232,7 +222,7 @@
             <div class="col-xs col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
               <div class="d-flex justify-content-end">
                 <button
-                  type="submit"
+                  type="submit" [disabled]="amountDiscount.invalid"
                   class="btn btn-primary rounded-pill"
                   style="width: 100%;"
                 >

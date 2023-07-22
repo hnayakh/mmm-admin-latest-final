@@ -66,17 +66,16 @@ export class SuccessStoriesComponent implements OnInit {
 
   profile_pic:any = "";
   ImageLoader:boolean = false
-  onChangeFile(event: any) {
+  uploadImage(event: any) {
     let imageSrc = <File>event.target.files[0];
     if (imageSrc != undefined) {
       // this.ImageLoader = true
       const formData: FormData = new FormData();
-      formData.append('images[]', imageSrc);
+      formData.append('file', imageSrc.name);
       debugger
-      this.cmsService.httpRequest('post', '', formData).subscribe((response: any) => {
-        // this.ImageLoader = false
-        // this.commonSvc.showSuccess("", 'Uploaded')
+      this.cmsService.httpRequest('post' ,` http://192.168.1.3:3000/api/users/images/${this.taskNeedToUpdate.id}` , formData).subscribe((response: any) => {
         this.profile_pic = response.image[0]
+        debugger
       }, (error: any) => {
         this.ImageLoader = false
       })

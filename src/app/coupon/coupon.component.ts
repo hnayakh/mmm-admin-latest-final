@@ -52,6 +52,8 @@ export class CouponComponent implements OnInit {
       discount: ["", Validators.required],
     });
   }
+
+  
   onTypeChange(event) {
     this.typeSelected = event.target.value;
   }
@@ -104,9 +106,8 @@ export class CouponComponent implements OnInit {
   }
 
   stopSpaceEnter(event: any) {
-    console.log(event.which,'keycode');
-    debugger
-    if (String(event.target.value).length == 0 && event.which == 32) {
+    if (String(event.target.value).length == 0 && event.which == 32 && event.which == 48) {
+      debugger
       return false;
     }
     if ((((event.keyCode < 65 || event.keyCode > 90) && (event.keyCode < 97 || event.keyCode > 122) && (event.keyCode < 47 || event.keyCode > 58)) && event.keyCode !== 32)) {

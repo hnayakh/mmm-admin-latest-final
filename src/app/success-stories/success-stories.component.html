@@ -67,9 +67,11 @@
               <!-- <button type="button" class="btn btn-primary rounded-pill btn-lg">
                 Browse
               </button> -->
-              <label class="label-input  btn-primary rounded-pill btn-lg">
+              <label for="upload-profile" class="label-input btn-primary rounded-pill btn-lg">
                 Upload file
-                <input type="file" id="File" onchange="uploadImage($event)" />
+                <input type="file" id="upload-profile" class="form-control d-none" (change)="uploadImage($event)" #file accept=".png, .jpg, .jpeg">
+
+                <!-- <input type="file"  onchange="uploadImage($event)" /> -->
               </label>
             </div>
           </div>
