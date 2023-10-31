@@ -378,14 +378,14 @@ export class UsersListComponent implements OnInit {
         this.getRececntSearchedList();
         return;
       }
-      let newSearched = [...recentSearched, event];
-      localStorage.setItem("recentSearch", JSON.stringify(newSearched));
+      // let newSearched = [...recentSearched, event];
+      // localStorage.setItem("recentSearch", JSON.stringify(newSearched));
     } else {
-      let latestSearched = [];
-      localStorage.setItem(
-        "recentSearch",
-        JSON.stringify([...latestSearched, event])
-      );
+      // let latestSearched = [];
+      // localStorage.setItem(
+      //   "recentSearch",
+      //   JSON.stringify([...latestSearched, event])
+      // );
     }
     this.router.navigate([`active-users/manage/users/${event.id}`]);
     this.getRececntSearchedList();

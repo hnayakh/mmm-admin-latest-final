@@ -1,0 +1,21 @@
+.transparent-button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+.container {
+    position: relative;
+    height:300px;
+    width: 300px;
+  }
+  /* .footer-section[_ngcontent-oua-c5]{
+    display:none !important;
+  } */
+  div[class^="footer-section"] {
+    display:none !important;
+  }
+
+ 

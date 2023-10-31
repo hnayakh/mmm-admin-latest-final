@@ -68,6 +68,7 @@ export class UserRequestComponent implements OnInit {
       (data: any) => {
         console.log("ghhgjh", data);
         this.RequestList = data.data;
+        this.ActiveUserList= JSON.parse(JSON.stringify(this.RequestList))
       },
       (error) => {
         console.log(error);
@@ -282,6 +283,10 @@ export class UserRequestComponent implements OnInit {
   }
   onSearch(event) {
     this.searchText = event.target.value;
+    let storageData=localStorage.getItem("recentSearch");
+    let allexistingSerachItems=storageData? JSON.parse(storageData):[] ;
+    allexistingSerachItems.push(this.searchText);
+    localStorage.setItem("recentSearch",JSON.stringify(allexistingSerachItems));
     this.GetAllActiveUsers(
       this.isVerified,
       event.target.value,
@@ -320,7 +325,9 @@ export class UserRequestComponent implements OnInit {
 
   getRececntSearchedList() {
     let requiredSearched = JSON.parse(localStorage.getItem("recentSearch"));
-    this.recentSearchList = requiredSearched.filter((x, i) => i < 12);
+    this.recentSearchList = requiredSearched;
+    console.log("this.recentSearchList",this.recentSearchList);
+    //.filter((x, i) => i < 12);
   }
 
   onChangeCity(event) {
@@ -373,14 +380,14 @@ export class UserRequestComponent implements OnInit {
         this.getRececntSearchedList();
         return;
       }
-      let newSearched = [...recentSearched, event];
-      localStorage.setItem("recentSearch", JSON.stringify(newSearched));
+      // let newSearched = [...recentSearched, event];
+      // localStorage.setItem("recentSearch", JSON.stringify(newSearched));
     } else {
-      let latestSearched = [];
-      localStorage.setItem(
-        "recentSearch",
-        JSON.stringify([...latestSearched, event])
-      );
+      // let latestSearched = [];
+      // localStorage.setItem(
+      //   "recentSearch",
+      //   JSON.stringify([...latestSearched, event])
+      // );
     }
     this.router.navigate([`user-request/request/receiver/${event.receiverId}`]);
     this.getRececntSearchedList();

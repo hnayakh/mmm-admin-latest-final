@@ -6,7 +6,7 @@ import { ProfileApprovalComponent } from './profile-approval.component';
 import { ProfileApprovalListComponent } from './profile-approval-list/profile-approval-list.component';
 import { DataTablesModule } from "angular-datatables";
 import { CarouselModule } from 'ngx-owl-carousel-o';
-
+import { AngularImageViewerModule } from "@clarivate/angular-image-viewer";
 console.log("active");
 
 @NgModule({
@@ -14,6 +14,7 @@ console.log("active");
   imports: [
     CommonModule,
     ProfileApprovalRoutingModule,DataTablesModule,CarouselModule,
+    AngularImageViewerModule
   ]
 })
 export class ProfileApprovalModule { }

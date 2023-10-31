@@ -21,9 +21,13 @@ import { MatSliderModule } from "@angular/material/slider";
 import { MatExpansionModule } from "@angular/material";
 import { UserBalanceComponent } from "./user-balance/user-balance.component";
 
+import { SearchHeaderComponent } from "./search-header/search-header.component";
+
+import { UserRequestModule } from "./user-request/user-request.module";
 @NgModule({
   declarations: [AppComponent, FullscreenComponent, BlankscreenComponent],
-  imports: [
+  imports: [ 
+   
     BrowserModule,
     AppRoutingModule,
     SharedModule,
@@ -37,9 +41,10 @@ import { UserBalanceComponent } from "./user-balance/user-balance.component";
     AngularDraggableModule,
     DragDropModule,
     MatSliderModule,
+    UserRequestModule,
     MatExpansionModule,
   ],
-
+  
   providers: [
     SigninService,
     {

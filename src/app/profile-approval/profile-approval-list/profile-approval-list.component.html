@@ -15,23 +15,33 @@
  
          
         <div class="row d-flex col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4 text-center">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-start">
-            <img class="w-100" src="{{  imageURL }}"/>
-            <div>
-              <img src="https://img.icons8.com/fluency/48/FA5252/checked.png"/>
-              <img src="https://img.icons8.com/color/48/000000/cancel--v1.png"/> 
+          
+          <div *ngFor="let image of profileImages" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-start">
+            <!-- <img class="w-100" src="{{  image.imageURL }}"/> -->
+            <div class="container">
+              <angular-image-viewer 
+              [config]="imageViewerConfig"
+              [src]="[image.imageURL]"></angular-image-viewer>
+            </div>
+            <div class="d-flex ml-10">
+              <button class="transparent-button">
+                <img src="https://img.icons8.com/fluency/30/FA5252/checked.png"/>
+              </button>
+              <button class="transparent-button">
+              <img src="https://img.icons8.com/color/30/000000/cancel--v1.png"/> 
+            </button>
               </div>
           </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-end">
+          <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-end">
             <img  class="w-100" src="{{  imageURL }}" />
             <div>
               <img src="https://img.icons8.com/fluency/48/FA5252/checked.png"/>
               <img src="https://img.icons8.com/color/48/000000/cancel--v1.png"/>             
             </div>
-          </div>
+          </div> -->
           </div>
        
-      <div class="row d-flex col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4 text-center">
+      <!-- <div class="row d-flex col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4 text-center">
             
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-start">
           <img  class="w-100" src="{{  img }}" />
@@ -49,7 +59,7 @@
           </div>
 
         </div>
-     </div>
+     </div> -->
      <div class="row d-flex col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4 text-center"></div>
 
 
@@ -64,7 +74,7 @@
             <form>
                 <div class="form-group">
                   <label for="comment">About Me Text</label>
-                  <textarea class="form-control" rows="5" id="comment" style="width:500px; height:150px;"></textarea>
+                  <textarea class="form-control" rows="5" id="comment" style="width:500px; height:150px;">{{aboutMe}}</textarea>
                   <div class="d-flex justify-content-end">
                     <img src="https://img.icons8.com/fluency/48/FA5252/checked.png"/>
                     <img src="https://img.icons8.com/color/48/000000/cancel--v1.png"/>            

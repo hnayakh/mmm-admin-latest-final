@@ -60,6 +60,11 @@ export class UserService {
     const headers = { "content-type": "application/json" };
     return this.http.post(url, { headers: headers });
   }
+  GetUserProfileDetails(id:string, mmmId:string){
+    let url = environment.baseURL + "users/displaybasic/" + mmmId;
+    const headers = { "content-type": "application/json" };
+    return this.http.post(url, {myBasicId:id}, { headers: headers });
+  }
   VerifyUser(id: any) {
     let url = environment.baseURL + "users/admin/verify/" + id;
     const headers = { "content-type": "application/json" };

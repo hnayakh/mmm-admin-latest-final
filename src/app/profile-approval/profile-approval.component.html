@@ -58,7 +58,7 @@
         <tbody>
           <tr *ngFor="let data of PendingUserList; let i = index">
             <td><a routerLink="profile/approval/list/{{data.id}}">{{ i + 1 }}</a> </td>
-            <td><a routerLink="profile/approval/list/{{data.id}}">{{ data.displayId }}</a></td>
+            <td><a routerLink="profile/approval/list/{{data.id}}"  [queryParams]="{ mmmId:data.displayId}">{{ data.displayId }}</a></td>
             <td>{{ data.name }}</td>
             <td>{{ data.email }}</td>
             <td>{{ data.phoneNumber }}</td>
