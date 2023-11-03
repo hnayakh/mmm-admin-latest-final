@@ -199,6 +199,15 @@ const routes: Routes = [
           ),
       },
       {
+        // lazy loading
+
+        path: "profile-verification",
+        loadChildren: () =>
+          import("./profile-verification/profile-verification.module").then(
+            (m) => m.ProfileVerificationModule
+          ),
+      },
+      {
         path: "report",
         loadChildren: () =>
           import("./report/report.module").then((m) => m.ReportModule),

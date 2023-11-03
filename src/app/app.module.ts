@@ -24,6 +24,7 @@ import { UserBalanceComponent } from "./user-balance/user-balance.component";
 import { SearchHeaderComponent } from "./search-header/search-header.component";
 
 import { UserRequestModule } from "./user-request/user-request.module";
+
 @NgModule({
   declarations: [AppComponent, FullscreenComponent, BlankscreenComponent],
   imports: [ 
