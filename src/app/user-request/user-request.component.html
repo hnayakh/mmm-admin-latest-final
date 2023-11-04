@@ -6,8 +6,9 @@
       <div class="iq-header-title">
         <h4 class="card-title">User Request</h4>
       </div>
-      <app-search-header [items]="recentSearchList"></app-search-header>
-      <form class="form-inline">
+      <app-search-header [items]="recentSearchList" (onMMIDSelected)="onSelectedDataLoad($event)"></app-search-header>
+      
+      <div class="form-inline">
         <input
           class="form-control mr-sm-2"
           type="search"
@@ -15,7 +16,7 @@
           aria-label="Search"
           (change)="onSearch($event)"
         />
-      </form>
+      </div>
     </div>
     <div class="iq-card-body" style="overflow-x: scroll">
       <!-- <div class="col" ngIF="recentSearchList.length">
@@ -102,7 +103,7 @@
         >
           <form class="form-inline">
             <h4 class="card-title">
-              Total Users:{{ ActiveUserList && ActiveUserList.users.length }}
+              Total Users:{{ ActiveUserList && ActiveUserList.users && ActiveUserList.users.length }}
             </h4>
             <button
               type="button"
