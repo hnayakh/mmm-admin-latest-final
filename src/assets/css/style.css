@@ -688,7 +688,7 @@ li {
 }
 
 .add-staff a {
-  background-color: #4b545c;
+  background-color:#007bff ;
   padding: 7px 20px;
   border-radius: 50px;
   color: #ffffff;
@@ -745,7 +745,7 @@ li {
   margin-right: 3px;
 }
 .table-head-bg {
-  background-color: #4b545c;
+  background-color: #007bff;
   color: #ffffff;
 }
 .ms-table {

@@ -58,17 +58,17 @@ import Css
 General
 -----------------------------------------------------------------------*/
 *::-moz-selection {
-  background: #ff54a2;
+  background: #007bff;
   color: #ffffff;
   text-shadow: none;
 }
 ::-moz-selection {
-  background: #ff54a2;
+  background: #007bff;
   color: #ffffff;
   text-shadow: none;
 }
 ::selection {
-  background: #ff54a2;
+  background: #007bff;
   color: #ffffff;
   text-shadow: none;
 }
@@ -98,7 +98,7 @@ btn {
   outline: medium none !important;
 }
 a {
-  color: #ff54a2;
+  color: #007bff;
 }
 .uppercase {
   text-transform: uppercase;
@@ -162,7 +162,7 @@ label {
 }
 .form-control:focus {
   color: #3f414d;
-  border-color: #ff54a2;
+  border-color: #007bff;
   box-shadow: none;
 }
 .form-control-sm {
@@ -713,7 +713,7 @@ Background Color
 .bg-primary,
 .badge-primary {
   color: #ffffff;
-  background: #ff54a2;
+  background: #007bff;
 }
 .bg-secondary,
 .badge-secondary {
@@ -978,7 +978,7 @@ Background Color Opacity
 ------------------------------------------------*/
 .iq-bg-primary {
   background: #ceebee !important;
-  color: #ff54a2 !important;
+  color: #007bff !important;
 }
 .iq-bg-secondary {
   background: #f1f2f1 !important;
@@ -1032,7 +1032,7 @@ Background Color Opacity
 Text Color
 ------------------------------------------------*/
 .text-primary {
-  color: #ff54a2 !important;
+  color: #007bff !important;
 }
 .text-secondary {
   color: #a09e9e !important;
@@ -1249,11 +1249,11 @@ Card
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #ff54a2;
+  color: #007bff;
   background: #ceebee;
 }
 .nav-pills .nav-link:hover {
-  color: #ff54a2;
+  color: #007bff;
 }
 
 /*--------------*/
@@ -1272,23 +1272,23 @@ Card
 }
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-  border-bottom: 2px solid #ff54a2;
-  color: #ff54a2;
+  border-bottom: 2px solid #007bff;
+  color: #007bff;
 }
 .page-item.disabled .page-link {
-  border-color: #ff54a2;
+  border-color: #007bff;
 }
 .page-link {
-  color: #ff54a2;
-  border-color: #ff54a2;
+  color: #007bff;
+  border-color: #007bff;
 }
 .page-item.active .page-link {
-  background-color: #ff54a2;
-  border-color: #ff54a2;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 .page-link:hover {
-  color: #ff54a2;
-  border-color: #ff54a2;
+  color: #007bff;
+  border-color: #007bff;
 }
 
 /*---------------------------------------------------------------------
@@ -1415,7 +1415,7 @@ Buttons
 ------------------------------------------------*/
 .bg-primary {
   color: #ffffff !important;
-  background: #ff54a2 !important;
+  background: #007bff !important;
 }
 .btn {
   font-size: 20px;
@@ -1443,7 +1443,7 @@ Buttons
 /*--------------*/
 .btn-primary {
   color: #ffffff;
-  background-color: #ff54a2;
+  background-color: #007bff;
 }
 .btn-secondary {
   color: #ffffff;
@@ -1701,12 +1701,12 @@ Buttons
 
 /*--------------*/
 .btn-primary:hover {
-  background-color: #ff54a2 !important;
+  background-color: #007bff !important;
 }
 /*--------------*/
 .btn-outline-primary {
-  color: #ff54a2;
-  border-color: #ff54a2;
+  color: #007bff;
+  border-color: #007bff;
 }
 .btn-outline-secondary {
   color: #a09e9e;
@@ -1741,8 +1741,8 @@ Buttons
 Alert
 ------------------------------------------------*/
 .alert-primary {
-  color: #ff54a2;
-  border-color: #ff54a2;
+  color: #007bff;
+  border-color: #007bff;
   background-color: #eff7f8;
 }
 .alert-secondary {
@@ -1829,7 +1829,7 @@ list Group
 ------------------------------------------------*/
 .list-group-item-primary {
   background-color: #eff7f8;
-  color: #ff54a2;
+  color: #007bff;
 }
 .list-group-item-secondary {
   color: #a09e9e;
@@ -1863,15 +1863,15 @@ list Group
   color: #3f414d;
 }
 .list-group-item.active {
-  background-color: #ff54a2;
-  border-color: #ff54a2;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
 /*----------------------------------------------
 Border Color
 ------------------------------------------------*/
 .border-primary {
-  border-color: #ff54a2 !important;
+  border-color: #007bff !important;
 }
 .border-secondary {
   border-color: #d6d8d5 !important;
