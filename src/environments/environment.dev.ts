@@ -14,6 +14,7 @@ export const environment = {
     UPDATESECURITYPLANE: "auth/updateProfilePin",
     FORGOTPASSWORD: "auth/forgotPassword",
     getAllNotification: "caregiver/booking/getallnotifications",
+    getProfileData:"users/profile"
   },
   Master: {
     GET_ALL_MASTER_DATA: "masters/profile-raw-data",
