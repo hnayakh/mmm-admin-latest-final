@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-profile-verification',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileVerificationComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private userService: UserService) { }
+  documents:any[];
   ngOnInit() {
+   // this.userService.getProfileDocuments();
+
   }
 
 }

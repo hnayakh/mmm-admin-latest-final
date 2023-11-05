@@ -1719,7 +1719,7 @@ body.sidebar-main .iq-menu-bt-sidebar .iq-menu-bt {
   -o-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
   background: #eff7f8;
-  border-radius: 25px 0 0 25px;
+  /* border-radius: 25px 0 0 25px; */
 }
 .iq-user-dropdown {
   width: 350px;

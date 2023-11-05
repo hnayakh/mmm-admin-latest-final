@@ -20,6 +20,12 @@ export class UserService {
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
+  getProfileDocuments(userBasicId: string) {
+    console.log("Api called");
+    let url = environment.baseURL + environment.User.AllProfileDocuments+`/${userBasicId}`;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
   GetActiveUSers(
     isVerified = 1,
     searchText = "",

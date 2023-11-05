@@ -33,6 +33,7 @@ export const environment = {
   User: {
     AllVerifiedUser: "users/admin/appUsers?isVerified=0",
     AllActiveUsers: "users/admin/appUsers?isVerified=1",
+    AllProfileDocuments:"users/profile_docs"
     // CONNECT_ACCOUNT: "connects/recharge",
 
   },
