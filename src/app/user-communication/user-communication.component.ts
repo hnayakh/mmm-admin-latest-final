@@ -25,6 +25,7 @@ export class UserCommunicationComponent implements OnInit {
       (data: any) => {
         console.log(data.data);
         this.rechargeHistoryUser=data.data
+        //console.log("this.rechargeHistoryUser",this.rechargeHistoryUser)
       },
       (error) => {
         console.log(error);
