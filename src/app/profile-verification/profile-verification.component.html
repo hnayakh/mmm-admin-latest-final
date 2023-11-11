@@ -21,7 +21,7 @@
                         <h4 class="idtype">Id Type:</h4>
                     </div>
                     <div class="col-xs col-sm-6">
-                        <h4 class="adhar">Adhar</h4>
+                        <h4 class="adhar">{{documents[0].docType.split(".")[1]}}</h4>
                     </div>
                 </div>
                 <div class="col-xs col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 d-flex">
@@ -39,7 +39,7 @@
                         <h4 class="idtype">Name:</h4>
                     </div>
                     <div class="col-xs col-sm-6">
-                        <h4>USER A</h4>
+                        <h4>{{userDetails.name}}</h4>
                     </div>
                 </div>
                 <div class="col-xs col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 d-flex">
@@ -47,22 +47,22 @@
                         <h4>Date of Birth:</h4>
                     </div>
                     <div class="col-xs col-sm-6">
-                        <input type="date" class="form-control text-center" placeholder="27/02/2022" />
+                        <label>{{userDetails.dateOfBirth}}</label>
                     </div>
                 </div>
             </div>
-            <div class="row mt-2">
+            <div *ngFor="let doc of documents" class="row mt-2">
                 <div class="col-xs col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
-                    <img src="https://images.pexels.com/photos/15583987/pexels-photo-15583987/free-photo-of-roof-of-chinese-temple-under-blue-sky.jpeg"
+                    <img src={{doc.docUrl}}
                         alt="Cinque Terre mx-auto d-block" style="width: 70%; height: 195px;" />
                 </div>
-            </div>
+            </div> 
 
             <div class="row mt-5">
-                <div class="col-xs col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                <!-- <div class="col-xs col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
                     <img src="https://images.pexels.com/photos/15583987/pexels-photo-15583987/free-photo-of-roof-of-chinese-temple-under-blue-sky.jpeg"
                         alt="Cinque Terre mx-auto d-block" style="width: 70%; height: 195px;" />
-                </div>
+                </div> -->
                 <div class="col-xs col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
                     <div class="col-xs">
                         <h4>Comments</h4>
