@@ -15,7 +15,10 @@ export class ProfileApprovalListComponent implements OnInit {
   img ="https://img.icons8.com/external-creatype-outline-colourcreatype/64/000000/external-play-interface-a2-creatype-outline-colourcreatype.png";
   constructor(private userService:UserService, private activatedRoute:ActivatedRoute) { }
   profileImages:any[]=[];
+  profileDetails:any[]=[];
   aboutMe:string;
+  approvedImages:string []=[];
+  rejectedImages:string []=[];
   imageViewerConfig={
     allowKeyboardNavigation: true,
     btnShow:{
@@ -30,13 +33,46 @@ export class ProfileApprovalListComponent implements OnInit {
     let mmmId=this.activatedRoute.snapshot.queryParams['mmmId'];
     let id=this.activatedRoute.snapshot.params['id'];
   this.userService.GetUserProfileDetails(id,mmmId).subscribe((result:any)=>{
+    this.profileDetails=result.data;
+    console.log("this.profileDetails",this.profileDetails);
     this.profileImages=result.data.userImages;
     this.aboutMe=result.data?result.data.userBios[0].aboutMe:"";
     console.log("result Data", this.aboutMe);
+    console.log("this.profileImages",this.profileImages);
   })
   }
+  onImageApprove(imageId:string){
+    this.approvedImages.push(imageId)
+    
+  }
 
-  onCancelClick() {
+  onImageRejected(imageId){
+    this.rejectedImages.push(imageId)
+  }
+
+  onConfirmClick(){
+    let confirmDetails={
+      "userBasicId":this.profileDetails['id'], 
+      "approvedImageIds":"",
+      "rejectedImageIds":"",
+       "bioStatus":4   
+    }
+    this.userService.getImageApproverRejectedDetails(confirmDetails).subscribe((res)=>{
+   console.log("postedResult",res);
+    })
+
+  }
+  onCancelClick(){
+
+    let cancelDetails={
+      "userBasicId":this.profileDetails['id'], 
+      "approvedImageIds":"",
+      "rejectedImageIds":"",
+       "bioStatus":3   
+    }
+    this.userService.getImageApproverRejectedDetails(cancelDetails).subscribe((res)=>{
+   console.log("postedResult",res);
+    })
 
   }
 }
