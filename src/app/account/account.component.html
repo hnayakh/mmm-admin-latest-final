@@ -6,7 +6,7 @@
         <h4 class="card-title">Account</h4>
       </div>
 
-      <form class="form-inline">
+      <div class="form-inline">
         <input
           class="form-control mr-sm-2"
           type="search"
@@ -14,7 +14,7 @@
           aria-label="Search"
           (change)="onSearch($event)"
         />
-      </form>
+      </div>
     </div>
     <div class="iq-card-body" style="overflow-x: scroll">
       <div class="col" ngIF="recentSearchList.length">

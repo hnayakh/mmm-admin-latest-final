@@ -63,11 +63,18 @@ export class UserRequestComponent implements OnInit {
     this.getRececntSearchedList();
   }
 
+  onSelectedDataLoad(event:any){
+    console.log("mmId",event);
+    this.onSearch(event.mmid);
+    
+    
+  }
   getALlRequestData() {
     this.masterService.getAllRequests().subscribe(
       (data: any) => {
         console.log("ghhgjh", data);
         this.RequestList = data.data;
+        console.log("this.RequestList",this.RequestList);
         this.ActiveUserList= JSON.parse(JSON.stringify(this.RequestList))
       },
       (error) => {
@@ -281,15 +288,17 @@ export class UserRequestComponent implements OnInit {
       }
     );
   }
-  onSearch(event) {
-    this.searchText = event.target.value;
+  onSearch(event:any) {
+    this.searchText = event.target?event.target.value:event;
     let storageData=localStorage.getItem("recentSearch");
     let allexistingSerachItems=storageData? JSON.parse(storageData):[] ;
     allexistingSerachItems.push(this.searchText);
     localStorage.setItem("recentSearch",JSON.stringify(allexistingSerachItems));
+    this.RequestList=this.RequestList.filter(x=>{return x.receiverDisplayId.toLowerCase().indexOf(this.searchText.toLowerCase())>-1})
+   console.log("this.searchText",this.searchText);
     this.GetAllActiveUsers(
       this.isVerified,
-      event.target.value,
+      this.searchText,
       this.gender,
       this.createdBy,
       this.religion,
@@ -302,6 +311,7 @@ export class UserRequestComponent implements OnInit {
       this.selectedEndDate
     );
     this.getRececntSearchedList();
+    //this.getALlRequestData();
   }
 
   onChangeUserType(event) {

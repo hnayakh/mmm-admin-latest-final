@@ -67,6 +67,7 @@ export class AccountComponent implements OnInit {
       (data: any) => {
         console.log("okokokkjlkj",data);
         this.rechargeHistoryUser=data.data
+        console.log("this.rechargeHistoryUser",this.rechargeHistoryUser);
       },
       (error) => {
         console.log(error);
@@ -118,6 +119,7 @@ export class AccountComponent implements OnInit {
         (data: any) => {
           console.log(data);
           this.ActiveUserList = data.data;
+          console.log("this.ActiveUserList",this.ActiveUserList);
         },
         (err) => {
           console.log(err);
@@ -292,7 +294,9 @@ export class AccountComponent implements OnInit {
     );
   }
   onSearch(event) {
+    //displayId
     this.searchText = event.target.value;
+    this.ActiveUserList=this.ActiveUserList.users?this.ActiveUserList.users.filter(x=>{return x.displayId.toLowerCase().indexOf(this.searchText.toLowerCase())>-1}):'';
     this.GetAllActiveUsers(
       this.isVerified,
       event.target.value,

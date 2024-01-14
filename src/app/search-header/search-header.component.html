@@ -1,5 +1,5 @@
 
 <mat-chip-list>
-    <mat-chip *ngFor="let item of items">{{item}}</mat-chip>
+    <mat-chip (click)="onChipClick(item)" *ngFor="let item of items">{{item}}</mat-chip>
   </mat-chip-list>
         

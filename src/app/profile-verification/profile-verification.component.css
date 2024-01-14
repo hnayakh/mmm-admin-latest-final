@@ -2,7 +2,15 @@
     padding: 10px;
     color: #fff;
   }
-  
+  .idtype{
+    margin-right: 4.9rem !important;
+  }
+  .adhar{
+    margin-right: 4.9rem !important;
+  }
+  .country{
+    margin-right: 2.4rem !important;
+  }
   
   
   input[type="file"] {
@@ -13,8 +21,7 @@
     font: bold 13px Arial;
     cursor: pointer;
     text-decoration: none;
-    /* background-color: rgb(234, 71, 161); */
-     background-color: #007bff; 
+    background-color: rgb(234, 71, 161);
     color: #EEEEEE;
     /* padding: 4px 8px 5px 6px; */
     padding: 14px 14px;

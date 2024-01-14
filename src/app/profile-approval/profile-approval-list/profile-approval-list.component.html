@@ -24,10 +24,10 @@
               [src]="[image.imageURL]"></angular-image-viewer>
             </div>
             <div class="d-flex ml-10">
-              <button class="transparent-button">
+              <button (click)="onImageApprove()" class="transparent-button">
                 <img src="https://img.icons8.com/fluency/30/FA5252/checked.png"/>
               </button>
-              <button class="transparent-button">
+              <button (click)="onImageRejected()" class="transparent-button">
               <img src="https://img.icons8.com/color/30/000000/cancel--v1.png"/> 
             </button>
               </div>

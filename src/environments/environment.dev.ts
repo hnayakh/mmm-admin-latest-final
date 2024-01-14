@@ -14,6 +14,7 @@ export const environment = {
     UPDATESECURITYPLANE: "auth/updateProfilePin",
     FORGOTPASSWORD: "auth/forgotPassword",
     getAllNotification: "caregiver/booking/getallnotifications",
+    getProfileData:"users/profile"
   },
   Master: {
     GET_ALL_MASTER_DATA: "masters/profile-raw-data",
@@ -33,6 +34,7 @@ export const environment = {
   User: {
     AllVerifiedUser: "users/admin/appUsers?isVerified=0",
     AllActiveUsers: "users/admin/appUsers?isVerified=1",
+    AllProfileDocuments:"users/profile_docs"
     // CONNECT_ACCOUNT: "connects/recharge",
 
   },

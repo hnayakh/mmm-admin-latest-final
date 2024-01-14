@@ -6,13 +6,15 @@ import { UserRequestComponent } from './user-request.component';
 import { RequestReceiverComponent } from './request-receiver/request-receiver.component';
 import { SearchHeaderComponent } from '../search-header/search-header.component';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [UserRequestComponent, RequestReceiverComponent,SearchHeaderComponent],
   imports: [
     CommonModule,
     MatChipsModule ,
-    UserRequestRoutingModule
+    UserRequestRoutingModule,
+    MatIconModule
   ]
 })
 export class UserRequestModule { }

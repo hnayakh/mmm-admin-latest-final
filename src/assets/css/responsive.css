@@ -320,7 +320,7 @@ NOTE: This file contains the styling for responsive Template.
     width: auto;
   }
   .wrapper-menu {
-    color: #ff54a2;
+    color: #007bff;
   }
   .iq-menu-bt-sidebar .wrapper-menu {
     color: #ffffff;
@@ -330,7 +330,7 @@ NOTE: This file contains the styling for responsive Template.
     position: absolute;
     left: 3%;
     opacity: 1;
-    color: #ff54a2;
+    color: #007bff;
   }
   body.sidebar-main .iq-top-navbar .iq-sidebar-logo a span {
     opacity: 1;
@@ -340,9 +340,9 @@ NOTE: This file contains the styling for responsive Template.
     width: 260px;
     left: 0;
     z-index: 999;
-    background: #ff54a2;
-    background-color: #ff54a2;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff54a2', endColorstr='#0db5c8', GradientType=1 );
+    background: #007bff;
+    background-color: #007bff;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007bff', endColorstr='#0db5c8', GradientType=1 );
   }
   body.sidebar-main .iq-sidebar .iq-sidebar-menu .iq-menu li a span {
     display: inline-block;
@@ -495,7 +495,7 @@ NOTE: This file contains the styling for responsive Template.
     right: 85px;
     top: 18px;
     position: absolute;
-    color: #ff54a2;
+    color: #007bff;
     border: none;
     padding: 7px 10px;
     border-radius: 10px;
@@ -615,7 +615,7 @@ NOTE: This file contains the styling for responsive Template.
     width: 40px;
     line-height: 17px;
     text-align: center;
-    color: #ff54a2;
+    color: #007bff;
   }
   #chat-user-detail-popup {
     overflow-y: scroll;

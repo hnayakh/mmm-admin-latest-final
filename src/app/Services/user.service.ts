@@ -20,6 +20,12 @@ export class UserService {
     const headers = { "content-type": "application/json" };
     return this.http.get(url, { headers: headers });
   }
+  getProfileDocuments(userBasicId: string) {
+    console.log("Api called");
+    let url = environment.baseURL + environment.User.AllProfileDocuments+`/${userBasicId}`;
+    const headers = { "content-type": "application/json" };
+    return this.http.get(url, { headers: headers });
+  }
   GetActiveUSers(
     isVerified = 1,
     searchText = "",
@@ -65,6 +71,13 @@ export class UserService {
     const headers = { "content-type": "application/json" };
     return this.http.post(url, {myBasicId:id}, { headers: headers });
   }
+  
+  getImageApproverRejectedDetails(data:any){
+    let url = environment.baseURL + "users/profile" ;
+    const headers = { "content-type": "application/json" };
+    return this.http.post(url, data,{ headers: headers });
+  }
+
   VerifyUser(id: any) {
     let url = environment.baseURL + "users/admin/verify/" + id;
     const headers = { "content-type": "application/json" };
